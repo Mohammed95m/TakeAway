@@ -22,7 +22,7 @@ namespace TakeAway
         public XtraForm1()
         {
             InitializeComponent();
-            tileView1.DataController.AllowIEnumerableDetails = true;
+         //   lau.DataController.AllowIEnumerableDetails = true;
 
             DataContext _context = new DataContext();
             var order = _context.Orders.ToList();
@@ -30,11 +30,12 @@ namespace TakeAway
             VehicleLookUpEdit.DataSource = _context.Vehicles.ToList();
             VehicleLookUpEdit.ValueMember = "ID";
             VehicleLookUpEdit.DisplayMember = "Number";
-
+            DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
+            VehicleLookUpEdit.Columns.Add(col);
             //var Vehicle = 
             //    (from c in _context.Vehicles
             //     select new Combo() { Text =c , Value = (int)c.Number }).ToList();
-         
+
             //repositoryItemComboBox1.DisplayMember = "Text";
             //repositoryItemComboBox1.ValueMember = "Value";
             //foreach (var item in Sectors)
@@ -47,19 +48,31 @@ namespace TakeAway
                 MessageBox.Show(VehicleLookUpEdit.ValueMember);
             };
           gridControl1.DataSource = order;
-            tileView1.ItemCustomize += (sender, e) =>
-            {
-                var row = tileView1.GetFocusedRow() as Order;
-                Bitmap Bmp = new Bitmap(50, 50);
-                using (Graphics gfx = Graphics.FromImage(Bmp))
-                using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 0, 0)))
-                {
-                    gfx.FillRectangle(brush, 0, 0, 50, 50);
-                }
-                e.Item.BackgroundImage = Bmp;
+            //cardView1.CustomCardStyle += (sender, e) =>
+            //{
+            //    var row = layoutView1.GetFocusedRow() as Order;
+            //    Bitmap Bmp = new Bitmap(50, 50);
+            //    using (Graphics gfx = Graphics.FromImage(Bmp))
+            //    using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 0, 0)))
+            //    {
+            //        gfx.FillRectangle(brush, 0, 0, 50, 50);
+            //    }
+            //    e.Appearance.Image = Bmp;
+            //};
+            //};
+            // layoutView1.ItemCustomize += (sender, e) =>
+            //{
+            //    var row = tileView1.GetFocusedRow() as Order;
+            //    Bitmap Bmp = new Bitmap(50, 50);
+            //    using (Graphics gfx = Graphics.FromImage(Bmp))
+            //    using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 0, 0)))
+            //    {
+            //        gfx.FillRectangle(brush, 0, 0, 50, 50);
+            //    }
+            //    e.Item.BackgroundImage = Bmp;
 
 
-            };
+            //};
         }
     }
 }

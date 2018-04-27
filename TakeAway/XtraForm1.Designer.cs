@@ -28,43 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            this.VehicleColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.StatusColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.DetailsColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.LocationColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.EarnColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.TimerColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.StartTimeColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.EndTimeColmn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.CustomerIDColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.EmployeeColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
+            this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TimerColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.StartTimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.EndTimeColmn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.VehicleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CustomerIDColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.EmployeeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // VehicleColumn
-            // 
-            this.VehicleColumn.Caption = "VehicleColumn";
-            this.VehicleColumn.ColumnEdit = this.VehicleLookUpEdit;
-            this.VehicleColumn.FieldName = "VehicleID";
-            this.VehicleColumn.Name = "VehicleColumn";
-            this.VehicleColumn.Visible = true;
-            this.VehicleColumn.VisibleIndex = 6;
             // 
             // VehicleLookUpEdit
             // 
@@ -72,14 +61,6 @@
             this.VehicleLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.VehicleLookUpEdit.Name = "VehicleLookUpEdit";
-            // 
-            // StatusColumn
-            // 
-            this.StatusColumn.Caption = "Status";
-            this.StatusColumn.FieldName = "Status";
-            this.StatusColumn.Name = "StatusColumn";
-            this.StatusColumn.Visible = true;
-            this.StatusColumn.VisibleIndex = 10;
             // 
             // xtraTabControl1
             // 
@@ -104,7 +85,7 @@
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.tileView1;
+            this.gridControl1.MainView = this.cardView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.VehicleLookUpEdit,
@@ -112,11 +93,24 @@
             this.gridControl1.Size = new System.Drawing.Size(1117, 516);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileView1});
+            this.cardView1});
             // 
-            // tileView1
+            // repositoryItemComboBox1
             // 
-            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(1117, 516);
+            this.xtraTabPage2.Text = "xtraTabPage2";
+            // 
+            // cardView1
+            // 
+            this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.DetailsColumn,
             this.LocationColumn,
             this.EarnColumn,
@@ -128,14 +122,9 @@
             this.EmployeeColumn,
             this.tileViewColumn1,
             this.StatusColumn});
-            this.tileView1.GridControl = this.gridControl1;
-            this.tileView1.Name = "tileView1";
-            tileViewItemElement1.Column = this.VehicleColumn;
-            tileViewItemElement1.Text = "VehicleColumn";
-            tileViewItemElement2.Column = this.StatusColumn;
-            tileViewItemElement2.Text = "StatusColumn";
-            this.tileView1.TileTemplate.Add(tileViewItemElement1);
-            this.tileView1.TileTemplate.Add(tileViewItemElement2);
+            this.cardView1.FocusedCardTopFieldIndex = 0;
+            this.cardView1.GridControl = this.gridControl1;
+            this.cardView1.Name = "cardView1";
             // 
             // DetailsColumn
             // 
@@ -185,6 +174,14 @@
             this.EndTimeColmn.Visible = true;
             this.EndTimeColmn.VisibleIndex = 5;
             // 
+            // VehicleColumn
+            // 
+            this.VehicleColumn.Caption = "VehicleColumn";
+            this.VehicleColumn.ColumnEdit = this.VehicleLookUpEdit;
+            this.VehicleColumn.Name = "VehicleColumn";
+            this.VehicleColumn.Visible = true;
+            this.VehicleColumn.VisibleIndex = 6;
+            // 
             // CustomerIDColumn
             // 
             this.CustomerIDColumn.Caption = "gridColumn1";
@@ -208,18 +205,13 @@
             this.tileViewColumn1.Visible = true;
             this.tileViewColumn1.VisibleIndex = 9;
             // 
-            // repositoryItemComboBox1
+            // StatusColumn
             // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1117, 516);
-            this.xtraTabPage2.Text = "xtraTabPage2";
+            this.StatusColumn.Caption = "Status";
+            this.StatusColumn.FieldName = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.Visible = true;
+            this.StatusColumn.VisibleIndex = 10;
             // 
             // XtraForm1
             // 
@@ -234,8 +226,8 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,19 +238,19 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
-        private DevExpress.XtraGrid.Columns.TileViewColumn DetailsColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn LocationColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn EarnColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn TimerColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn StartTimeColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn EndTimeColmn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn VehicleColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn CustomerIDColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn EmployeeColumn;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit VehicleLookUpEdit;
-        private DevExpress.XtraGrid.Columns.TileViewColumn StatusColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
+        private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn LocationColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn EarnColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn TimerColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn StartTimeColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn EndTimeColmn;
+        private DevExpress.XtraGrid.Columns.GridColumn VehicleColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn CustomerIDColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn EmployeeColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn tileViewColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn StatusColumn;
     }
 }
