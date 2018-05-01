@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TimerColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.StartTimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EndTimeColmn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.VehicleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CustomerIDColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CustomerColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EmployeeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Send = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SendButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // VehicleLookUpEdit
@@ -89,11 +92,117 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.VehicleLookUpEdit,
-            this.repositoryItemComboBox1});
+            this.repositoryItemComboBox1,
+            this.SendButtonEdit});
             this.gridControl1.Size = new System.Drawing.Size(1117, 516);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView1});
+            // 
+            // cardView1
+            // 
+            this.cardView1.Appearance.Card.BackColor = System.Drawing.Color.Red;
+            this.cardView1.Appearance.Card.Options.UseBackColor = true;
+            this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.DetailsColumn,
+            this.LocationColumn,
+            this.EarnColumn,
+            this.TimerColumn,
+            this.VehicleColumn,
+            this.CustomerColumn,
+            this.EmployeeColumn,
+            this.StatusColumn,
+            this.Send});
+            this.cardView1.FocusedCardTopFieldIndex = 0;
+            this.cardView1.GridControl = this.gridControl1;
+            this.cardView1.Name = "cardView1";
+            // 
+            // DetailsColumn
+            // 
+            this.DetailsColumn.Caption = "DetailsColumn";
+            this.DetailsColumn.FieldName = "Details";
+            this.DetailsColumn.Name = "DetailsColumn";
+            this.DetailsColumn.Visible = true;
+            this.DetailsColumn.VisibleIndex = 0;
+            // 
+            // LocationColumn
+            // 
+            this.LocationColumn.Caption = "LocationColumn";
+            this.LocationColumn.FieldName = "Location";
+            this.LocationColumn.Name = "LocationColumn";
+            this.LocationColumn.Visible = true;
+            this.LocationColumn.VisibleIndex = 1;
+            // 
+            // EarnColumn
+            // 
+            this.EarnColumn.Caption = "EarnColumn";
+            this.EarnColumn.FieldName = "Earn";
+            this.EarnColumn.Name = "EarnColumn";
+            this.EarnColumn.Visible = true;
+            this.EarnColumn.VisibleIndex = 2;
+            // 
+            // TimerColumn
+            // 
+            this.TimerColumn.Caption = "TimerColumn";
+            this.TimerColumn.FieldName = "Timer";
+            this.TimerColumn.Name = "TimerColumn";
+            this.TimerColumn.Visible = true;
+            this.TimerColumn.VisibleIndex = 3;
+            // 
+            // VehicleColumn
+            // 
+            this.VehicleColumn.Caption = "VehicleColumn";
+            this.VehicleColumn.ColumnEdit = this.VehicleLookUpEdit;
+            this.VehicleColumn.Name = "VehicleColumn";
+            this.VehicleColumn.Visible = true;
+            this.VehicleColumn.VisibleIndex = 4;
+            // 
+            // CustomerColumn
+            // 
+            this.CustomerColumn.Caption = "CustomerColumn";
+            this.CustomerColumn.FieldName = "Customer";
+            this.CustomerColumn.Name = "CustomerColumn";
+            this.CustomerColumn.Visible = true;
+            this.CustomerColumn.VisibleIndex = 5;
+            // 
+            // EmployeeColumn
+            // 
+            this.EmployeeColumn.Caption = "EmployeeColumn";
+            this.EmployeeColumn.FieldName = "Employee";
+            this.EmployeeColumn.Name = "EmployeeColumn";
+            this.EmployeeColumn.Visible = true;
+            this.EmployeeColumn.VisibleIndex = 6;
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.Caption = "Status";
+            this.StatusColumn.FieldName = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.OptionsColumn.AllowEdit = false;
+            this.StatusColumn.OptionsColumn.AllowFocus = false;
+            this.StatusColumn.OptionsColumn.ReadOnly = true;
+            this.StatusColumn.Visible = true;
+            this.StatusColumn.VisibleIndex = 7;
+            // 
+            // Send
+            // 
+            this.Send.Caption = "Send";
+            this.Send.ColumnEdit = this.SendButtonEdit;
+            this.Send.Name = "Send";
+            this.Send.Visible = true;
+            this.Send.VisibleIndex = 8;
+            // 
+            // SendButtonEdit
+            // 
+            serializableAppearanceObject1.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject1.Image")));
+            serializableAppearanceObject1.Options.UseImage = true;
+            this.SendButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("SendButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.SendButtonEdit.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.SendButtonEdit.HideSelection = false;
+            this.SendButtonEdit.Name = "SendButtonEdit";
+            this.SendButtonEdit.ReadOnly = true;
+            this.SendButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
             // repositoryItemComboBox1
             // 
@@ -108,110 +217,10 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(1117, 516);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
-            // cardView1
+            // backgroundWorker1
             // 
-            this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.DetailsColumn,
-            this.LocationColumn,
-            this.EarnColumn,
-            this.TimerColumn,
-            this.StartTimeColumn,
-            this.EndTimeColmn,
-            this.VehicleColumn,
-            this.CustomerIDColumn,
-            this.EmployeeColumn,
-            this.tileViewColumn1,
-            this.StatusColumn});
-            this.cardView1.FocusedCardTopFieldIndex = 0;
-            this.cardView1.GridControl = this.gridControl1;
-            this.cardView1.Name = "cardView1";
-            // 
-            // DetailsColumn
-            // 
-            this.DetailsColumn.Caption = "gridColumn1";
-            this.DetailsColumn.FieldName = "Details";
-            this.DetailsColumn.Name = "DetailsColumn";
-            this.DetailsColumn.Visible = true;
-            this.DetailsColumn.VisibleIndex = 0;
-            // 
-            // LocationColumn
-            // 
-            this.LocationColumn.Caption = "gridColumn1";
-            this.LocationColumn.FieldName = "Location";
-            this.LocationColumn.Name = "LocationColumn";
-            this.LocationColumn.Visible = true;
-            this.LocationColumn.VisibleIndex = 1;
-            // 
-            // EarnColumn
-            // 
-            this.EarnColumn.Caption = "gridColumn1";
-            this.EarnColumn.FieldName = "Earn";
-            this.EarnColumn.Name = "EarnColumn";
-            this.EarnColumn.Visible = true;
-            this.EarnColumn.VisibleIndex = 2;
-            // 
-            // TimerColumn
-            // 
-            this.TimerColumn.Caption = "gridColumn1";
-            this.TimerColumn.FieldName = "Timer";
-            this.TimerColumn.Name = "TimerColumn";
-            this.TimerColumn.Visible = true;
-            this.TimerColumn.VisibleIndex = 3;
-            // 
-            // StartTimeColumn
-            // 
-            this.StartTimeColumn.Caption = "gridColumn1";
-            this.StartTimeColumn.FieldName = "StartTime";
-            this.StartTimeColumn.Name = "StartTimeColumn";
-            this.StartTimeColumn.Visible = true;
-            this.StartTimeColumn.VisibleIndex = 4;
-            // 
-            // EndTimeColmn
-            // 
-            this.EndTimeColmn.Caption = "gridColumn1";
-            this.EndTimeColmn.FieldName = "EndTime";
-            this.EndTimeColmn.Name = "EndTimeColmn";
-            this.EndTimeColmn.Visible = true;
-            this.EndTimeColmn.VisibleIndex = 5;
-            // 
-            // VehicleColumn
-            // 
-            this.VehicleColumn.Caption = "VehicleColumn";
-            this.VehicleColumn.ColumnEdit = this.VehicleLookUpEdit;
-            this.VehicleColumn.Name = "VehicleColumn";
-            this.VehicleColumn.Visible = true;
-            this.VehicleColumn.VisibleIndex = 6;
-            // 
-            // CustomerIDColumn
-            // 
-            this.CustomerIDColumn.Caption = "gridColumn1";
-            this.CustomerIDColumn.FieldName = "Customer";
-            this.CustomerIDColumn.Name = "CustomerIDColumn";
-            this.CustomerIDColumn.Visible = true;
-            this.CustomerIDColumn.VisibleIndex = 7;
-            // 
-            // EmployeeColumn
-            // 
-            this.EmployeeColumn.Caption = "tileViewColumn1";
-            this.EmployeeColumn.FieldName = "Employee";
-            this.EmployeeColumn.Name = "EmployeeColumn";
-            this.EmployeeColumn.Visible = true;
-            this.EmployeeColumn.VisibleIndex = 8;
-            // 
-            // tileViewColumn1
-            // 
-            this.tileViewColumn1.Caption = "tileViewColumn1";
-            this.tileViewColumn1.Name = "tileViewColumn1";
-            this.tileViewColumn1.Visible = true;
-            this.tileViewColumn1.VisibleIndex = 9;
-            // 
-            // StatusColumn
-            // 
-            this.StatusColumn.Caption = "Status";
-            this.StatusColumn.FieldName = "Status";
-            this.StatusColumn.Name = "StatusColumn";
-            this.StatusColumn.Visible = true;
-            this.StatusColumn.VisibleIndex = 10;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // XtraForm1
             // 
@@ -226,8 +235,9 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,12 +255,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn LocationColumn;
         private DevExpress.XtraGrid.Columns.GridColumn EarnColumn;
         private DevExpress.XtraGrid.Columns.GridColumn TimerColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn StartTimeColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn EndTimeColmn;
         private DevExpress.XtraGrid.Columns.GridColumn VehicleColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn CustomerIDColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn CustomerColumn;
         private DevExpress.XtraGrid.Columns.GridColumn EmployeeColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn tileViewColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn StatusColumn;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private DevExpress.XtraGrid.Columns.GridColumn Send;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit SendButtonEdit;
     }
 }

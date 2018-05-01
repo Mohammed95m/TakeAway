@@ -9,9 +9,10 @@ namespace TakeAway.Enums
     enum Status
     {
         Created =0,
-        Waiting=1,
-        InProgress=2,
-        Finished=3
+        Seen=1,
+        Waiting=2,
+        InProgress=3,
+        Finished=4
 
     }
 }
