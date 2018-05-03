@@ -22,7 +22,7 @@ namespace TakeAway
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new XtraForm1());
+            Application.Run(new Form1());
         }
     }
 }
