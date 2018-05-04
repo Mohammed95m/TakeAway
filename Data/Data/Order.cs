@@ -11,6 +11,7 @@ namespace Data.Data
 {
     public class Order: Base
     {
+        public TimeSpan Time { get; set; }
         public string Details { get; set; }
 
         public string Location { get; set; }

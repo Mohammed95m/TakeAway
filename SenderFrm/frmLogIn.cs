@@ -22,6 +22,19 @@ namespace ChatApp.Forms
         public frmLogIn()
         {
             InitializeComponent();
+            using (DataContext con = new DataContext())
+            {
+                con.Database.CreateIfNotExists();
+                var IsUser = con?.SenderUsers?.SingleOrDefault(s => s.Username == "admin");
+                if (IsUser == null)
+                {
+                    SenderUser soso = new SenderUser() { Username = "admin", Password = "admin" };
+                    con.SenderUsers.Add(soso);
+                    con.SaveChanges();
+                }
+            }
+                
+           
         }
 
         private void txtEmailLogIN_Validating(object sender, CancelEventArgs e)

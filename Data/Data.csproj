@@ -63,21 +63,21 @@
     <Compile Include="Data\Vehicle.cs" />
     <Compile Include="Data\VehicleType.cs" />
     <Compile Include="Enums\Status.cs" />
-    <Compile Include="Migrations\201804230702419_intial.cs" />
-    <Compile Include="Migrations\201804230702419_intial.Designer.cs">
-      <DependentUpon>201804230702419_intial.cs</DependentUpon>
+    <Compile Include="Migrations\201805042000193_intial.cs" />
+    <Compile Include="Migrations\201805042000193_intial.Designer.cs">
+      <DependentUpon>201805042000193_intial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804230702419_intial.resx">
-      <DependentUpon>201804230702419_intial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805042000193_intial.resx">
+      <DependentUpon>201805042000193_intial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

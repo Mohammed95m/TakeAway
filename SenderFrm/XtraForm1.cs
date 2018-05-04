@@ -33,10 +33,12 @@ namespace TakeAway
                DataContext _context = new DataContext();
             var order = _context.Orders.Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen).ToList();
             var o = order.FirstOrDefault();
-            var c= _context?.Vehicles?.ToList();
-            VehicleLookUpEdit.DataSource = c;
-            VehicleLookUpEdit.ValueMember = "Vehicle";
+            VehicleLookUpEdit.DataSource = _context?.Vehicles?.ToList();
+            VehicleLookUpEdit.ValueMember = "ID";
             VehicleLookUpEdit.DisplayMember = "Number";
+            EmployeeLookUpEdit.DataSource = _context?.Employees?.ToList();
+            EmployeeLookUpEdit.ValueMember = "ID";
+            EmployeeLookUpEdit.DisplayMember = "Name";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
             VehicleLookUpEdit.Columns.Add(col);
 
