@@ -6,6 +6,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using TakeAway;
+using ChatApp.Forms;
 
 namespace SenderFrm
 {
@@ -23,7 +24,7 @@ namespace SenderFrm
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new XtraForm1());
+            Application.Run(new frmLogIn());
         }
     }
 }

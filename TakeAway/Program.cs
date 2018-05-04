@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
+using ChatApp.Forms;
 
 namespace TakeAway
 {
@@ -22,7 +23,7 @@ namespace TakeAway
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new Form1());
+            Application.Run(new frmLogIn());
         }
     }
 }

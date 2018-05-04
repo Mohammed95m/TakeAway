@@ -15,14 +15,15 @@ namespace TakeAway
     {
         public Customer MainCustomer { get; set; }
         public Order MainOrder { get; set; }
-        public Form1()
+        public CallUser CallUser { get; set; }
+        public Form1(CallUser user)
         {
             InitializeComponent();
             using (DataContext _context = new DataContext())
             {
                 gridControl1.DataSource = _context.Orders.Where(s => s.Date.Day == DateTime.Now.Day && s.Date.Year == DateTime.Now.Year && s.Date.Month == DateTime.Now.Month).ToList();
             }
-
+            CallUser = user;
 
         }
         /// <summary>
@@ -96,6 +97,7 @@ namespace TakeAway
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
                         Order.Status = (int)Status.Created;
+                        Order.CallUser = CallUser;
                         _context.SaveChanges();
                         return true;
                     }

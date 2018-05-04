@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.Drawing.Drawing2D;
 using Data.Enums;
 using Data.Data;
+using ChatApp.Forms;
 
 namespace TakeAway
 {
@@ -23,19 +24,22 @@ namespace TakeAway
             public int Value { get; set; }
         }
         List<Order> UpData = new List<Order>();
-        public XtraForm1()
+        public SenderUser SenderUser { get; set; }
+        public XtraForm1(SenderUser user)
         {
             InitializeComponent();
-         //   lau.DataController.AllowIEnumerableDetails = true;
-
-            DataContext _context = new DataContext();
+            //   lau.DataController.AllowIEnumerableDetails = true;
+            SenderUser = user;
+               DataContext _context = new DataContext();
             var order = _context.Orders.Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen).ToList();
             var o = order.FirstOrDefault();
-            VehicleLookUpEdit.DataSource = _context.Vehicles.ToList();
+            var c= _context?.Vehicles?.ToList();
+            VehicleLookUpEdit.DataSource = c;
             VehicleLookUpEdit.ValueMember = "Vehicle";
             VehicleLookUpEdit.DisplayMember = "Number";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
             VehicleLookUpEdit.Columns.Add(col);
+
             //var Vehicle = 
             //    (from c in _context.Vehicles
             //     select new Combo() { Text =c , Value = (int)c.Number }).ToList();
@@ -179,6 +183,14 @@ namespace TakeAway
             //TestDataContext DB = new TestDataContext();
             //var data = DB?.Tests?.Where(S => S.Status > 0);
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { gridControl1.DataSource = UpData; });
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SenderUser = null;
+            frmLogIn fofo = new frmLogIn();
+            fofo.Show();
+          
         }
     }
 }
