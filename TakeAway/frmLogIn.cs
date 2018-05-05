@@ -25,13 +25,22 @@ namespace ChatApp.Forms
             using (DataContext con = new DataContext())
             {
                 con.Database.CreateIfNotExists();
-                var IsUser = con?.SenderUsers?.SingleOrDefault(s => s.Username == "admin");
-                if (IsUser == null)
+                try
                 {
-                    CallUser soso = new CallUser() { Username = "admin", Password = "admin" };
-                    con.CallUsers.Add(soso);
-                    con.SaveChanges();
+                    var IsUser = con?.CallUsers?.SingleOrDefault(s => s.Username == "admin");
+                    if (IsUser == null)
+                    {
+                        CallUser soso = new CallUser() { Username = "admin", Password = "admin" ,Date=DateTime.Now};
+                        con.CallUsers.Add(soso);
+                        con.SaveChanges();
+                    }
                 }
+                catch (Exception e)
+                {
+
+            
+                }
+               
             }
 
         }

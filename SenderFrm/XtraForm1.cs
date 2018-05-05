@@ -31,8 +31,9 @@ namespace TakeAway
             //   lau.DataController.AllowIEnumerableDetails = true;
             SenderUser = user;
                DataContext _context = new DataContext();
+            
             var order = _context.Orders.Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen).ToList();
-            var o = order.FirstOrDefault();
+            var SendOrder = _context.Orders.Where(S => S.Status == (int)Status.InProgress).ToList();
             VehicleLookUpEdit.DataSource = _context?.Vehicles?.ToList();
             VehicleLookUpEdit.ValueMember = "ID";
             VehicleLookUpEdit.DisplayMember = "Number";
@@ -56,16 +57,20 @@ namespace TakeAway
             VehicleLookUpEdit.EditValueChanged += (e, a) =>
             {
 
-                MessageBox.Show(VehicleLookUpEdit.ValueMember);
+                MessageBox.Show(((Guid)cardView1.ActiveEditor.EditValue).ToString());
             };
           gridControl1.DataSource = order;
+            gridControl2.DataSource = SendOrder;
+
+
+            #region click Event
             SendButtonEdit.Click += (Sender, e) => {
 
                 try
                 {
                 //   var v= VehicleLookUpEdit.value as Vehicle;
                     var row = cardView1.GetFocusedRow() as Order;
-                    MessageBox.Show(row.Details);
+                    MessageBox.Show(((Guid)cardView1.ActiveEditor.EditValue).ToString());
 
                 }
                 catch (Exception ee)
@@ -76,6 +81,7 @@ namespace TakeAway
 
 
             };
+            #endregion
             //cardView1.CustomDrawFilterPanel += (a, b) => {
             //    Color color1 = Color.FromArgb(40, 170, 225);
             //    Color color2 = Color.FromArgb(35, 80, 160);

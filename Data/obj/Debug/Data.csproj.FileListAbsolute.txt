@@ -1,4 +1,3 @@
-C:\Users\mohammed\Source\Repos\TakeAway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 C:\Users\mohammed\Source\Repos\TakeAway\Data\bin\Debug\Data.dll.config
 C:\Users\mohammed\Source\Repos\TakeAway\Data\bin\Debug\Data.dll
 C:\Users\mohammed\Source\Repos\TakeAway\Data\bin\Debug\Data.pdb

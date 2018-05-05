@@ -10,7 +10,7 @@ namespace Data.Data
 {
   public  class DataContext :DbContext
     {
-        public DataContext():base("TakeAwayDB")
+        public DataContext():base("Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True")
         {
             Database.SetInitializer<DataContext>(new CreateDatabaseIfNotExists<DataContext>());
         }

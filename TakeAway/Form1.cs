@@ -19,6 +19,7 @@ namespace TakeAway
         public Form1(CallUser user)
         {
             InitializeComponent();
+            TimeTxt.Properties.Mask.EditMask = "HH:mm";
             using (DataContext _context = new DataContext())
             {
                 gridControl1.DataSource = _context.Orders.Where(s => s.Date.Day == DateTime.Now.Day && s.Date.Year == DateTime.Now.Year && s.Date.Month == DateTime.Now.Month).ToList();
@@ -83,7 +84,7 @@ namespace TakeAway
             try
             {
                 var Price = int.Parse(PriceTxt.Text);
-                var time = int.Parse(TimerTxt?.Text ?? "0");
+              //  var time = int.Parse(TimeTxt?.Text ?? "0");
                 if (MainOrder != null)
                 {
                     //single
@@ -93,12 +94,20 @@ namespace TakeAway
                         Order.Customer = MainCustomer;
                         Order.Details = OrderTxt.Text;
                         Order.Earn = Price;
-                        Order.Timer = time;
+                        //  Order.Timer = time;
+                        Order.Time = TimeTxt.TimeSpan;
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
-                        Order.Status = (int)Status.Created;
+                        if(Order.Time>DateTime.Now.TimeOfDay)
+                            Order.Status = (int)Status.Waiting;
+                        else
+                        {
+                            Order.Status = (int)Status.Created;
+                        }
+                        
                         Order.CallUser = CallUser;
                         _context.SaveChanges();
+                     
                         return true;
                     }
                     else
@@ -118,7 +127,8 @@ namespace TakeAway
              //           CallUser=
                         Earn = Price
                  ,
-                        Timer = time
+                        //   Timer = time
+                        Time = (TimeSpan)TimeTxt.EditValue
                  ,
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
@@ -126,6 +136,12 @@ namespace TakeAway
 
                     };
                     _context.Orders.Add(NewOrder);
+                    if (NewOrder.Time > DateTime.Now.TimeOfDay)
+                        NewOrder.Status = (int)Status.Waiting;
+                    else
+                    {
+                        NewOrder.Status = (int)Status.Created;
+                    }
                     _context.SaveChanges();
                     return true;
                 }
@@ -145,7 +161,7 @@ namespace TakeAway
         {
             MainOrder = null;
             MainCustomer = null;
-            TimerTxt.Text = null;
+            TimeTxt.Text = null;
             PriceTxt.Text = null;
             OrderTxt.Text = null;
             LocationTxt.Text = null;
@@ -221,7 +237,7 @@ namespace TakeAway
                     OrderTxt.Text = row.Details;
                     
                     PriceTxt.Text = RemovePoint(row.Earn.ToString());
-                    TimerTxt.Text = RemovePoint(row.Timer.ToString());
+                    TimeTxt.TimeSpan = row.Time;
                     MainOrder = row;
 
                 }
@@ -238,7 +254,7 @@ namespace TakeAway
                         LocationTxt.Text = row?.Location;
                         OrderTxt.Text = row.Details;
                         PriceTxt.Text = RemovePoint(row.Earn.ToString());
-                        TimerTxt.Text = RemovePoint(row.Timer.ToString());
+                        TimeTxt.TimeSpan = row.Time;
                         MainOrder = row;
                     }
                 }
