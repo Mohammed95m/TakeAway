@@ -12,34 +12,27 @@ using System.Drawing.Drawing2D;
 using Data.Enums;
 using Data.Data;
 using ChatApp.Forms;
+using SenderFrm;
 
 namespace TakeAway
 {
   
     public partial class XtraForm1 : DevExpress.XtraEditors.XtraForm
     {
-        class Combo
-        {
-            public Vehicle Text { get; set; }
-            public int Value { get; set; }
-        }
+      
         List<Order> UpData = new List<Order>();
         public SenderUser SenderUser { get; set; }
         public XtraForm1(SenderUser user)
         {
             InitializeComponent();
+         
             //   lau.DataController.AllowIEnumerableDetails = true;
             SenderUser = user;
                DataContext _context = new DataContext();
             
             var order = _context.Orders.Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen).ToList();
             var SendOrder = _context.Orders.Where(S => S.Status == (int)Status.InProgress).ToList();
-            VehicleLookUpEdit.DataSource = _context?.Vehicles?.ToList();
-            VehicleLookUpEdit.ValueMember = "ID";
-            VehicleLookUpEdit.DisplayMember = "Number";
-            EmployeeLookUpEdit.DataSource = _context?.Employees?.ToList();
-            EmployeeLookUpEdit.ValueMember = "ID";
-            EmployeeLookUpEdit.DisplayMember = "Name";
+           
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
             VehicleLookUpEdit.Columns.Add(col);
 
@@ -59,9 +52,18 @@ namespace TakeAway
 
                 MessageBox.Show(((Guid)cardView1.ActiveEditor.EditValue).ToString());
             };
-          gridControl1.DataSource = order;
+            gridControl1.DataSource = order;
             gridControl2.DataSource = SendOrder;
-
+         
+            
+            
+            #region this event work after set employee $  Vehicle
+            EditFrm.UpdateGrid += () =>
+            {
+                SendOrder = _context.Orders.Where(S => S.Status == (int)Status.InProgress).ToList();
+                gridControl2.DataSource = SendOrder;
+            };
+            #endregion
 
             #region click Event
             SendButtonEdit.Click += (Sender, e) => {

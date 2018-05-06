@@ -89,3 +89,4 @@ C:\Users\mohammed\Source\Repos\TakeAway\SenderFrm\bin\Debug\ru\DevExpress.Office
 C:\Users\mohammed\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.exe
 C:\Users\mohammed\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.pdb
 C:\Users\mohammed\Source\Repos\TakeAway\SenderFrm\obj\Debug\ChatApp.Forms.frmLogIn.resources
+C:\Users\mohammed\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.EditFrm.resources
