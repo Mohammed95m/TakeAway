@@ -13,7 +13,7 @@ using Data.Enums;
 
 namespace SenderFrm
 {
-    public delegate void UpGrid();
+    public delegate void UpGrid(Order o);
     public partial class EditFrm : DevExpress.XtraEditors.XtraForm
     {
         public static event UpGrid UpdateGrid;
@@ -24,12 +24,19 @@ namespace SenderFrm
          using ( DataContext coco = new DataContext())
             {
                 MainOrder = coco?.Orders?.SingleOrDefault(s => s.ID == OrderID);
+                DetailsLbl.Text = MainOrder.Details + ": تفاصيل الطلب";
+                CustomerNameLbl.Text = MainOrder.CustomerName + ": اسم الزبون";
+                LocationLbl.Text = MainOrder.Location + ": الموقع";
                 VehicleLookUpEdit.Properties.DataSource = coco?.Vehicles?.ToList();
                 VehicleLookUpEdit.Properties.ValueMember = "ID";
                 VehicleLookUpEdit.Properties.DisplayMember = "Number";
-               EmployeeLookUpEdit.Properties.DataSource = coco?.Employees?.ToList();
+                DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
+                VehicleLookUpEdit.Properties.Columns.Add(col);
+                EmployeeLookUpEdit.Properties.DataSource = coco?.Employees?.ToList();
                EmployeeLookUpEdit.Properties.ValueMember = "ID";
                EmployeeLookUpEdit.Properties.DisplayMember = "Name";
+                DevExpress.XtraEditors.Controls.LookUpColumnInfo col2 = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name");
+                EmployeeLookUpEdit.Properties.Columns.Add(col2);
             }
         }
 
@@ -40,16 +47,18 @@ namespace SenderFrm
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(VehicleLookUpEdit.EditValue.ToString());
+          
             using (DataContext coco = new DataContext())
             {
-                MainOrder.VehicleID = (Guid)VehicleLookUpEdit.EditValue;
-                MainOrder.EmployeeID = (Guid)EmployeeLookUpEdit.EditValue;
-                MainOrder.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
-                MainOrder.Status = (int)Status.InProgress;
-                MainOrder.StartTime = DateTime.Now;
+                var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
+                order.VehicleID = (Guid)VehicleLookUpEdit.EditValue;
+                order.EmployeeID = (Guid)EmployeeLookUpEdit.EditValue;
+                order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
+                order.Status = (int)Status.InProgress;
+                order.StartTime = DateTime.Now;
                 coco.SaveChanges();
-                UpdateGrid();
+                UpdateGrid(order);
+                this.Close();
             }
             }
     }

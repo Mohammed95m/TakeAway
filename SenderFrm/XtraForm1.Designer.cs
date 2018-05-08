@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -39,14 +40,12 @@
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TimerColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.VehicleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EmployeeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EmployeeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.TimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Send = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SendButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.EmployeeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
@@ -55,7 +54,6 @@
             this.LocationColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EarnColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TimerColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.VehicleColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EmployeeColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Send2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,7 +65,7 @@
             this.repositoryItemCalcEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -75,16 +73,18 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.TimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.CustomerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TimerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -107,10 +107,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 26);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 29);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1123, 496);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1123, 492);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -120,7 +120,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1121, 463);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1117, 464);
             this.xtraTabPage1.Text = "xtraTabPage1";
             // 
             // gridControl1
@@ -135,7 +135,7 @@
             this.SendButtonEdit,
             this.EmployeeLookUpEdit,
             this.repositoryItemCalcEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1121, 463);
+            this.gridControl1.Size = new System.Drawing.Size(1117, 464);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView1});
@@ -148,9 +148,6 @@
             this.DetailsColumn,
             this.LocationColumn,
             this.EarnColumn,
-            this.TimerColumn,
-            this.VehicleColumn,
-            this.EmployeeColumn,
             this.TimeColumn,
             this.StatusColumn,
             this.Send});
@@ -182,37 +179,13 @@
             this.EarnColumn.Visible = true;
             this.EarnColumn.VisibleIndex = 2;
             // 
-            // TimerColumn
+            // TimeColumn
             // 
-            this.TimerColumn.Caption = "TimerColumn";
-            this.TimerColumn.FieldName = "Timer";
-            this.TimerColumn.Name = "TimerColumn";
-            this.TimerColumn.Visible = true;
-            this.TimerColumn.VisibleIndex = 3;
-            // 
-            // VehicleColumn
-            // 
-            this.VehicleColumn.Caption = "VehicleColumn";
-            this.VehicleColumn.ColumnEdit = this.VehicleLookUpEdit;
-            this.VehicleColumn.Name = "VehicleColumn";
-            this.VehicleColumn.Visible = true;
-            this.VehicleColumn.VisibleIndex = 4;
-            // 
-            // EmployeeColumn
-            // 
-            this.EmployeeColumn.Caption = "EmployeeColumn";
-            this.EmployeeColumn.ColumnEdit = this.EmployeeLookUpEdit;
-            this.EmployeeColumn.FieldName = "Employee";
-            this.EmployeeColumn.Name = "EmployeeColumn";
-            this.EmployeeColumn.Visible = true;
-            this.EmployeeColumn.VisibleIndex = 5;
-            // 
-            // EmployeeLookUpEdit
-            // 
-            this.EmployeeLookUpEdit.AutoHeight = false;
-            this.EmployeeLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.EmployeeLookUpEdit.Name = "EmployeeLookUpEdit";
+            this.TimeColumn.Caption = "TimeColumn";
+            this.TimeColumn.FieldName = "Time";
+            this.TimeColumn.Name = "TimeColumn";
+            this.TimeColumn.Visible = true;
+            this.TimeColumn.VisibleIndex = 5;
             // 
             // StatusColumn
             // 
@@ -223,7 +196,7 @@
             this.StatusColumn.OptionsColumn.AllowFocus = false;
             this.StatusColumn.OptionsColumn.ReadOnly = true;
             this.StatusColumn.Visible = true;
-            this.StatusColumn.VisibleIndex = 6;
+            this.StatusColumn.VisibleIndex = 3;
             // 
             // Send
             // 
@@ -231,7 +204,7 @@
             this.Send.ColumnEdit = this.SendButtonEdit;
             this.Send.Name = "Send";
             this.Send.Visible = true;
-            this.Send.VisibleIndex = 7;
+            this.Send.VisibleIndex = 4;
             // 
             // SendButtonEdit
             // 
@@ -252,6 +225,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
+            // EmployeeLookUpEdit
+            // 
+            this.EmployeeLookUpEdit.AutoHeight = false;
+            this.EmployeeLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.EmployeeLookUpEdit.Name = "EmployeeLookUpEdit";
+            // 
             // repositoryItemCalcEdit1
             // 
             this.repositoryItemCalcEdit1.AutoHeight = false;
@@ -263,7 +243,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1121, 463);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1117, 464);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
             // gridControl2
@@ -278,7 +258,7 @@
             this.repositoryItemButtonEdit1,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemCalcEdit2});
-            this.gridControl2.Size = new System.Drawing.Size(1121, 463);
+            this.gridControl2.Size = new System.Drawing.Size(1117, 464);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView2});
@@ -288,42 +268,43 @@
             this.cardView2.Appearance.Card.BackColor = System.Drawing.Color.Red;
             this.cardView2.Appearance.Card.Options.UseBackColor = true;
             this.cardView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Status2,
+            this.TimerColumn1,
             this.DetailsColumn2,
             this.LocationColumn2,
             this.EarnColumn2,
             this.TimerColumn2,
-            this.VehicleColumn2,
             this.EmployeeColumn2,
-            this.Status2,
-            this.Send2,
-            this.StartTime});
+            this.StartTime,
+            this.CustomerColumn1,
+            this.Send2});
             this.cardView2.FocusedCardTopFieldIndex = 0;
             this.cardView2.GridControl = this.gridControl2;
             this.cardView2.Name = "cardView2";
             // 
             // DetailsColumn2
             // 
-            this.DetailsColumn2.Caption = "DetailsColumn";
+            this.DetailsColumn2.Caption = "تفاصيل الطلب";
             this.DetailsColumn2.FieldName = "Details";
             this.DetailsColumn2.Name = "DetailsColumn2";
             this.DetailsColumn2.Visible = true;
-            this.DetailsColumn2.VisibleIndex = 0;
+            this.DetailsColumn2.VisibleIndex = 1;
             // 
             // LocationColumn2
             // 
-            this.LocationColumn2.Caption = "LocationColumn";
+            this.LocationColumn2.Caption = "العنوان";
             this.LocationColumn2.FieldName = "Location";
             this.LocationColumn2.Name = "LocationColumn2";
             this.LocationColumn2.Visible = true;
-            this.LocationColumn2.VisibleIndex = 1;
+            this.LocationColumn2.VisibleIndex = 2;
             // 
             // EarnColumn2
             // 
-            this.EarnColumn2.Caption = "EarnColumn";
+            this.EarnColumn2.Caption = "الكلفة";
             this.EarnColumn2.FieldName = "Earn";
             this.EarnColumn2.Name = "EarnColumn2";
             this.EarnColumn2.Visible = true;
-            this.EarnColumn2.VisibleIndex = 2;
+            this.EarnColumn2.VisibleIndex = 3;
             // 
             // TimerColumn2
             // 
@@ -331,19 +312,12 @@
             this.TimerColumn2.FieldName = "Timer";
             this.TimerColumn2.Name = "TimerColumn2";
             this.TimerColumn2.Visible = true;
-            this.TimerColumn2.VisibleIndex = 3;
-            // 
-            // VehicleColumn2
-            // 
-            this.VehicleColumn2.Caption = "VehicleColumn";
-            this.VehicleColumn2.Name = "VehicleColumn2";
-            this.VehicleColumn2.Visible = true;
-            this.VehicleColumn2.VisibleIndex = 4;
+            this.TimerColumn2.VisibleIndex = 4;
             // 
             // EmployeeColumn2
             // 
-            this.EmployeeColumn2.Caption = "EmployeeColumn";
-            this.EmployeeColumn2.FieldName = "Employee";
+            this.EmployeeColumn2.Caption = "الموظف";
+            this.EmployeeColumn2.FieldName = "EmployeeName";
             this.EmployeeColumn2.Name = "EmployeeColumn2";
             this.EmployeeColumn2.Visible = true;
             this.EmployeeColumn2.VisibleIndex = 5;
@@ -381,7 +355,8 @@
             // 
             // StartTime
             // 
-            this.StartTime.Caption = "StartTime";
+            this.StartTime.Caption = "وقت بداية الطلب";
+            this.StartTime.FieldName = "StartTime";
             this.StartTime.Name = "StartTime";
             this.StartTime.Visible = true;
             this.StartTime.VisibleIndex = 8;
@@ -475,36 +450,44 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1123, 26);
+            this.barDockControlTop.Size = new System.Drawing.Size(1123, 29);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 522);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1123, 22);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 521);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1123, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 496);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 492);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1123, 26);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 496);
+            this.barDockControlRight.Location = new System.Drawing.Point(1123, 29);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 492);
             // 
-            // TimeColumn
+            // CustomerColumn1
             // 
-            this.TimeColumn.Caption = "TimeColumn";
-            this.TimeColumn.FieldName = "Time";
-            this.TimeColumn.Name = "TimeColumn";
-            this.TimeColumn.Visible = true;
-            this.TimeColumn.VisibleIndex = 8;
+            this.CustomerColumn1.Caption = "الزبون";
+            this.CustomerColumn1.FieldName = "CustomerName";
+            this.CustomerColumn1.Name = "CustomerColumn1";
+            this.CustomerColumn1.Visible = true;
+            this.CustomerColumn1.VisibleIndex = 9;
+            // 
+            // TimerColumn1
+            // 
+            this.TimerColumn1.Caption = "الوقت اللازم";
+            this.TimerColumn1.FieldName = "Timer";
+            this.TimerColumn1.Name = "TimerColumn1";
+            this.TimerColumn1.Visible = true;
+            this.TimerColumn1.VisibleIndex = 0;
             // 
             // XtraForm1
             // 
@@ -524,9 +507,9 @@
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
@@ -554,9 +537,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn;
         private DevExpress.XtraGrid.Columns.GridColumn LocationColumn;
         private DevExpress.XtraGrid.Columns.GridColumn EarnColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn TimerColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn VehicleColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn EmployeeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn StatusColumn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DevExpress.XtraGrid.Columns.GridColumn Send;
@@ -578,7 +558,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn LocationColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn EarnColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn TimerColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn VehicleColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn EmployeeColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn Status2;
         private DevExpress.XtraGrid.Columns.GridColumn Send2;
@@ -589,5 +568,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn TimeColumn;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn CustomerColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn TimerColumn1;
     }
 }

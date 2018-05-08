@@ -9,3 +9,4 @@ C:\Users\mohammed\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 C:\Users\mohammed\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
 C:\Users\mohammed\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.intial.resources
 C:\Users\mohammed\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
+C:\Users\mohammed\Source\Repos\TakeAway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

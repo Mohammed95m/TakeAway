@@ -98,12 +98,12 @@ namespace TakeAway
                         Order.Time = TimeTxt.TimeSpan;
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
-                        if(Order.Time>DateTime.Now.TimeOfDay)
-                            Order.Status = (int)Status.Waiting;
-                        else
-                        {
+                        //if(Order.Time>DateTime.Now.TimeOfDay)
+                        //    Order.Status = (int)Status.Waiting;
+                        //else
+                        //{
                             Order.Status = (int)Status.Created;
-                        }
+                      //  }
                         
                         Order.CallUser = CallUser;
                         _context.SaveChanges();
