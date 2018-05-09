@@ -138,15 +138,52 @@ namespace TakeAway
 
             };
             #endregion
-
-            #region click Event
+            #region Finish click Event
+            FinishBtn.Click += (sender, e) =>
+            {
+                var row = cardView1.GetFocusedRow() as Order;
+                var Ord = _context?.Orders
+                ?.Include("Customer")
+                ?.Include("Employee")
+                ?.Include("Vehicle")
+                 ?.Include("SenderUser")
+                 ?.Include("SenderUser.Employee")
+                   ?.Include("CallUser")
+                 ?.Include("CallUser.Employee")
+                ?.SingleOrDefault(s => s.ID == row.ID);
+                var finishOrder = new FinishedOrder
+                {
+                    Location = row.Location,
+                    SenderUserID = row.SenderUserID,
+                    StartTime = row.StartTime,
+                    CallUserID = row.CallUserID,
+                    CustomerID = row.CustomerID,
+                    Date = row.Date,
+                    Details = row.Details,
+                    Earn = row.Earn,
+                    EmployeeID = row.EmployeeID,
+                    EndTime = DateTime.Now,
+                    VehicleID = row.VehicleID,
+                    SenderUserName = Ord.SenderUser.Employee.Name,
+                    CallUserName = Ord.CallUser.Employee.Name,
+                    CustomerName = Ord.Customer.Name,
+                    EmployeeNaame = Ord.Employee.Name,
+                };
+                _context.FinishedOrders.Add(finishOrder);
+                    _context.SaveChanges();
+                    _context.Orders.Remove(Ord);
+                    _context.SaveChanges();
+              
+            };
+            #endregion
+            #region send click Event
             SendButtonEdit.Click += (Sender, e) => {
 
                 try
                 {
                 //   var v= VehicleLookUpEdit.value as Vehicle;
                     var row = cardView1.GetFocusedRow() as Order;
-                    EditFrm fofo = new EditFrm(row.ID);
+                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
                     fofo.ShowDialog();
 
                 }

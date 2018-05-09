@@ -50,15 +50,17 @@
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.cardView2 = new DevExpress.XtraGrid.Views.Card.CardView();
+            this.Status2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TimerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DetailsColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LocationColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EarnColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TimerColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EmployeeColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Status2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Send2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.StartTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CustomerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Send2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FinishBtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -74,8 +76,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-            this.CustomerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TimerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FinishBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
@@ -255,7 +255,7 @@
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemComboBox2,
-            this.repositoryItemButtonEdit1,
+            this.FinishBtn,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemCalcEdit2});
             this.gridControl2.Size = new System.Drawing.Size(1117, 464);
@@ -281,6 +281,25 @@
             this.cardView2.FocusedCardTopFieldIndex = 0;
             this.cardView2.GridControl = this.gridControl2;
             this.cardView2.Name = "cardView2";
+            // 
+            // Status2
+            // 
+            this.Status2.Caption = "Status";
+            this.Status2.FieldName = "Status";
+            this.Status2.Name = "Status2";
+            this.Status2.OptionsColumn.AllowEdit = false;
+            this.Status2.OptionsColumn.AllowFocus = false;
+            this.Status2.OptionsColumn.ReadOnly = true;
+            this.Status2.Visible = true;
+            this.Status2.VisibleIndex = 6;
+            // 
+            // TimerColumn1
+            // 
+            this.TimerColumn1.Caption = "الوقت اللازم";
+            this.TimerColumn1.FieldName = "Timer";
+            this.TimerColumn1.Name = "TimerColumn1";
+            this.TimerColumn1.Visible = true;
+            this.TimerColumn1.VisibleIndex = 0;
             // 
             // DetailsColumn2
             // 
@@ -322,37 +341,6 @@
             this.EmployeeColumn2.Visible = true;
             this.EmployeeColumn2.VisibleIndex = 5;
             // 
-            // Status2
-            // 
-            this.Status2.Caption = "Status";
-            this.Status2.FieldName = "Status";
-            this.Status2.Name = "Status2";
-            this.Status2.OptionsColumn.AllowEdit = false;
-            this.Status2.OptionsColumn.AllowFocus = false;
-            this.Status2.OptionsColumn.ReadOnly = true;
-            this.Status2.Visible = true;
-            this.Status2.VisibleIndex = 6;
-            // 
-            // Send2
-            // 
-            this.Send2.Caption = "Send";
-            this.Send2.ColumnEdit = this.repositoryItemButtonEdit1;
-            this.Send2.Name = "Send2";
-            this.Send2.Visible = true;
-            this.Send2.VisibleIndex = 7;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            serializableAppearanceObject2.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject2.Image")));
-            serializableAppearanceObject2.Options.UseImage = true;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.repositoryItemButtonEdit1.HideSelection = false;
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.ReadOnly = true;
-            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            // 
             // StartTime
             // 
             this.StartTime.Caption = "وقت بداية الطلب";
@@ -360,6 +348,34 @@
             this.StartTime.Name = "StartTime";
             this.StartTime.Visible = true;
             this.StartTime.VisibleIndex = 8;
+            // 
+            // CustomerColumn1
+            // 
+            this.CustomerColumn1.Caption = "الزبون";
+            this.CustomerColumn1.FieldName = "CustomerName";
+            this.CustomerColumn1.Name = "CustomerColumn1";
+            this.CustomerColumn1.Visible = true;
+            this.CustomerColumn1.VisibleIndex = 9;
+            // 
+            // Send2
+            // 
+            this.Send2.Caption = "Send";
+            this.Send2.ColumnEdit = this.FinishBtn;
+            this.Send2.Name = "Send2";
+            this.Send2.Visible = true;
+            this.Send2.VisibleIndex = 7;
+            // 
+            // FinishBtn
+            // 
+            serializableAppearanceObject2.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject2.Image")));
+            serializableAppearanceObject2.Options.UseImage = true;
+            this.FinishBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.FinishBtn.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.FinishBtn.HideSelection = false;
+            this.FinishBtn.Name = "FinishBtn";
+            this.FinishBtn.ReadOnly = true;
+            this.FinishBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -473,22 +489,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1123, 29);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 492);
             // 
-            // CustomerColumn1
-            // 
-            this.CustomerColumn1.Caption = "الزبون";
-            this.CustomerColumn1.FieldName = "CustomerName";
-            this.CustomerColumn1.Name = "CustomerColumn1";
-            this.CustomerColumn1.Visible = true;
-            this.CustomerColumn1.VisibleIndex = 9;
-            // 
-            // TimerColumn1
-            // 
-            this.TimerColumn1.Caption = "الوقت اللازم";
-            this.TimerColumn1.FieldName = "Timer";
-            this.TimerColumn1.Name = "TimerColumn1";
-            this.TimerColumn1.Visible = true;
-            this.TimerColumn1.VisibleIndex = 0;
-            // 
             // XtraForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,7 +514,7 @@
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FinishBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
@@ -561,7 +561,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn EmployeeColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn Status2;
         private DevExpress.XtraGrid.Columns.GridColumn Send2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit FinishBtn;
         private DevExpress.XtraGrid.Columns.GridColumn StartTime;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;

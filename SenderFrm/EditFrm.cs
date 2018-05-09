@@ -18,9 +18,11 @@ namespace SenderFrm
     {
         public static event UpGrid UpdateGrid;
         Order MainOrder;
-        public EditFrm(Guid OrderID)
+        Guid SenderUserID;
+        public EditFrm(Guid OrderID,Guid? UserID)
         {
             InitializeComponent();
+            SenderUserID =(Guid) UserID;
          using ( DataContext coco = new DataContext())
             {
                 MainOrder = coco?.Orders?.SingleOrDefault(s => s.ID == OrderID);
@@ -56,10 +58,26 @@ namespace SenderFrm
                 order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
                 order.Status = (int)Status.InProgress;
                 order.StartTime = DateTime.Now;
+                order.SenderUserID = SenderUserID;
                 coco.SaveChanges();
                 UpdateGrid(order);
                 this.Close();
             }
             }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+           using(DataContext db = new DataContext())
+            {
+                if(DialogResult.OK==MessageBox.Show("حذف","هل أنت متأكد من أنك ستحذف هذا الطلب ؟", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+                {
+                    var DelOrder = db.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
+                    db.Orders.Remove(DelOrder);
+                    db.SaveChanges();
+                }
+               
+            }
+      
+        }
     }
 }
