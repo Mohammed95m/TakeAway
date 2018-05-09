@@ -146,8 +146,8 @@
             this.cardView1.Appearance.Card.Options.UseBackColor = true;
             this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.DetailsColumn,
-            this.LocationColumn,
             this.EarnColumn,
+            this.LocationColumn,
             this.TimeColumn,
             this.StatusColumn,
             this.Send});

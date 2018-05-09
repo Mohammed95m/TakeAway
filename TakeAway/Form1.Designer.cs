@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.SearchBtn = new DevExpress.XtraEditors.SimpleButton();
@@ -50,6 +50,7 @@
             this.LocationTxt = new DevExpress.XtraEditors.TextEdit();
             this.OrderTxt = new DevExpress.XtraEditors.TextEdit();
             this.PriceTxt = new DevExpress.XtraEditors.TextEdit();
+            this.TimeTxt = new DevExpress.XtraEditors.TimeSpanEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -75,7 +76,6 @@
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.TimeTxt = new DevExpress.XtraEditors.TimeSpanEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -88,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LocationTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTxt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -113,7 +114,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TimeTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -221,7 +221,7 @@
             // 
             this.UpdateBtn.AutoHeight = false;
             this.UpdateBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UpdateBtn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UpdateBtn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.UpdateBtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.UpdateBtn_ButtonClick);
@@ -240,7 +240,7 @@
             this.DeleteBtn.Appearance.Options.UseImage = true;
             this.DeleteBtn.AutoHeight = false;
             this.DeleteBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("DeleteBtn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("DeleteBtn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.DeleteBtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.DeleteBtn_ButtonClick);
@@ -253,7 +253,7 @@
             this.repositoryItemButtonEdit1.Appearance.Options.UseImage = true;
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -300,6 +300,20 @@
             this.PriceTxt.Size = new System.Drawing.Size(193, 20);
             this.PriceTxt.StyleController = this.layoutControl1;
             this.PriceTxt.TabIndex = 4;
+            // 
+            // TimeTxt
+            // 
+            this.TimeTxt.EditValue = System.TimeSpan.Parse("00:00:00");
+            this.TimeTxt.Location = new System.Drawing.Point(22, 200);
+            this.TimeTxt.Name = "TimeTxt";
+            this.TimeTxt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TimeTxt.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.TimeTxt.Properties.Mask.EditMask = "##################";
+            this.TimeTxt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.TimeTxt.Size = new System.Drawing.Size(257, 20);
+            this.TimeTxt.StyleController = this.layoutControl1;
+            this.TimeTxt.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
@@ -572,20 +586,6 @@
             this.emptySpaceItem15.Text = "emptySpaceItem1";
             this.emptySpaceItem15.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // TimeTxt
-            // 
-            this.TimeTxt.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.TimeTxt.Location = new System.Drawing.Point(22, 200);
-            this.TimeTxt.Name = "TimeTxt";
-            this.TimeTxt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.TimeTxt.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.TimeTxt.Properties.Mask.EditMask = "##################";
-            this.TimeTxt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.TimeTxt.Size = new System.Drawing.Size(257, 20);
-            this.TimeTxt.StyleController = this.layoutControl1;
-            this.TimeTxt.TabIndex = 4;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,6 +608,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LocationTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTxt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -633,7 +634,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TimeTxt.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

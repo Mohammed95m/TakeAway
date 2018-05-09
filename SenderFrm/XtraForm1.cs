@@ -24,6 +24,8 @@ namespace TakeAway
         public SenderUser SenderUser { get; set; }
         List<TimerOrder> TimerOrder = new List<TimerOrder>();
         List<Order> TimerWating = new List<Order>();
+
+
         public XtraForm1(SenderUser user)
         {
             InitializeComponent();
@@ -54,8 +56,8 @@ namespace TakeAway
                 
                 ).ToList();
            
-            DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
-            VehicleLookUpEdit.Columns.Add(col);
+            //DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
+            //VehicleLookUpEdit.Columns.Add(col);
             #region coments code
             //var Vehicle = 
             //    (from c in _context.Vehicles
@@ -255,7 +257,7 @@ namespace TakeAway
             {
                 foreach (var item in TimerWating)
                 {
-                    var t = new TimeSpan(0, item.Timer ?? 30, 0);
+                    var t = new TimeSpan(0, 30, 0);
                     var total = DateTime.Now.TimeOfDay + t;
                     if (item.Time <= total)
                     {
