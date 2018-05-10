@@ -35,11 +35,7 @@ namespace ChatApp.Forms
                         con.SaveChanges();
                     }
                 }
-                catch (Exception e)
-                {
-
-            
-                }
+                catch (Exception e){}
                
             }
 
@@ -52,7 +48,7 @@ namespace ChatApp.Forms
             {
                 e.Cancel = true;
                 txtEmailLogIN.Focus();
-                er.SetError(txtEmailLogIN, "Please Enter Email");
+                er.SetError(txtEmailLogIN, "الرجاء ادخال اسم المستخدم");
             }
             else
             {
@@ -99,31 +95,6 @@ namespace ChatApp.Forms
                 {
                     if (logInUser.Password == txtPasswordLogIN.Text)
                     {
-                        MessageBox.Show("Welcome");
-                        //var contextChat = new DataContext();
-                        //LogUser currentLog = new LogUser();
-                        //currentLog.ID = Guid.NewGuid();
-                        //currentLog.IsLogIn = true;
-                        //currentLog.IsLogOut = false;
-                        //currentLog.CreationDate = DateTime.UtcNow;
-                        //currentLog.UpdatedDate = DateTime.UtcNow;
-                        //currentLog.userId = logInUser.ID;
-                        //contextChat.Entry(currentLog).State = System.Data.Entity.EntityState.Added;
-                        //contextChat.SaveChanges();
-                        //// update status User 
-                        //statusUser stUser = mes.StatusUser.Where(s => s.UserID == logInUser.ID).FirstOrDefault();
-                        //if(stUser!=null)
-                        //{
-                        //    if(!stUser.IsOnline)
-                        //    {
-                        //        stUser.IsOnline = true;
-                        //        stUser.UpdateDate = DateTime.UtcNow;
-                        //        mes.Entry(stUser).State = System.Data.Entity.EntityState.Modified;
-                        //    }
-                        //}
-                     
-                        //mes.SaveChanges();
-                        // end update Status User 
                         this.Hide();
                         Form1 usertChat = new Form1(logInUser);
                         usertChat.ShowDialog();
@@ -132,20 +103,10 @@ namespace ChatApp.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Password InCorrect");
+                        MessageBox.Show("كلمة السر خطأ !");
                     }
                 }
             }
-        }
-
-        private void btnSingUP_Click(object sender, EventArgs e)
-        {
-            //er1.SetError(txtPasswordLogIN, null);
-            //er.SetError(txtEmailLogIN, null);
-            //this.Hide();
-            //frmSingUp_ singup = new frmSingUp_();
-            //singup.ShowDialog();
-            //this.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

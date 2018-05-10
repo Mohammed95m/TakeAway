@@ -25,6 +25,7 @@ namespace TakeAway
                 gridControl1.DataSource = _context.Orders.Where(s => s.Date.Day == DateTime.Now.Day && s.Date.Year == DateTime.Now.Year && s.Date.Month == DateTime.Now.Month).ToList();
             }
             CallUser = user;
+            gridView1.OptionsView.ShowGroupPanel = false;
 
         }
         /// <summary>
@@ -41,7 +42,7 @@ namespace TakeAway
             {
                 MainCustomer = Customer;
                 CustomerNameTxt.Text = Customer.Name;
-                LocationTxt.Text = Customer.Name;
+                LocationTxt.Text = Customer.Location;
                 return true;
             }
             else
