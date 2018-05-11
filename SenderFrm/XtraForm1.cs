@@ -341,6 +341,11 @@ namespace TakeAway
             fofo.Show();
           
         }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class TimerOrder
     {
