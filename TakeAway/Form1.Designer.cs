@@ -267,6 +267,7 @@
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.DeleteBtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.DeleteBtn_ButtonClick);
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // repositoryItemButtonEdit1
             // 
@@ -286,6 +287,7 @@
             // 
             this.CustomerNumberTxt.Location = new System.Drawing.Point(256, 61);
             this.CustomerNumberTxt.Name = "CustomerNumberTxt";
+            this.CustomerNumberTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CustomerNumberTxt.Size = new System.Drawing.Size(209, 20);
             this.CustomerNumberTxt.StyleController = this.layoutControl1;
             this.CustomerNumberTxt.TabIndex = 0;
@@ -294,6 +296,7 @@
             // 
             this.CustomerNameTxt.Location = new System.Drawing.Point(170, 107);
             this.CustomerNameTxt.Name = "CustomerNameTxt";
+            this.CustomerNameTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CustomerNameTxt.Size = new System.Drawing.Size(295, 20);
             this.CustomerNameTxt.StyleController = this.layoutControl1;
             this.CustomerNameTxt.TabIndex = 4;
@@ -302,6 +305,7 @@
             // 
             this.LocationTxt.Location = new System.Drawing.Point(170, 141);
             this.LocationTxt.Name = "LocationTxt";
+            this.LocationTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LocationTxt.Size = new System.Drawing.Size(295, 20);
             this.LocationTxt.StyleController = this.layoutControl1;
             this.LocationTxt.TabIndex = 5;
@@ -310,6 +314,7 @@
             // 
             this.OrderTxt.Location = new System.Drawing.Point(170, 175);
             this.OrderTxt.Name = "OrderTxt";
+            this.OrderTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.OrderTxt.Size = new System.Drawing.Size(295, 20);
             this.OrderTxt.StyleController = this.layoutControl1;
             this.OrderTxt.TabIndex = 6;
@@ -320,6 +325,7 @@
             this.PriceTxt.Name = "PriceTxt";
             this.PriceTxt.Properties.Mask.EditMask = "n0";
             this.PriceTxt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.PriceTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PriceTxt.Size = new System.Drawing.Size(295, 20);
             this.PriceTxt.StyleController = this.layoutControl1;
             this.PriceTxt.TabIndex = 8;

@@ -52,10 +52,10 @@ namespace TakeAway
                 }
            gridControl1.DataSource = order;
             var SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
-                s =>new { s.Details,CustomerName=s.Customer.Name,EmployeeName=s.Employee.Name,s.Earn,s.Location,StartTime=s.StartTime,s.Status,s.Timer}
+                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn,Location= s.Location,StartTime=s.StartTime,Status= s.Status,Timer= s.Timer}
                 
                 ).ToList();
-           
+            gridControl2.DataSource = SendOrder;
             //DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
             //VehicleLookUpEdit.Columns.Add(col);
             #region coments code
@@ -131,11 +131,11 @@ namespace TakeAway
             EditFrm.UpdateGrid += (o) =>
             {
                 SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
-                s => new { s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, s.Earn, s.Location, StartTime = s.StartTime, s.Status, s.Timer }
+                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn,Location = s.Location,StartTime = s.StartTime,Status = s.Status,Timer = s.Timer}
                 ).ToList();
                 gridControl2.DataSource = SendOrder;
                 TimerOrder.Add(new TakeAway.TimerOrder { order = o, Time = o.Timer*60,IsNew=true });
-              var  ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen).ToList();
+              var  ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
 
             };
@@ -143,7 +143,9 @@ namespace TakeAway
             #region Finish click Event
             FinishBtn.Click += (sender, e) =>
             {
-                var row = cardView1.GetFocusedRow() as Order;
+                var row = cardView2.GetFocusedRow() as SendOrder;
+
+
                 var Ord = _context?.Orders
                 ?.Include("Customer")
                 ?.Include("Employee")
@@ -155,27 +157,31 @@ namespace TakeAway
                 ?.SingleOrDefault(s => s.ID == row.ID);
                 var finishOrder = new FinishedOrder
                 {
-                    Location = row.Location,
-                    SenderUserID = row.SenderUserID,
-                    StartTime = row.StartTime,
-                    CallUserID = row.CallUserID,
-                    CustomerID = row.CustomerID,
-                    Date = row.Date,
-                    Details = row.Details,
-                    Earn = row.Earn,
-                    EmployeeID = row.EmployeeID,
+                    Location = Ord?.Location,
+                    SenderUserID = Ord?.SenderUserID,
+                    StartTime = Ord?.StartTime,
+                    CallUserID = Ord?.CallUserID,
+                    CustomerID = Ord.CustomerID,
+                    Date = Ord.Date,
+                    Details = Ord?.Details,
+                    Earn = Ord?.Earn,
+                    EmployeeID = Ord?.EmployeeID,
                     EndTime = DateTime.Now,
-                    VehicleID = row.VehicleID,
-                    SenderUserName = Ord.SenderUser.Employee.Name,
-                    CallUserName = Ord.CallUser.Employee.Name,
-                    CustomerName = Ord.Customer.Name,
-                    EmployeeNaame = Ord.Employee.Name,
+                    VehicleID = Ord?.VehicleID,
+                    SenderUserName = Ord?.SenderUser?.Employee?.Name,
+                    CallUserName = Ord?.CallUser?.Employee?.Name,
+                    CustomerName = Ord?.Customer?.Name,
+                    EmployeeNaame = Ord?.Employee?.Name,
                 };
                 _context.FinishedOrders.Add(finishOrder);
-                    _context.SaveChanges();
-                    _context.Orders.Remove(Ord);
-                    _context.SaveChanges();
-              
+                //     _context.SaveChanges();
+                _context.Orders.Remove(Ord);
+                _context.SaveChanges();
+                MessageBox.Show("تمت العملية بنجاح");
+              var  SendOrder2 = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
+               s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn, Location = s.Location, StartTime = s.StartTime, Status = s.Status, Timer = s.Timer }
+               ).ToList();
+                gridControl2.DataSource = SendOrder2;
             };
             #endregion
             #region send click Event
@@ -234,6 +240,7 @@ namespace TakeAway
             toto.Interval = 1000;
             toto.Tick += (sender, e) =>
             {
+                if(TimerOrder.Count>0)
                 foreach (var item in TimerOrder)
                 {
                     if(item.Time==0)
@@ -291,7 +298,7 @@ namespace TakeAway
 
                     if ((bool)ISNewdata)
                     {
-                         UpData = DB?.Orders?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen).ToList();
+                         UpData = DB?.Orders?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                         foreach (var item in UpData)
                         {
                             if (item.Time > DateTime.Now.TimeOfDay)
@@ -340,5 +347,17 @@ namespace TakeAway
         public Order order { get; set; }
         public int? Time { get; set; }
         public bool IsNew { get; set; }
+    }
+    public class SendOrder
+    {
+        public Guid ID { get; set; }
+        public string Details { get; set; }
+        public string CustomerName { get; set; }
+        public string EmployeeName { get; set; }
+        public decimal? Earn { get; set; }
+        public string Location { get; set; }
+        public DateTime? StartTime { get; set; }
+        public int Status { get; set; }
+        public int? Timer { get; set; }
     }
 }

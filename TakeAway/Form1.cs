@@ -125,11 +125,11 @@ namespace TakeAway
                     {
                         Customer = MainCustomer,
                         Details = OrderTxt.Text,
-             //           CallUser=
+                        //           CallUser=
                         Earn = Price
                  ,
                         //   Timer = time
-                        Time = (TimeSpan)TimeTxt.EditValue
+                        Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue
                  ,
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
@@ -162,7 +162,7 @@ namespace TakeAway
         {
             MainOrder = null;
             MainCustomer = null;
-            TimeTxt.Text = null;
+            TimeTxt.EditValue = new TimeSpan(0,0,0,0);
             PriceTxt.Text = null;
             OrderTxt.Text = null;
             LocationTxt.Text = null;
@@ -245,20 +245,21 @@ namespace TakeAway
             }
             else
             {
-             if ( DialogResult.Yes== MessageBox.Show("إن هذه الطلبية قيد التوصيل الآن هل حقا ترغب بالتعديل عليها؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
-                {
-                    using (DataContext _context = new DataContext())
-                    {
-                        CustomerNameTxt.Text = row?.CustomerName;
-                        //single
-                        CustomerNumberTxt.Text = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID)?.Phone;
-                        LocationTxt.Text = row?.Location;
-                        OrderTxt.Text = row.Details;
-                        PriceTxt.Text = RemovePoint(row.Earn.ToString());
-                        TimeTxt.TimeSpan = row.Time;
-                        MainOrder = row;
-                    }
-                }
+                /*  if ( DialogResult.Yes== */
+                MessageBox.Show("إن هذه الطلبية قيد التوصيل لا تملك صلاحيةالتعديل عليها؟");/*, "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))*/
+               // {
+                    //using (DataContext _context = new DataContext())
+                    //{
+                    //    CustomerNameTxt.Text = row?.CustomerName;
+                    //    //single
+                    //    CustomerNumberTxt.Text = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID)?.Phone;
+                    //    LocationTxt.Text = row?.Location;
+                    //    OrderTxt.Text = row.Details;
+                    //    PriceTxt.Text = RemovePoint(row.Earn.ToString());
+                    //    TimeTxt.TimeSpan = row.Time;
+                    //    MainOrder = row;
+                    //}
+              //  }
             }
            
 
@@ -276,5 +277,24 @@ namespace TakeAway
             }
 
         }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            var row = gridView1.GetFocusedRow() as Order;
+            if (row.Status != (int)Status.InProgress)
+            {
+                using (DataContext _context = new DataContext())
+                {
+                    var ord = _context?.Orders?.SingleOrDefault(s => s.ID == row.ID);
+                    _context.Orders.Remove(ord);
+                    _context.SaveChanges();
+                    RefreshControls(_context);
+                }
+            }
+            else
+            {
+                MessageBox.Show("إن هذه الطلبية قيد التوصيل لا تملك صلاحيةالتعديل عليها؟");
+            }
+            }
     }
 }

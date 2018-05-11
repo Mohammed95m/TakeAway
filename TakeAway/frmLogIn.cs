@@ -113,5 +113,13 @@ namespace ChatApp.Forms
         {
             Application.Exit();
         }
+
+        private void txtPasswordLogIN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogIN_Click(this, new EventArgs());
+            }
+        }
     }
 }

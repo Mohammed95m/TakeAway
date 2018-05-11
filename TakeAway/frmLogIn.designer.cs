@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.txtPasswordLogIN = new DevExpress.XtraEditors.TextEdit();
             this.txtEmailLogIN = new DevExpress.XtraEditors.TextEdit();
@@ -39,19 +42,17 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordLogIN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailLogIN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -60,7 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
@@ -86,6 +86,36 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl2.Location = new System.Drawing.Point(259, 243);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(86, 24);
+            this.labelControl2.StyleController = this.layoutControl1;
+            this.labelControl2.TabIndex = 15;
+            this.labelControl2.Text = "كلمة السر";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl1.Location = new System.Drawing.Point(212, 164);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(133, 24);
+            this.labelControl1.StyleController = this.layoutControl1;
+            this.labelControl1.TabIndex = 14;
+            this.labelControl1.Text = "اسم المستخدم";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TakeAway.Properties.Resources.profile;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(327, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnExit
             // 
             this.btnExit.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,6 +138,7 @@
             this.txtPasswordLogIN.Size = new System.Drawing.Size(333, 24);
             this.txtPasswordLogIN.StyleController = this.layoutControl1;
             this.txtPasswordLogIN.TabIndex = 8;
+            this.txtPasswordLogIN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPasswordLogIN_KeyDown);
             this.txtPasswordLogIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPasswordLogIN_KeyPress);
             this.txtPasswordLogIN.Validating += new System.ComponentModel.CancelEventHandler(this.txtPasswordLogIN_Validating);
             // 
@@ -194,10 +225,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "VS2010";
-            // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.pictureBox1;
@@ -207,16 +234,6 @@
             this.layoutControlItem4.Text = " ";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(3, 13);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TakeAway.Properties.Resources.profile;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -224,16 +241,6 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(337, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl1.Location = new System.Drawing.Point(212, 164);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(133, 24);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 14;
-            this.labelControl1.Text = "اسم المستخدم";
             // 
             // layoutControlItem5
             // 
@@ -244,16 +251,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(337, 28);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl2.Location = new System.Drawing.Point(259, 243);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(86, 24);
-            this.labelControl2.StyleController = this.layoutControl1;
-            this.labelControl2.TabIndex = 15;
-            this.labelControl2.Text = "كلمة السر";
             // 
             // layoutControlItem6
             // 
@@ -289,6 +286,10 @@
             this.emptySpaceItem4.Size = new System.Drawing.Size(337, 24);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "VS2010";
+            // 
             // frmLogIn
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -304,6 +305,7 @@
             this.Text = "تسجيل الدخول";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordLogIN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailLogIN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -312,7 +314,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();

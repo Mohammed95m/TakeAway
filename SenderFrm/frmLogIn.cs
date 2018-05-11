@@ -70,13 +70,14 @@ namespace ChatApp.Forms
 
         private void txtPasswordLogIN_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             Funcs.checkSpace(e);
         }
 
         private void txtPasswordLogIN_Validating(object sender, CancelEventArgs e)
         {
            
-            if (txtPasswordLogIN.Text.Length < 8)
+            if (txtPasswordLogIN.Text.Length < 0)
             {
                 e.Cancel = true;
                 txtPasswordLogIN.Focus();
@@ -100,7 +101,7 @@ namespace ChatApp.Forms
                 {
                     if (logInUser.Password == txtPasswordLogIN.Text)
                     {
-                        MessageBox.Show("Welcome");
+                       // MessageBox.Show("Welcome");
                         //var contextChat = new DataContext();
                         //LogUser currentLog = new LogUser();
                         //currentLog.ID = Guid.NewGuid();
@@ -152,6 +153,14 @@ namespace ChatApp.Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtPasswordLogIN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogIN_Click(this, new EventArgs() );
+            }
         }
     }
 }

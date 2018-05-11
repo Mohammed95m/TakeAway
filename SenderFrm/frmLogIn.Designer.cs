@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -49,7 +48,7 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -138,6 +137,7 @@
             this.txtPasswordLogIN.Size = new System.Drawing.Size(333, 24);
             this.txtPasswordLogIN.StyleController = this.layoutControl1;
             this.txtPasswordLogIN.TabIndex = 8;
+            this.txtPasswordLogIN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPasswordLogIN_KeyDown);
             this.txtPasswordLogIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPasswordLogIN_KeyPress);
             this.txtPasswordLogIN.Validating += new System.ComponentModel.CancelEventHandler(this.txtPasswordLogIN_Validating);
             // 

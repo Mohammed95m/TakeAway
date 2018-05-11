@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Send = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,7 +66,7 @@
             this.repositoryItemCalcEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -75,7 +74,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -107,10 +106,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 29);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 26);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1123, 492);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1123, 496);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -120,7 +119,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1117, 464);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1121, 463);
             this.xtraTabPage1.Text = "xtraTabPage1";
             // 
             // gridControl1
@@ -135,7 +134,7 @@
             this.SendButtonEdit,
             this.EmployeeLookUpEdit,
             this.repositoryItemCalcEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1117, 464);
+            this.gridControl1.Size = new System.Drawing.Size(1121, 463);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView1});
@@ -163,14 +162,6 @@
             this.DetailsColumn.Visible = true;
             this.DetailsColumn.VisibleIndex = 0;
             // 
-            // LocationColumn
-            // 
-            this.LocationColumn.Caption = "LocationColumn";
-            this.LocationColumn.FieldName = "Location";
-            this.LocationColumn.Name = "LocationColumn";
-            this.LocationColumn.Visible = true;
-            this.LocationColumn.VisibleIndex = 1;
-            // 
             // EarnColumn
             // 
             this.EarnColumn.Caption = "EarnColumn";
@@ -178,6 +169,14 @@
             this.EarnColumn.Name = "EarnColumn";
             this.EarnColumn.Visible = true;
             this.EarnColumn.VisibleIndex = 2;
+            // 
+            // LocationColumn
+            // 
+            this.LocationColumn.Caption = "LocationColumn";
+            this.LocationColumn.FieldName = "Location";
+            this.LocationColumn.Name = "LocationColumn";
+            this.LocationColumn.Visible = true;
+            this.LocationColumn.VisibleIndex = 1;
             // 
             // TimeColumn
             // 
@@ -208,10 +207,10 @@
             // 
             // SendButtonEdit
             // 
-            serializableAppearanceObject1.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject1.Image")));
-            serializableAppearanceObject1.Options.UseImage = true;
+            serializableAppearanceObject6.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject6.Image")));
+            serializableAppearanceObject6.Options.UseImage = true;
             this.SendButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.SendButtonEdit.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.SendButtonEdit.HideSelection = false;
             this.SendButtonEdit.Name = "SendButtonEdit";
@@ -243,7 +242,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1117, 464);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1121, 463);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
             // gridControl2
@@ -258,7 +257,7 @@
             this.FinishBtn,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemCalcEdit2});
-            this.gridControl2.Size = new System.Drawing.Size(1117, 464);
+            this.gridControl2.Size = new System.Drawing.Size(1121, 463);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView2});
@@ -367,10 +366,10 @@
             // 
             // FinishBtn
             // 
-            serializableAppearanceObject2.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject2.Image")));
-            serializableAppearanceObject2.Options.UseImage = true;
+            serializableAppearanceObject5.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject5.Image")));
+            serializableAppearanceObject5.Options.UseImage = true;
             this.FinishBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.FinishBtn.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.FinishBtn.HideSelection = false;
             this.FinishBtn.Name = "FinishBtn";
@@ -466,28 +465,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1123, 29);
+            this.barDockControlTop.Size = new System.Drawing.Size(1123, 26);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 521);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1123, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 522);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1123, 22);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 492);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 496);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1123, 29);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 492);
+            this.barDockControlRight.Location = new System.Drawing.Point(1123, 26);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 496);
             // 
             // XtraForm1
             // 
