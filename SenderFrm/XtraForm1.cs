@@ -29,7 +29,8 @@ namespace TakeAway
         public XtraForm1(SenderUser user)
         {
             InitializeComponent();
-         
+            cardView1.OptionsView.ShowQuickCustomizeButton = false;
+            
             //   lau.DataController.AllowIEnumerableDetails = true;
             SenderUser = user;
                DataContext _context = new DataContext();

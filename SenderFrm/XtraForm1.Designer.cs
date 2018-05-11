@@ -29,20 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
-            this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Send = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SendButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.EmployeeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -76,12 +69,18 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
+            this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Send = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).BeginInit();
@@ -95,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             this.SuspendLayout();
             // 
             // VehicleLookUpEdit
@@ -141,110 +141,17 @@
             this.cardView1});
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
-            // cardView1
-            // 
-            this.cardView1.Appearance.Card.BackColor = System.Drawing.Color.Red;
-            this.cardView1.Appearance.Card.Options.UseBackColor = true;
-            this.cardView1.Appearance.CardCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cardView1.Appearance.CardCaption.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.cardView1.Appearance.CardCaption.BorderColor = System.Drawing.Color.Transparent;
-            this.cardView1.Appearance.CardCaption.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.cardView1.Appearance.CardCaption.Options.UseBackColor = true;
-            this.cardView1.Appearance.CardCaption.Options.UseBorderColor = true;
-            this.cardView1.Appearance.CardCaption.Options.UseFont = true;
-            this.cardView1.Appearance.CardCaption.Options.UseTextOptions = true;
-            this.cardView1.Appearance.CardCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.cardView1.Appearance.EmptySpace.BackColor = System.Drawing.Color.White;
-            this.cardView1.Appearance.EmptySpace.Options.UseBackColor = true;
-            this.cardView1.Appearance.FieldCaption.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.cardView1.Appearance.FieldCaption.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.cardView1.Appearance.FieldCaption.Options.UseFont = true;
-            this.cardView1.Appearance.FieldCaption.Options.UseForeColor = true;
-            this.cardView1.Appearance.FocusedCardCaption.BackColor = System.Drawing.Color.Transparent;
-            this.cardView1.Appearance.FocusedCardCaption.BackColor2 = System.Drawing.Color.Transparent;
-            this.cardView1.Appearance.FocusedCardCaption.BorderColor = System.Drawing.Color.Black;
-            this.cardView1.Appearance.FocusedCardCaption.Font = new System.Drawing.Font("Tahoma", 13F);
-            this.cardView1.Appearance.FocusedCardCaption.Options.UseBackColor = true;
-            this.cardView1.Appearance.FocusedCardCaption.Options.UseBorderColor = true;
-            this.cardView1.Appearance.FocusedCardCaption.Options.UseFont = true;
-            this.cardView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.cardView1.CardCaptionFormat = "الطلب رقم";
-            this.cardView1.CardInterval = 14;
-            this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.StatusColumn,
-            this.DetailsColumn,
-            this.EarnColumn,
-            this.LocationColumn,
-            this.TimeColumn,
-            this.Send});
-            this.cardView1.FocusedCardTopFieldIndex = 0;
-            this.cardView1.GridControl = this.gridControl1;
-            this.cardView1.Name = "cardView1";
-            // 
-            // DetailsColumn
-            // 
-            this.DetailsColumn.Caption = "الطلب";
-            this.DetailsColumn.FieldName = "Details";
-            this.DetailsColumn.Name = "DetailsColumn";
-            this.DetailsColumn.Visible = true;
-            this.DetailsColumn.VisibleIndex = 1;
-            // 
-            // EarnColumn
-            // 
-            this.EarnColumn.Caption = "السعر";
-            this.EarnColumn.FieldName = "Earn";
-            this.EarnColumn.Name = "EarnColumn";
-            this.EarnColumn.Visible = true;
-            this.EarnColumn.VisibleIndex = 3;
-            // 
-            // LocationColumn
-            // 
-            this.LocationColumn.Caption = "الموقع";
-            this.LocationColumn.FieldName = "Location";
-            this.LocationColumn.Name = "LocationColumn";
-            this.LocationColumn.Visible = true;
-            this.LocationColumn.VisibleIndex = 2;
-            // 
-            // TimeColumn
-            // 
-            this.TimeColumn.Caption = "مدة الطلب";
-            this.TimeColumn.FieldName = "Time";
-            this.TimeColumn.Name = "TimeColumn";
-            this.TimeColumn.Visible = true;
-            this.TimeColumn.VisibleIndex = 5;
-            // 
-            // StatusColumn
-            // 
-            this.StatusColumn.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 2.25F);
-            this.StatusColumn.AppearanceHeader.Options.UseFont = true;
-            this.StatusColumn.Caption = " ";
-            this.StatusColumn.FieldName = "Status";
-            this.StatusColumn.Name = "StatusColumn";
-            this.StatusColumn.OptionsColumn.AllowEdit = false;
-            this.StatusColumn.OptionsColumn.AllowFocus = false;
-            this.StatusColumn.OptionsColumn.ReadOnly = true;
-            this.StatusColumn.Visible = true;
-            this.StatusColumn.VisibleIndex = 0;
-            // 
-            // Send
-            // 
-            this.Send.Caption = "Send";
-            this.Send.ColumnEdit = this.SendButtonEdit;
-            this.Send.Name = "Send";
-            this.Send.Visible = true;
-            this.Send.VisibleIndex = 4;
-            // 
             // SendButtonEdit
             // 
-            serializableAppearanceObject1.BackColor = System.Drawing.Color.Lime;
-            serializableAppearanceObject1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            serializableAppearanceObject1.ForeColor = System.Drawing.Color.Black;
-            serializableAppearanceObject1.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject1.Image")));
-            serializableAppearanceObject1.Options.UseBackColor = true;
-            serializableAppearanceObject1.Options.UseForeColor = true;
-            serializableAppearanceObject1.Options.UseImage = true;
+            serializableAppearanceObject3.BackColor = System.Drawing.Color.Lime;
+            serializableAppearanceObject3.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            serializableAppearanceObject3.ForeColor = System.Drawing.Color.Black;
+            serializableAppearanceObject3.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject3.Image")));
+            serializableAppearanceObject3.Options.UseBackColor = true;
+            serializableAppearanceObject3.Options.UseForeColor = true;
+            serializableAppearanceObject3.Options.UseImage = true;
             this.SendButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.SendButtonEdit.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.SendButtonEdit.HideSelection = false;
             this.SendButtonEdit.Name = "SendButtonEdit";
@@ -400,10 +307,10 @@
             // 
             // FinishBtn
             // 
-            serializableAppearanceObject2.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject2.Image")));
-            serializableAppearanceObject2.Options.UseImage = true;
+            serializableAppearanceObject4.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject4.Image")));
+            serializableAppearanceObject4.Options.UseImage = true;
             this.FinishBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.FinishBtn.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.FinishBtn.HideSelection = false;
             this.FinishBtn.Name = "FinishBtn";
@@ -522,6 +429,73 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1123, 26);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 496);
             // 
+            // cardView1
+            // 
+            this.cardView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.StatusColumn,
+            this.DetailsColumn,
+            this.EarnColumn,
+            this.LocationColumn,
+            this.TimeColumn,
+            this.Send});
+            this.cardView1.FocusedCardTopFieldIndex = 0;
+            this.cardView1.GridControl = this.gridControl1;
+            this.cardView1.Name = "cardView1";
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 2.25F);
+            this.StatusColumn.AppearanceHeader.Options.UseFont = true;
+            this.StatusColumn.Caption = " ";
+            this.StatusColumn.FieldName = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.OptionsColumn.AllowEdit = false;
+            this.StatusColumn.OptionsColumn.AllowFocus = false;
+            this.StatusColumn.OptionsColumn.ReadOnly = true;
+            this.StatusColumn.Visible = true;
+            this.StatusColumn.VisibleIndex = 0;
+            // 
+            // DetailsColumn
+            // 
+            this.DetailsColumn.Caption = "الطلب";
+            this.DetailsColumn.FieldName = "Details";
+            this.DetailsColumn.Name = "DetailsColumn";
+            this.DetailsColumn.Visible = true;
+            this.DetailsColumn.VisibleIndex = 1;
+            // 
+            // EarnColumn
+            // 
+            this.EarnColumn.Caption = "السعر";
+            this.EarnColumn.FieldName = "Earn";
+            this.EarnColumn.Name = "EarnColumn";
+            this.EarnColumn.Visible = true;
+            this.EarnColumn.VisibleIndex = 2;
+            // 
+            // LocationColumn
+            // 
+            this.LocationColumn.Caption = "الموقع";
+            this.LocationColumn.FieldName = "Location";
+            this.LocationColumn.Name = "LocationColumn";
+            this.LocationColumn.Visible = true;
+            this.LocationColumn.VisibleIndex = 3;
+            // 
+            // TimeColumn
+            // 
+            this.TimeColumn.Caption = "مدة الطلب";
+            this.TimeColumn.FieldName = "Time";
+            this.TimeColumn.Name = "TimeColumn";
+            this.TimeColumn.Visible = true;
+            this.TimeColumn.VisibleIndex = 4;
+            // 
+            // Send
+            // 
+            this.Send.Caption = "Send";
+            this.Send.ColumnEdit = this.SendButtonEdit;
+            this.Send.Name = "Send";
+            this.Send.Visible = true;
+            this.Send.VisibleIndex = 5;
+            // 
             // XtraForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,7 +513,6 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).EndInit();
@@ -553,6 +526,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,13 +540,7 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit VehicleLookUpEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
-        private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn LocationColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn EarnColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn StatusColumn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private DevExpress.XtraGrid.Columns.GridColumn Send;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit SendButtonEdit;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -600,9 +568,15 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit2;
-        private DevExpress.XtraGrid.Columns.GridColumn TimeColumn;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
         private DevExpress.XtraGrid.Columns.GridColumn CustomerColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn TimerColumn1;
+        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
+        private DevExpress.XtraGrid.Columns.GridColumn StatusColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn EarnColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn LocationColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn TimeColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn Send;
     }
 }
