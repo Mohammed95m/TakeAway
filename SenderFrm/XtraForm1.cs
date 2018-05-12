@@ -24,39 +24,58 @@ namespace TakeAway
         public SenderUser SenderUser { get; set; }
         List<TimerOrder> TimerOrder = new List<TimerOrder>();
         List<Order> TimerWating = new List<Order>();
+        DataContext _context = new DataContext();
 
-
-        public XtraForm1(SenderUser user)
+        protected internal XtraForm1(SenderUser user)
         {
             InitializeComponent();
-            cardView1.OptionsView.ShowQuickCustomizeButton = false;
+            //cardView1.OptionsView.ShowQuickCustomizeButton = false;
             
             //   lau.DataController.AllowIEnumerableDetails = true;
             SenderUser = user;
-               DataContext _context = new DataContext();
+            
             
             var order = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
             foreach (var item in order)
             {
-                 if (item.Time > DateTime.Now.TimeOfDay)
-                    {
-                        item.Status = (int)Status.Waiting;
-                    }
-                    else
-                    {
-                        item.Status = (int)Status.Seen;
-                    }
-                    if (!TimerWating.Any(s => s.ID == item.ID))
-                    {
-                        TimerWating.Add(item);
-                    }
+                if (item.Time > DateTime.Now.TimeOfDay)
+                {
+                    item.Status = (int)Status.Waiting;
                 }
-           gridControl1.DataSource = order;
-            var SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
-                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn,Location= s.Location,StartTime=s.StartTime,Status= s.Status,Timer= s.Timer}
+                else
+                {
+                    item.Status = (int)Status.Seen;
+                }
+
+                if (!TimerWating.Any(s => s.ID == item.ID))
+                {
+                    TimerWating.Add(item);
+                }
+            }
+            gridControl1.DataSource = order;
+
+
+            LoadSendGrid();
+            tileView1.ItemCustomize += (sender, e) =>
+            {
                 
-                ).ToList();
-            gridControl2.DataSource = SendOrder;
+                if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
+                {
+                    e.Item.Elements[4].Appearance.Normal.BackColor = Color.Red;
+                }
+                else if((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
+                {
+                    e.Item.Elements[4].Appearance.Normal.BackColor = Color.Orange;
+                }
+            };
+
+            tileView1.ItemClick += (sender, e) =>
+            {
+                var row = tileView1.GetFocusedRow() as Order;
+                EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
+                fofo.ShowDialog();
+            };
+
             //DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
             //VehicleLookUpEdit.Columns.Add(col);
             #region coments code
@@ -128,34 +147,33 @@ namespace TakeAway
 
             //                };
             #endregion
+
             #region this event work after set employee $  Vehicle
             EditFrm.UpdateGrid += (o) =>
             {
-                SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
-                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn,Location = s.Location,StartTime = s.StartTime,Status = s.Status,Timer = s.Timer}
-                ).ToList();
-                gridControl2.DataSource = SendOrder;
+                LoadSendGrid();
                 TimerOrder.Add(new TakeAway.TimerOrder { order = o, Time = o.Timer*60,IsNew=true });
-              var  ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
+                var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
 
             };
             #endregion
+
             #region Finish click Event
             FinishBtn.Click += (sender, e) =>
             {
                 var row = cardView2.GetFocusedRow() as SendOrder;
-
-
+                
                 var Ord = _context?.Orders
                 ?.Include("Customer")
                 ?.Include("Employee")
                 ?.Include("Vehicle")
-                 ?.Include("SenderUser")
-                 ?.Include("SenderUser.Employee")
-                   ?.Include("CallUser")
-                 ?.Include("CallUser.Employee")
+                ?.Include("SenderUser")
+                ?.Include("SenderUser.Employee")
+                ?.Include("CallUser")
+                ?.Include("CallUser.Employee")
                 ?.SingleOrDefault(s => s.ID == row.ID);
+
                 var finishOrder = new FinishedOrder
                 {
                     Location = Ord?.Location,
@@ -179,63 +197,59 @@ namespace TakeAway
                 _context.Orders.Remove(Ord);
                 _context.SaveChanges();
                 MessageBox.Show("تمت العملية بنجاح");
-              var  SendOrder2 = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
-               s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn, Location = s.Location, StartTime = s.StartTime, Status = s.Status, Timer = s.Timer }
-               ).ToList();
-                gridControl2.DataSource = SendOrder2;
+                LoadSendGrid();
             };
             #endregion
+
             #region send click Event
             SendButtonEdit.Click += (Sender, e) => {
 
                 try
                 {
                 //   var v= VehicleLookUpEdit.value as Vehicle;
-                    var row = cardView1.GetFocusedRow() as Order;
+                    var row = tileView1.GetFocusedRow() as Order;
                     EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
                     fofo.ShowDialog();
 
                 }
                 catch (Exception ee)
-                {
-
-
-                }
+                {}
 
 
             };
             #endregion
 
             #region set Status Color
-            cardView1.CustomDrawCardField += (sender, e) => {
-                if (e.Column.FieldName != "Status") return;
-                // The brush to fill the cell background.
-                if (e.Column.FieldName == "Status" && int.Parse(e.CellValue.ToString()) == (int)Status.Waiting)
-                {
-                    Color color1 = Color.FromArgb(232, 42, 25);
-                    Color color2 = Color.FromArgb(204, 71, 59);
-                    Brush brush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.Horizontal);
-                    e.Appearance.ForeColor = Color.White;
-                    e.Appearance.Font = e.Cache.GetFont(e.Appearance.Font, FontStyle.Bold);
-                    e.Cache.FillRectangle(brush, e.Bounds);
-                    e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
-                    // Prevent default painting.
-                    e.Handled = true;
-                }
-                else
-                {
-                    Color color1 = Color.FromArgb(33, 188, 41);
-                    Color color2 = Color.FromArgb(21, 119, 26);
-                    Brush brush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.Horizontal);
-                    e.Appearance.ForeColor = Color.White;
-                    e.Appearance.Font = e.Cache.GetFont(e.Appearance.Font, FontStyle.Bold);
-                    e.Cache.FillRectangle(brush, e.Bounds);
-                    e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
-                    // Prevent default painting.
-                    e.Handled = true;
-                }
-            };
+            //cardView1.CustomDrawCardField += (sender, e) => {
+            //    if (e.Column.FieldName != "Status") return;
+            //    // The brush to fill the cell background.
+            //    if (e.Column.FieldName == "Status" && int.Parse(e.CellValue.ToString()) == (int)Status.Waiting)
+            //    {
+            //        Color color1 = Color.FromArgb(232, 42, 25);
+            //        Color color2 = Color.FromArgb(204, 71, 59);
+            //        Brush brush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.Horizontal);
+            //        e.Appearance.ForeColor = Color.White;
+            //        e.Appearance.Font = e.Cache.GetFont(e.Appearance.Font, FontStyle.Bold);
+            //        e.Cache.FillRectangle(brush, e.Bounds);
+            //        e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
+            //        // Prevent default painting.
+            //        e.Handled = true;
+            //    }
+            //    else
+            //    {
+            //        Color color1 = Color.FromArgb(33, 188, 41);
+            //        Color color2 = Color.FromArgb(21, 119, 26);
+            //        Brush brush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.Horizontal);
+            //        e.Appearance.ForeColor = Color.White;
+            //        e.Appearance.Font = e.Cache.GetFont(e.Appearance.Font, FontStyle.Bold);
+            //        e.Cache.FillRectangle(brush, e.Bounds);
+            //        e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
+            //        // Prevent default painting.
+            //        e.Handled = true;
+            //    }
+            //};
             #endregion
+
             #region intilize alert timer
             Timer toto = new Timer();
             toto.Interval = 1000;
@@ -258,6 +272,7 @@ namespace TakeAway
             };
             toto.Start();
             #endregion
+
             #region intilize Wating Timer
             Timer Wait = new Timer();
             Wait.Interval = 60000;
@@ -278,7 +293,22 @@ namespace TakeAway
             };
             Wait.Start();
             #endregion
+
             backgroundWorker1.RunWorkerAsync();
+        }
+
+
+        /// <summary>
+        /// Load Grid 2 (Send Grid) Data
+        /// </summary>
+        void LoadSendGrid()
+        {
+            var SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
+                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn, Location = s.Location, StartTime = s.StartTime, Status = s.Status, Timer = s.Timer }
+                ).ToList();
+
+
+            gridControl2.DataSource = SendOrder;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -315,7 +345,7 @@ namespace TakeAway
                                 TimerWating.Add(item);
                             }
                         }
-                        //gridControl1.DataSource = UpData;
+
                         this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { gridControl1.DataSource = UpData; });
                         DB.SaveChangesAsync();
                     }

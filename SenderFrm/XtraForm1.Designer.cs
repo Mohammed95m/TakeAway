@@ -32,6 +32,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -69,13 +74,13 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
-            this.StatusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EarnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LocationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TimeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Send = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.StatusColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DetailsColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.EarnColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.LocationColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.TimeColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Send = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -94,7 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             this.SuspendLayout();
             // 
             // VehicleLookUpEdit
@@ -127,7 +132,7 @@
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.cardView1;
+            this.gridControl1.MainView = this.tileView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.VehicleLookUpEdit,
@@ -138,7 +143,7 @@
             this.gridControl1.Size = new System.Drawing.Size(1121, 463);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.cardView1});
+            this.tileView1});
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
             // SendButtonEdit
@@ -429,19 +434,64 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1123, 26);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 496);
             // 
-            // cardView1
+            // tileView1
             // 
-            this.cardView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.cardView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tileView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.StatusColumn,
             this.DetailsColumn,
             this.EarnColumn,
             this.LocationColumn,
             this.TimeColumn,
             this.Send});
-            this.cardView1.FocusedCardTopFieldIndex = 0;
-            this.cardView1.GridControl = this.gridControl1;
-            this.cardView1.Name = "cardView1";
+            this.tileView1.ColumnSet.GroupColumn = this.StatusColumn;
+            this.tileView1.GridControl = this.gridControl1;
+            this.tileView1.Name = "tileView1";
+            this.tileView1.OptionsTiles.ColumnCount = 4;
+            this.tileView1.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView1.OptionsTiles.RowCount = 5;
+            this.tileView1.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.tileView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.StatusColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
+            tileViewItemElement6.Column = this.DetailsColumn;
+            tileViewItemElement6.StretchHorizontal = true;
+            tileViewItemElement6.Text = "DetailsColumn";
+            tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement6.TextLocation = new System.Drawing.Point(-15, 70);
+            tileViewItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement7.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement7.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement7.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement7.Column = null;
+            tileViewItemElement7.Text = "الموقع";
+            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement7.TextLocation = new System.Drawing.Point(-15, 0);
+            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement8.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement8.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement8.Column = null;
+            tileViewItemElement8.Text = "الطلب";
+            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement8.TextLocation = new System.Drawing.Point(-15, 50);
+            tileViewItemElement9.Column = this.LocationColumn;
+            tileViewItemElement9.StretchHorizontal = true;
+            tileViewItemElement9.Text = "LocationColumn";
+            tileViewItemElement9.TextLocation = new System.Drawing.Point(-15, -70);
+            tileViewItemElement10.Appearance.Normal.BackColor = System.Drawing.Color.DarkTurquoise;
+            tileViewItemElement10.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement10.Column = null;
+            tileViewItemElement10.Height = 200;
+            tileViewItemElement10.Text = "";
+            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement10.TextLocation = new System.Drawing.Point(18, 0);
+            tileViewItemElement10.Width = 20;
+            this.tileView1.TileTemplate.Add(tileViewItemElement6);
+            this.tileView1.TileTemplate.Add(tileViewItemElement7);
+            this.tileView1.TileTemplate.Add(tileViewItemElement8);
+            this.tileView1.TileTemplate.Add(tileViewItemElement9);
+            this.tileView1.TileTemplate.Add(tileViewItemElement10);
             // 
             // StatusColumn
             // 
@@ -526,7 +576,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,12 +621,12 @@
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
         private DevExpress.XtraGrid.Columns.GridColumn CustomerColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn TimerColumn1;
-        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
-        private DevExpress.XtraGrid.Columns.GridColumn StatusColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn EarnColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn LocationColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn TimeColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn Send;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn StatusColumn;
+        private DevExpress.XtraGrid.Columns.TileViewColumn DetailsColumn;
+        private DevExpress.XtraGrid.Columns.TileViewColumn EarnColumn;
+        private DevExpress.XtraGrid.Columns.TileViewColumn LocationColumn;
+        private DevExpress.XtraGrid.Columns.TileViewColumn TimeColumn;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Send;
     }
 }
