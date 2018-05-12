@@ -19,7 +19,14 @@ namespace TakeAway
         public Form1(CallUser user)
         {
             InitializeComponent();
-            TimeTxt.Properties.Mask.EditMask = "HH:mm";
+            MessageBox.Show("f");
+            TimeTxt.EditValueChanged += (sender, e) =>
+            {
+                TimeSpan now = DateTime.Now.TimeOfDay;
+                TimeSpan def = TimeTxt.TimeSpan - now;
+                afterTimeLbl.Text = "بعد " + def.Hours + " ساعة و " + def.Minutes + "دقيقة";
+            };
+
             using (DataContext _context = new DataContext())
             {
                 gridControl1.DataSource = _context.Orders.Where(s => s.Date.Day == DateTime.Now.Day && s.Date.Year == DateTime.Now.Year && s.Date.Month == DateTime.Now.Month).ToList();

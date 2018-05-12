@@ -219,7 +219,7 @@ namespace TakeAway
             };
             #endregion
 
-            #region set Status Color
+            #region /DELETED/ set Status Color /DELETED/
             //cardView1.CustomDrawCardField += (sender, e) => {
             //    if (e.Column.FieldName != "Status") return;
             //    // The brush to fill the cell background.
@@ -251,47 +251,47 @@ namespace TakeAway
             #endregion
 
             #region intilize alert timer
-            Timer toto = new Timer();
-            toto.Interval = 1000;
-            toto.Tick += (sender, e) =>
-            {
-                if(TimerOrder.Count>0)
-                foreach (var item in TimerOrder)
-                {
-                    if(item.Time==0)
-                    {
-                        var emp = _context.Employees.SingleOrDefault(s => s.ID == item.order.EmployeeID);
-                        alertControl1.Show(this, "هذا الموظف يجب أن يكون قد وصل", emp.Name);
-                        TimerOrder.Remove(item);
-                        continue;
-                        //var order2 = _context.Orders.SingleOrDefault(s => s.ID == item.order.ID);
-                        //_context.SaveChanges();
-                    }
-                    item.Time--;
-                }
-            };
-            toto.Start();
+            //Timer toto = new Timer();
+            //toto.Interval = 1000;
+            //toto.Tick += (sender, e) =>
+            //{
+            //    if(TimerOrder.Count>0)
+            //    foreach (var item in TimerOrder)
+            //    {
+            //        if(item.Time==0)
+            //        {
+            //            var emp = _context.Employees.SingleOrDefault(s => s.ID == item.order.EmployeeID);
+            //            alertControl1.Show(this, "هذا الموظف يجب أن يكون قد وصل", emp.Name);
+            //            TimerOrder.Remove(item);
+            //            continue;
+            //            //var order2 = _context.Orders.SingleOrDefault(s => s.ID == item.order.ID);
+            //            //_context.SaveChanges();
+            //        }
+            //        item.Time--;
+            //    }
+            //};
+            //toto.Start();
             #endregion
 
             #region intilize Wating Timer
-            Timer Wait = new Timer();
-            Wait.Interval = 60000;
-            Wait.Tick += (Sender, e) =>
-            {
-                foreach (var item in TimerWating)
-                {
-                    var t = new TimeSpan(0, 30, 0);
-                    var total = DateTime.Now.TimeOfDay + t;
-                    if (item.Time <= total)
-                    {
-                        var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
-                        orderRadey.Status = (int)Status.Seen;
-                        _context.SaveChanges();
-                        alertControl1.Show(this, "حان وقت ارسال الطلب", item.Details);
-                    }
-                }
-            };
-            Wait.Start();
+            //Timer Wait = new Timer();
+            //Wait.Interval = 60000;
+            //Wait.Tick += (Sender, e) =>
+            //{
+            //    foreach (var item in TimerWating)
+            //    {
+            //        var t = new TimeSpan(0, 30, 0);
+            //        var total = DateTime.Now.TimeOfDay + t;
+            //        if (item.Time <= total)
+            //        {
+            //            var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
+            //            orderRadey.Status = (int)Status.Seen;
+            //            _context.SaveChanges();
+            //            alertControl1.Show(this, "حان وقت ارسال الطلب", item.Details);
+            //        }
+            //    }
+            //};
+            //Wait.Start();
             #endregion
 
             backgroundWorker1.RunWorkerAsync();
