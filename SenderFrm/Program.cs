@@ -24,6 +24,9 @@ namespace SenderFrm
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+            MessageBoxManager.Yes = "تم التوصيل";
+            MessageBoxManager.No = "تعديل  ";
+            MessageBoxManager.Register();
             Application.Run(new frmLogIn());
         }
     }

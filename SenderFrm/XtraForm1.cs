@@ -13,6 +13,8 @@ using Data.Enums;
 using Data.Data;
 using ChatApp.Forms;
 using SenderFrm;
+using DevExpress.XtraGrid.Views.Tile;
+using System.Media;
 
 namespace TakeAway
 {
@@ -25,7 +27,7 @@ namespace TakeAway
         List<TimerOrder> TimerOrder = new List<TimerOrder>();
         List<Order> TimerWating = new List<Order>();
         DataContext _context = new DataContext();
-
+        SoundPlayer UpdateSound = new SoundPlayer("UpdateOrder.wav");
         protected internal XtraForm1(SenderUser user)
         {
             InitializeComponent();
@@ -74,6 +76,55 @@ namespace TakeAway
                 var row = tileView1.GetFocusedRow() as Order;
                 EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
                 fofo.ShowDialog();
+            };
+            cardView2.Click += (sender, e)=>
+            {
+                var row = cardView2.GetFocusedRow() as SendOrder;
+                if (DialogResult.Yes==MessageBox.Show("","لتعديل الطلب اضغط على تعديل "+"\n"+"إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل", MessageBoxButtons.YesNo))
+                {
+                 
+
+                    var Ord = _context?.Orders
+                    ?.Include("Customer")
+                    ?.Include("Employee")
+                    ?.Include("Vehicle")
+                    ?.Include("SenderUser")
+                    ?.Include("SenderUser.Employee")
+                    ?.Include("CallUser")
+                    ?.Include("CallUser.Employee")
+                    ?.SingleOrDefault(s => s.ID == row.ID);
+
+                    var finishOrder = new FinishedOrder
+                    {
+                        Location = Ord?.Location,
+                        SenderUserID = Ord?.SenderUserID,
+                        StartTime = Ord?.StartTime,
+                        CallUserID = Ord?.CallUserID,
+                        CustomerID = Ord.CustomerID,
+                        Date = Ord.Date,
+                        Details = Ord?.Details,
+                        Earn = Ord?.Earn,
+                        EmployeeID = Ord?.EmployeeID,
+                        EndTime = DateTime.Now,
+                        VehicleID = Ord?.VehicleID,
+                        SenderUserName = Ord?.SenderUser?.Employee?.Name,
+                        CallUserName = Ord?.CallUser?.Employee?.Name,
+                        CustomerName = Ord?.Customer?.Name,
+                        EmployeeNaame = Ord?.Employee?.Name,
+                    };
+                    _context.FinishedOrders.Add(finishOrder);
+                    //     _context.SaveChanges();
+                    _context.Orders.Remove(Ord);
+                    _context.SaveChanges();
+                    MessageBox.Show("تمت العملية بنجاح");
+                    LoadSendGrid();
+             
+            }
+                else
+                {
+                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
+                    fofo.ShowDialog();
+                }
             };
 
             //DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
@@ -220,6 +271,12 @@ namespace TakeAway
             #endregion
 
             #region /DELETED/ set Status Color /DELETED/
+            //var c = tileView1.Columns.ColumnByName("");
+            //c.AppearanceCell.BackColor = Color.Black;
+            ////tileView1.TileTemplate.OfType<TileViewItemElement>().
+            ////ToList().ForEach(t => t.Column = tileView1.Columns.ColumnByName(t.Text));
+            //tileView1.TileTemplate.OfType<TileViewItemElement>().
+            //ToList();
             //cardView1.CustomDrawCardField += (sender, e) => {
             //    if (e.Column.FieldName != "Status") return;
             //    // The brush to fill the cell background.
@@ -329,7 +386,7 @@ namespace TakeAway
 
                     if ((bool)ISNewdata)
                     {
-                         UpData = DB?.Orders?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
+                         UpData = DB?.Orders?.Include("Customer")?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting ||S.Updated==1).ToList();
                         foreach (var item in UpData)
                         {
                             if (item.Time > DateTime.Now.TimeOfDay)
@@ -343,6 +400,13 @@ namespace TakeAway
                            if(! TimerWating.Any(s => s.ID == item.ID))
                             {
                                 TimerWating.Add(item);
+                            }
+                            if (item.Updated == 1)
+                            {
+
+                                UpdateSound.Play();
+
+                                alertControl1.Show(this,item.Details + ": تم تعديل الطلب", item.Customer.Name=": اسم الزبون ");
                             }
                         }
 
@@ -395,5 +459,15 @@ namespace TakeAway
         public DateTime? StartTime { get; set; }
         public int Status { get; set; }
         public int? Timer { get; set; }
+    }
+    public class Message
+    {
+        public Message()
+        {
+        
+        }
+        public string Caption { get; set; }
+        public string Text { get; set; }
+        public Image Image { get; set; }
     }
 }

@@ -39,6 +39,10 @@ namespace SenderFrm
                EmployeeLookUpEdit.Properties.DisplayMember = "Name";
                 DevExpress.XtraEditors.Controls.LookUpColumnInfo col2 = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name");
                 EmployeeLookUpEdit.Properties.Columns.Add(col2);
+                VehicleLookUpEdit.EditValue = MainOrder?.VehicleID;
+                EmployeeLookUpEdit.EditValue = MainOrder?.EmployeeID;
+                PriceTxt.EditValue = MainOrder?.Earn?.ToString();
+                textEdit1.EditValue = MainOrder?.Timer;
             }
         }
 
@@ -58,13 +62,21 @@ namespace SenderFrm
                 order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
                 order.Status = (int)Status.InProgress;
                 order.StartTime = DateTime.Now;
+                order.Earn = decimal.Parse((!string.IsNullOrEmpty(PriceTxt.Text)? RemovePoint(PriceTxt.Text):"0"));
                 order.SenderUserID = SenderUserID;
                 coco.SaveChanges();
                 UpdateGrid(order);
                 this.Close();
             }
             }
+        public string RemovePoint(string s)
+        {
 
+            int index = s.IndexOf(".");
+            if (index > 0)
+                s = s.Substring(0, index);
+            return s;
+        }
         private void simpleButton2_Click(object sender, EventArgs e)
         {
            using(DataContext db = new DataContext())

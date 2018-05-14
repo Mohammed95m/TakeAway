@@ -29,18 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.DetailsColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.LocationColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.StatusColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.EarnColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.TimeColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Send = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.SendButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.EmployeeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -74,18 +81,12 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.StatusColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.DetailsColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.EarnColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.LocationColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.TimeColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.Send = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).BeginInit();
@@ -99,8 +100,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DetailsColumn
+            // 
+            this.DetailsColumn.Caption = "الطلب";
+            this.DetailsColumn.FieldName = "Details";
+            this.DetailsColumn.Name = "DetailsColumn";
+            this.DetailsColumn.Visible = true;
+            this.DetailsColumn.VisibleIndex = 1;
+            // 
+            // LocationColumn
+            // 
+            this.LocationColumn.Caption = "الموقع";
+            this.LocationColumn.FieldName = "Location";
+            this.LocationColumn.Name = "LocationColumn";
+            this.LocationColumn.Visible = true;
+            this.LocationColumn.VisibleIndex = 3;
             // 
             // VehicleLookUpEdit
             // 
@@ -112,10 +128,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 26);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 29);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1123, 496);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1123, 492);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -125,7 +141,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1121, 463);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1117, 464);
             this.xtraTabPage1.Text = "xtraTabPage1";
             // 
             // gridControl1
@@ -140,23 +156,119 @@
             this.SendButtonEdit,
             this.EmployeeLookUpEdit,
             this.repositoryItemCalcEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1121, 463);
+            this.gridControl1.Size = new System.Drawing.Size(1117, 464);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
+            // tileView1
+            // 
+            this.tileView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.StatusColumn,
+            this.DetailsColumn,
+            this.EarnColumn,
+            this.LocationColumn,
+            this.TimeColumn,
+            this.Send});
+            this.tileView1.ColumnSet.GroupColumn = this.StatusColumn;
+            this.tileView1.GridControl = this.gridControl1;
+            this.tileView1.Name = "tileView1";
+            this.tileView1.OptionsTiles.ColumnCount = 4;
+            this.tileView1.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView1.OptionsTiles.RowCount = 5;
+            this.tileView1.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.tileView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.StatusColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
+            tileViewItemElement1.Column = this.DetailsColumn;
+            tileViewItemElement1.StretchHorizontal = true;
+            tileViewItemElement1.Text = "DetailsColumn";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement1.TextLocation = new System.Drawing.Point(-15, 70);
+            tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement2.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement2.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement2.Column = null;
+            tileViewItemElement2.Text = "الموقع";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement2.TextLocation = new System.Drawing.Point(-15, 0);
+            tileViewItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement3.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement3.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement3.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement3.Column = null;
+            tileViewItemElement3.Text = "الطلب";
+            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement3.TextLocation = new System.Drawing.Point(-15, 50);
+            tileViewItemElement4.Column = this.LocationColumn;
+            tileViewItemElement4.StretchHorizontal = true;
+            tileViewItemElement4.Text = "LocationColumn";
+            tileViewItemElement4.TextLocation = new System.Drawing.Point(-15, -70);
+            tileViewItemElement5.Appearance.Normal.BackColor = System.Drawing.Color.DarkTurquoise;
+            tileViewItemElement5.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement5.Column = null;
+            tileViewItemElement5.Height = 200;
+            tileViewItemElement5.Text = "";
+            tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement5.TextLocation = new System.Drawing.Point(18, 0);
+            tileViewItemElement5.Width = 20;
+            this.tileView1.TileTemplate.Add(tileViewItemElement1);
+            this.tileView1.TileTemplate.Add(tileViewItemElement2);
+            this.tileView1.TileTemplate.Add(tileViewItemElement3);
+            this.tileView1.TileTemplate.Add(tileViewItemElement4);
+            this.tileView1.TileTemplate.Add(tileViewItemElement5);
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 2.25F);
+            this.StatusColumn.AppearanceHeader.Options.UseFont = true;
+            this.StatusColumn.Caption = " ";
+            this.StatusColumn.FieldName = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.OptionsColumn.AllowEdit = false;
+            this.StatusColumn.OptionsColumn.AllowFocus = false;
+            this.StatusColumn.OptionsColumn.ReadOnly = true;
+            this.StatusColumn.Visible = true;
+            this.StatusColumn.VisibleIndex = 0;
+            // 
+            // EarnColumn
+            // 
+            this.EarnColumn.Caption = "السعر";
+            this.EarnColumn.FieldName = "Earn";
+            this.EarnColumn.Name = "EarnColumn";
+            this.EarnColumn.Visible = true;
+            this.EarnColumn.VisibleIndex = 2;
+            // 
+            // TimeColumn
+            // 
+            this.TimeColumn.Caption = "مدة الطلب";
+            this.TimeColumn.FieldName = "Time";
+            this.TimeColumn.Name = "TimeColumn";
+            this.TimeColumn.Visible = true;
+            this.TimeColumn.VisibleIndex = 4;
+            // 
+            // Send
+            // 
+            this.Send.Caption = "Send";
+            this.Send.ColumnEdit = this.SendButtonEdit;
+            this.Send.Name = "Send";
+            this.Send.Visible = true;
+            this.Send.VisibleIndex = 5;
+            // 
             // SendButtonEdit
             // 
-            serializableAppearanceObject3.BackColor = System.Drawing.Color.Lime;
-            serializableAppearanceObject3.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            serializableAppearanceObject3.ForeColor = System.Drawing.Color.Black;
-            serializableAppearanceObject3.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject3.Image")));
-            serializableAppearanceObject3.Options.UseBackColor = true;
-            serializableAppearanceObject3.Options.UseForeColor = true;
-            serializableAppearanceObject3.Options.UseImage = true;
+            serializableAppearanceObject1.BackColor = System.Drawing.Color.Lime;
+            serializableAppearanceObject1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            serializableAppearanceObject1.ForeColor = System.Drawing.Color.Black;
+            serializableAppearanceObject1.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject1.Image")));
+            serializableAppearanceObject1.Options.UseBackColor = true;
+            serializableAppearanceObject1.Options.UseForeColor = true;
+            serializableAppearanceObject1.Options.UseImage = true;
             this.SendButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.SendButtonEdit.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.SendButtonEdit.HideSelection = false;
             this.SendButtonEdit.Name = "SendButtonEdit";
@@ -188,7 +300,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1121, 463);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1117, 464);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
             // gridControl2
@@ -203,7 +315,7 @@
             this.FinishBtn,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemCalcEdit2});
-            this.gridControl2.Size = new System.Drawing.Size(1121, 463);
+            this.gridControl2.Size = new System.Drawing.Size(1117, 464);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView2});
@@ -312,10 +424,10 @@
             // 
             // FinishBtn
             // 
-            serializableAppearanceObject4.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject4.Image")));
-            serializableAppearanceObject4.Options.UseImage = true;
+            serializableAppearanceObject2.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject2.Image")));
+            serializableAppearanceObject2.Options.UseImage = true;
             this.FinishBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.FinishBtn.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.FinishBtn.HideSelection = false;
             this.FinishBtn.Name = "FinishBtn";
@@ -411,140 +523,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1123, 26);
+            this.barDockControlTop.Size = new System.Drawing.Size(1123, 29);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 522);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1123, 22);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 521);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1123, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 496);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 492);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1123, 26);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 496);
-            // 
-            // tileView1
-            // 
-            this.tileView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.StatusColumn,
-            this.DetailsColumn,
-            this.EarnColumn,
-            this.LocationColumn,
-            this.TimeColumn,
-            this.Send});
-            this.tileView1.ColumnSet.GroupColumn = this.StatusColumn;
-            this.tileView1.GridControl = this.gridControl1;
-            this.tileView1.Name = "tileView1";
-            this.tileView1.OptionsTiles.ColumnCount = 4;
-            this.tileView1.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView1.OptionsTiles.RowCount = 5;
-            this.tileView1.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.tileView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.StatusColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
-            tileViewItemElement6.Column = this.DetailsColumn;
-            tileViewItemElement6.StretchHorizontal = true;
-            tileViewItemElement6.Text = "DetailsColumn";
-            tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement6.TextLocation = new System.Drawing.Point(-15, 70);
-            tileViewItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement7.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement7.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement7.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement7.Column = null;
-            tileViewItemElement7.Text = "الموقع";
-            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement7.TextLocation = new System.Drawing.Point(-15, 0);
-            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement8.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement8.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement8.Column = null;
-            tileViewItemElement8.Text = "الطلب";
-            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement8.TextLocation = new System.Drawing.Point(-15, 50);
-            tileViewItemElement9.Column = this.LocationColumn;
-            tileViewItemElement9.StretchHorizontal = true;
-            tileViewItemElement9.Text = "LocationColumn";
-            tileViewItemElement9.TextLocation = new System.Drawing.Point(-15, -70);
-            tileViewItemElement10.Appearance.Normal.BackColor = System.Drawing.Color.DarkTurquoise;
-            tileViewItemElement10.Appearance.Normal.Options.UseBackColor = true;
-            tileViewItemElement10.Column = null;
-            tileViewItemElement10.Height = 200;
-            tileViewItemElement10.Text = "";
-            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            tileViewItemElement10.TextLocation = new System.Drawing.Point(18, 0);
-            tileViewItemElement10.Width = 20;
-            this.tileView1.TileTemplate.Add(tileViewItemElement6);
-            this.tileView1.TileTemplate.Add(tileViewItemElement7);
-            this.tileView1.TileTemplate.Add(tileViewItemElement8);
-            this.tileView1.TileTemplate.Add(tileViewItemElement9);
-            this.tileView1.TileTemplate.Add(tileViewItemElement10);
-            // 
-            // StatusColumn
-            // 
-            this.StatusColumn.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 2.25F);
-            this.StatusColumn.AppearanceHeader.Options.UseFont = true;
-            this.StatusColumn.Caption = " ";
-            this.StatusColumn.FieldName = "Status";
-            this.StatusColumn.Name = "StatusColumn";
-            this.StatusColumn.OptionsColumn.AllowEdit = false;
-            this.StatusColumn.OptionsColumn.AllowFocus = false;
-            this.StatusColumn.OptionsColumn.ReadOnly = true;
-            this.StatusColumn.Visible = true;
-            this.StatusColumn.VisibleIndex = 0;
-            // 
-            // DetailsColumn
-            // 
-            this.DetailsColumn.Caption = "الطلب";
-            this.DetailsColumn.FieldName = "Details";
-            this.DetailsColumn.Name = "DetailsColumn";
-            this.DetailsColumn.Visible = true;
-            this.DetailsColumn.VisibleIndex = 1;
-            // 
-            // EarnColumn
-            // 
-            this.EarnColumn.Caption = "السعر";
-            this.EarnColumn.FieldName = "Earn";
-            this.EarnColumn.Name = "EarnColumn";
-            this.EarnColumn.Visible = true;
-            this.EarnColumn.VisibleIndex = 2;
-            // 
-            // LocationColumn
-            // 
-            this.LocationColumn.Caption = "الموقع";
-            this.LocationColumn.FieldName = "Location";
-            this.LocationColumn.Name = "LocationColumn";
-            this.LocationColumn.Visible = true;
-            this.LocationColumn.VisibleIndex = 3;
-            // 
-            // TimeColumn
-            // 
-            this.TimeColumn.Caption = "مدة الطلب";
-            this.TimeColumn.FieldName = "Time";
-            this.TimeColumn.Name = "TimeColumn";
-            this.TimeColumn.Visible = true;
-            this.TimeColumn.VisibleIndex = 4;
-            // 
-            // Send
-            // 
-            this.Send.Caption = "Send";
-            this.Send.ColumnEdit = this.SendButtonEdit;
-            this.Send.Name = "Send";
-            this.Send.Visible = true;
-            this.Send.VisibleIndex = 5;
+            this.barDockControlRight.Location = new System.Drawing.Point(1123, 29);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 492);
             // 
             // XtraForm1
             // 
@@ -563,6 +563,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeLookUpEdit)).EndInit();
@@ -576,7 +577,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

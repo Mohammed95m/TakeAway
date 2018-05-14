@@ -17,6 +17,7 @@ namespace Data.Data
         public string Location { get; set; }
 
         public int Status { get; set; }
+        public int? Updated { get; set; }
 
         public decimal? Earn { get; set; }
 

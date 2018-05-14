@@ -91,7 +91,7 @@ namespace TakeAway
         {
             try
             {
-                var Price = int.Parse(PriceTxt.Text);
+              //  var Price = int.Parse(PriceTxt.Text);
               //  var time = int.Parse(TimeTxt?.Text ?? "0");
                 if (MainOrder != null)
                 {
@@ -101,7 +101,8 @@ namespace TakeAway
                     {
                         Order.Customer = MainCustomer;
                         Order.Details = OrderTxt.Text;
-                        Order.Earn = Price;
+                     //   Order.Earn = Price;
+                        Order.Updated = 1;
                         //  Order.Timer = time;
                         Order.Time = TimeTxt.TimeSpan;
                         Order.Date = DateTime.Now;
@@ -133,8 +134,8 @@ namespace TakeAway
                         Customer = MainCustomer,
                         Details = OrderTxt.Text,
                         //           CallUser=
-                        Earn = Price
-                 ,
+              //          Earn = Price
+              //   ,
                         //   Timer = time
                         Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue
                  ,
@@ -170,7 +171,7 @@ namespace TakeAway
             MainOrder = null;
             MainCustomer = null;
             TimeTxt.EditValue = new TimeSpan(0,0,0,0);
-            PriceTxt.Text = null;
+          //  PriceTxt.Text = null;
             OrderTxt.Text = null;
             LocationTxt.Text = null;
             CustomerNumberTxt.Text = null;
@@ -244,7 +245,7 @@ namespace TakeAway
                     LocationTxt.Text = row?.Location;
                     OrderTxt.Text = row.Details;
                     
-                    PriceTxt.Text = RemovePoint(row.Earn.ToString());
+              //      PriceTxt.Text = RemovePoint(row.Earn.ToString());
                     TimeTxt.TimeSpan = row.Time;
                     MainOrder = row;
 
@@ -252,21 +253,20 @@ namespace TakeAway
             }
             else
             {
-                /*  if ( DialogResult.Yes== */
-                MessageBox.Show("إن هذه الطلبية قيد التوصيل لا تملك صلاحيةالتعديل عليها؟");/*, "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))*/
-               // {
-                    //using (DataContext _context = new DataContext())
-                    //{
-                    //    CustomerNameTxt.Text = row?.CustomerName;
-                    //    //single
-                    //    CustomerNumberTxt.Text = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID)?.Phone;
-                    //    LocationTxt.Text = row?.Location;
-                    //    OrderTxt.Text = row.Details;
-                    //    PriceTxt.Text = RemovePoint(row.Earn.ToString());
-                    //    TimeTxt.TimeSpan = row.Time;
-                    //    MainOrder = row;
-                    //}
-              //  }
+                 if ( DialogResult.Yes==MessageBox.Show("تنبيه", "هذا الطلب قيد التوصيل هل تريد التعديل عليه ؟ ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    using (DataContext _context = new DataContext())
+                    {
+                        CustomerNameTxt.Text = row?.CustomerName;
+                        //single
+                        CustomerNumberTxt.Text = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID)?.Phone;
+                        LocationTxt.Text = row?.Location;
+                        OrderTxt.Text = row.Details;
+                 //       PriceTxt.Text = RemovePoint(row.Earn.ToString());
+                        TimeTxt.TimeSpan = row.Time;
+                        MainOrder = row;
+                    }
+                }
             }
            
 
