@@ -62,17 +62,17 @@ namespace TakeAway
             LoadSendGrid();
             tileView1.ItemCustomize += (sender, e) =>
             {
-                
+
                 if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
                 {
                     e.Item.Elements[4].Appearance.Normal.BackColor = Color.Red;
                 }
-                else if((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
+                else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
                 {
                     e.Item.Elements[4].Appearance.Normal.BackColor = Color.Orange;
                 }
                 int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
-                if (Updated == 1|| Updated == 2)
+                if (Updated == 1 || Updated == 2)
                 {
                     e.Item.Elements[4].Appearance.Normal.BackColor = Color.Blue;
                 }
@@ -441,6 +441,7 @@ namespace TakeAway
                                     alertControl1.Show(this, info);
                                 }));
                                 item.Updated = 2;
+                                //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(new TileViewItem()));
                              //   ShowAlert(item.Details + ": تم تعديل الطلب", item.Customer.Name = ": اسم الزبون ");
                                 System.Threading.Thread.Sleep(5000);
                             }
@@ -481,6 +482,24 @@ namespace TakeAway
         {
 
         }
+
+    //    private void tileView1_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
+    //    {
+
+    //        if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
+    //        {
+    //            e.Item.Elements[4].Appearance.Normal.BackColor = Color.Red;
+    //        }
+    //        else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
+    //        {
+    //            e.Item.Elements[4].Appearance.Normal.BackColor = Color.Orange;
+    //        }
+    //        int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
+    //        if (Updated == 1 || Updated == 2)
+    //        {
+    //            e.Item.Elements[4].Appearance.Normal.BackColor = Color.Blue;
+    //        }
+    //    }
     }
     public class TimerOrder
     {
