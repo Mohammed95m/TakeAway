@@ -22,12 +22,18 @@ namespace SenderFrm
         public EditFrm(Guid OrderID,Guid? UserID)
         {
             InitializeComponent();
+            TimeTxt.EditValueChanged += (sender, e) =>
+            {
+                TimeSpan now = DateTime.Now.TimeOfDay;
+                TimeSpan def = TimeTxt.TimeSpan - now;
+                afterTimeLbl.Text = "بعد " + def.Hours + " ساعة و " + def.Minutes + "دقيقة";
+            };
             SenderUserID =(Guid) UserID;
          using ( DataContext coco = new DataContext())
             {
-                MainOrder = coco?.Orders?.SingleOrDefault(s => s.ID == OrderID);
+                MainOrder = coco?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
                 DetailsLbl.Text = MainOrder.Details + ": تفاصيل الطلب";
-                CustomerNameLbl.Text = MainOrder.CustomerName + ": اسم الزبون";
+                CustomerNameLbl.Text = MainOrder?.Customer?.Name + ": اسم الزبون";
                 LocationLbl.Text = MainOrder.Location + ": الموقع";
                 VehicleLookUpEdit.Properties.DataSource = coco?.Vehicles?.ToList();
                 VehicleLookUpEdit.Properties.ValueMember = "ID";
@@ -42,7 +48,8 @@ namespace SenderFrm
                 VehicleLookUpEdit.EditValue = MainOrder?.VehicleID;
                 EmployeeLookUpEdit.EditValue = MainOrder?.EmployeeID;
                 PriceTxt.EditValue = MainOrder?.Earn?.ToString();
-                textEdit1.EditValue = MainOrder?.Timer;
+                TimeTxt.EditValue = MainOrder.BikeTime;
+               // textEdit1.EditValue = MainOrder?.Timer;
             }
         }
 
@@ -59,7 +66,8 @@ namespace SenderFrm
                 var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
                 order.VehicleID = (Guid)VehicleLookUpEdit.EditValue;
                 order.EmployeeID = (Guid)EmployeeLookUpEdit.EditValue;
-                order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
+                //       order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
+                order.BikeTime = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue;
                 order.Status = (int)Status.InProgress;
                 order.StartTime = DateTime.Now;
                 order.Earn = decimal.Parse((!string.IsNullOrEmpty(PriceTxt.Text)? RemovePoint(PriceTxt.Text):"0"));

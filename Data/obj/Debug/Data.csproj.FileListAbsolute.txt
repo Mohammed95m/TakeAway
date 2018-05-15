@@ -23,3 +23,4 @@ E:\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.sc.resources
+E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.m3.resources

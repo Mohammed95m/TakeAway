@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Data.Enums;
+using ChatApp.Forms;
 
 namespace TakeAway
 {
@@ -114,7 +115,7 @@ namespace TakeAway
                             Order.Status = (int)Status.Created;
                       //  }
                         
-                        Order.CallUser = CallUser;
+                        Order.CallUserID = CallUser.ID;
                         _context.SaveChanges();
                      
                         return true;
@@ -239,9 +240,10 @@ namespace TakeAway
             {
                 using (DataContext _context = new DataContext())
                 {
-                    CustomerNameTxt.Text = row?.CustomerName;
+                    Customer cost = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID);
+                    CustomerNameTxt.Text = cost?.Name;
                     //single
-                    CustomerNumberTxt.Text = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID)?.Phone;
+                    CustomerNumberTxt.Text = cost?.Phone;
                     LocationTxt.Text = row?.Location;
                     OrderTxt.Text = row.Details;
                     
@@ -257,9 +259,10 @@ namespace TakeAway
                 {
                     using (DataContext _context = new DataContext())
                     {
-                        CustomerNameTxt.Text = row?.CustomerName;
+                        Customer cost = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID);
+                        CustomerNameTxt.Text = cost?.Name;
                         //single
-                        CustomerNumberTxt.Text = _context?.Customers?.FirstOrDefault(S => S.ID == row.CustomerID)?.Phone;
+                        CustomerNumberTxt.Text = cost?.Phone;
                         LocationTxt.Text = row?.Location;
                         OrderTxt.Text = row.Details;
                  //       PriceTxt.Text = RemovePoint(row.Earn.ToString());
@@ -303,5 +306,13 @@ namespace TakeAway
                 MessageBox.Show("إن هذه الطلبية قيد التوصيل لا تملك صلاحيةالتعديل عليها؟");
             }
             }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CallUser = null;
+            frmLogIn fofo = new frmLogIn();
+            fofo.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -17,11 +17,12 @@ namespace Data.Data
         public string Location { get; set; }
 
         public int Status { get; set; }
-        public int? Updated { get; set; }
+        public int? Updated { get; set; } = 0;
 
         public decimal? Earn { get; set; }
 
         public int? Timer { get; set; }
+        public TimeSpan? BikeTime { get; set; }
 
         public double? Longtude { get; set; }
 
@@ -40,30 +41,6 @@ namespace Data.Data
         [ForeignKey("EmployeeID")]
         public Employee Employee { get; set; }
 
-        [NotMapped]
-        public string CustomerName /*{ get; set; }*/
-        {
-            get
-            {
-                using (DataContext _context = new DataContext())
-                {
-                    return _context.Customers.SingleOrDefault(s => s.ID == CustomerID).Name;
-
-                }
-            }
-        }
-        [NotMapped]
-        public string EmployeeName /*{ get; set; }*/
-        {
-            get
-            {
-                using (DataContext _context = new DataContext())
-                {
-                    return _context.Employees.SingleOrDefault(s => s.ID == EmployeeID).Name;
-
-                }
-            }
-        }
         public Guid? CallUserID { get; set; }
         [ForeignKey("CallUserID")]
         public CallUser CallUser { get; set; }

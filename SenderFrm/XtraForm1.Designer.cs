@@ -49,6 +49,7 @@
             this.TimeColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.Send = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.SendButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.UpdatedColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.EmployeeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
@@ -81,6 +82,8 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.alertControl2 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.alertControl3 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -171,7 +174,8 @@
             this.EarnColumn,
             this.LocationColumn,
             this.TimeColumn,
-            this.Send});
+            this.Send,
+            this.UpdatedColumn1});
             this.tileView1.ColumnSet.GroupColumn = this.StatusColumn;
             this.tileView1.GridControl = this.gridControl1;
             this.tileView1.Name = "tileView1";
@@ -274,6 +278,14 @@
             this.SendButtonEdit.Name = "SendButtonEdit";
             this.SendButtonEdit.ReadOnly = true;
             this.SendButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // UpdatedColumn1
+            // 
+            this.UpdatedColumn1.Caption = "Updated";
+            this.UpdatedColumn1.FieldName = "Updated";
+            this.UpdatedColumn1.Name = "UpdatedColumn1";
+            this.UpdatedColumn1.Visible = true;
+            this.UpdatedColumn1.VisibleIndex = 6;
             // 
             // repositoryItemComboBox1
             // 
@@ -546,6 +558,11 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1123, 29);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 492);
             // 
+            // alertControl1
+            // 
+            this.alertControl1.AutoFormDelay = 30000;
+            this.alertControl1.FormLocation = DevExpress.XtraBars.Alerter.AlertFormLocation.BottomLeft;
+            // 
             // XtraForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,5 +645,8 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn LocationColumn;
         private DevExpress.XtraGrid.Columns.TileViewColumn TimeColumn;
         private DevExpress.XtraGrid.Columns.TileViewColumn Send;
+        private DevExpress.XtraGrid.Columns.TileViewColumn UpdatedColumn1;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl2;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl3;
     }
 }

@@ -22,6 +22,7 @@ namespace ChatApp.Forms
         public frmLogIn()
         {
             InitializeComponent();
+         
             using (DataContext con = new DataContext())
             {
                 con.Database.CreateIfNotExists();

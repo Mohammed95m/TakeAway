@@ -15,6 +15,7 @@ using ChatApp.Forms;
 using SenderFrm;
 using DevExpress.XtraGrid.Views.Tile;
 using System.Media;
+using DevExpress.XtraBars.Alerter;
 
 namespace TakeAway
 {
@@ -28,6 +29,7 @@ namespace TakeAway
         List<Order> TimerWating = new List<Order>();
         DataContext _context = new DataContext();
         SoundPlayer UpdateSound = new SoundPlayer("UpdateOrder.wav");
+        SoundPlayer FinishSound = new SoundPlayer("alert.wav");
         protected internal XtraForm1(SenderUser user)
         {
             InitializeComponent();
@@ -68,6 +70,11 @@ namespace TakeAway
                 else if((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
                 {
                     e.Item.Elements[4].Appearance.Normal.BackColor = Color.Orange;
+                }
+                int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
+                if (Updated == 1|| Updated == 2)
+                {
+                    e.Item.Elements[4].Appearance.Normal.BackColor = Color.Blue;
                 }
             };
 
@@ -113,6 +120,9 @@ namespace TakeAway
                         EmployeeNaame = Ord?.Employee?.Name,
                     };
                     _context.FinishedOrders.Add(finishOrder);
+                    if (TimerWating.Contains(Ord)) TimerWating.Remove(Ord);
+                    var Tord = TimerOrder?.SingleOrDefault(s => s.order == Ord);
+                    if (Tord != null) TimerOrder.Remove(Tord);
                     //     _context.SaveChanges();
                     _context.Orders.Remove(Ord);
                     _context.SaveChanges();
@@ -203,7 +213,7 @@ namespace TakeAway
             EditFrm.UpdateGrid += (o) =>
             {
                 LoadSendGrid();
-                TimerOrder.Add(new TakeAway.TimerOrder { order = o, Time = o.Timer*60,IsNew=true });
+                TimerOrder.Add(new TakeAway.TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
 
@@ -331,27 +341,49 @@ namespace TakeAway
             #endregion
 
             #region intilize Wating Timer
-            //Timer Wait = new Timer();
-            //Wait.Interval = 60000;
-            //Wait.Tick += (Sender, e) =>
-            //{
-            //    foreach (var item in TimerWating)
-            //    {
-            //        var t = new TimeSpan(0, 30, 0);
-            //        var total = DateTime.Now.TimeOfDay + t;
-            //        if (item.Time <= total)
-            //        {
-            //            var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
-            //            orderRadey.Status = (int)Status.Seen;
-            //            _context.SaveChanges();
-            //            alertControl1.Show(this, "حان وقت ارسال الطلب", item.Details);
-            //        }
-            //    }
-            //};
-            //Wait.Start();
-            #endregion
+            Timer WaitBike = new Timer();
+            WaitBike.Interval = 300000;
+            WaitBike.Tick += (Sender, e) =>
+            {
+                if (TimerWating?.Count > 0)
+                {
+                    foreach (var item in TimerWating)
+                    {
+                    
+                        if (item.BikeTime> DateTime.Now.TimeOfDay)
+                        {
+                            FinishSound.Play();
+                            alertControl1.Show(this, ": تنبيه ", item.Details+": إن الطلبية \n"+"\n يجب أن تكون قد وصلت");
+                        }
+                        
+                }
+                }
+               
+            };
+            WaitBike.Start();
+            Timer Wait = new Timer();
+            Wait.Interval = 300000;
+            Wait.Tick += (Sender, e) =>
+            {
+            
+           foreach (var item in TimerWating)
+            {
+                    var t = new TimeSpan(0, 45, 0);
+                    var total = DateTime.Now.TimeOfDay + t;
 
-            backgroundWorker1.RunWorkerAsync();
+                    if (item.Time <= total)
+                {
+                    var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
+                    orderRadey.Status = (int)Status.Seen;
+                    _context.SaveChanges();
+                    alertControl1.Show(this, "حان وقت ارسال الطلب", item.Details);
+                }
+            }
+        };
+        Wait.Start();
+                #endregion
+
+                backgroundWorker1.RunWorkerAsync();
         }
 
 
@@ -382,11 +414,11 @@ namespace TakeAway
                     // Perform a time consuming operation and report progress.
                     System.Threading.Thread.Sleep(1000);
                     DataContext DB = new DataContext();
-                    var ISNewdata = DB?.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle")?.Where(S => S.Status == 0).Any();
+                    var ISNewdata = DB?.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle")?.Where(S => S.Status == 0 || S.Updated == 1).Any();
 
                     if ((bool)ISNewdata)
                     {
-                         UpData = DB?.Orders?.Include("Customer")?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting ||S.Updated==1).ToList();
+                         UpData = DB?.Orders?.Include("Customer")?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting ).ToList();
                         foreach (var item in UpData)
                         {
                             if (item.Time > DateTime.Now.TimeOfDay)
@@ -403,10 +435,14 @@ namespace TakeAway
                             }
                             if (item.Updated == 1)
                             {
-
-                                UpdateSound.Play();
-
-                                alertControl1.Show(this,item.Details + ": تم تعديل الطلب", item.Customer.Name=": اسم الزبون ");
+                                BeginInvoke(new MethodInvoker(delegate () {
+                                    UpdateSound.Play();
+                                    AlertInfo info = new AlertInfo(item.Details + ": تم تعديل الطلب", item.Customer.Name = ": اسم الزبون ");
+                                    alertControl1.Show(this, info);
+                                }));
+                                item.Updated = 2;
+                             //   ShowAlert(item.Details + ": تم تعديل الطلب", item.Customer.Name = ": اسم الزبون ");
+                                System.Threading.Thread.Sleep(5000);
                             }
                         }
 
@@ -421,6 +457,7 @@ namespace TakeAway
 
 
         }
+    
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -433,7 +470,10 @@ namespace TakeAway
         {
             SenderUser = null;
             frmLogIn fofo = new frmLogIn();
-            fofo.Show();
+            fofo.ShowDialog();
+            this.Close();
+            
+           
           
         }
 
@@ -445,7 +485,7 @@ namespace TakeAway
     public class TimerOrder
     {
         public Order order { get; set; }
-        public int? Time { get; set; }
+        public TimeSpan? Time { get; set; }
         public bool IsNew { get; set; }
     }
     public class SendOrder
