@@ -12,6 +12,7 @@ using DevExpress.XtraEditors;
 using ChatApp.Classes;
 using Data.Data;
 using TakeAway;
+using SenderFrm;
 
 namespace ChatApp.Forms
 {
@@ -22,7 +23,9 @@ namespace ChatApp.Forms
         public frmLogIn()
         {
             InitializeComponent();
-         
+            Data.Data.DataContext.ConnectionString = Settings1.Default.Connection;
+
+
             using (DataContext con = new DataContext())
             {
                 con.Database.CreateIfNotExists();
@@ -162,6 +165,24 @@ namespace ChatApp.Forms
             {
                 btnLogIN_Click(this, new EventArgs() );
             }
+        }
+
+        private void labelControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+           
+      
+            }
+ 
+        private void labelControl1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ServerFrm fofo = new ServerFrm();
+            fofo.ShowDialog();
         }
     }
 }

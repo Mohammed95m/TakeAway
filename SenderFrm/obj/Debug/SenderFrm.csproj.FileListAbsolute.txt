@@ -366,3 +366,4 @@ E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.Properties.Resources.reso
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\TakeAway.XtraForm1.resources
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.exe.licenses
+E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.ServerFrm.resources
