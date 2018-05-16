@@ -76,6 +76,8 @@ namespace TakeAway
                 {
                     e.Item.Elements[4].Appearance.Normal.BackColor = Color.Blue;
                 }
+
+                
             };
 
             tileView1.ItemClick += (sender, e) =>
