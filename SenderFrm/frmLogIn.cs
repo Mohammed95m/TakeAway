@@ -18,34 +18,47 @@ namespace ChatApp.Forms
 {
     public partial class frmLogIn : DevExpress.XtraEditors.XtraForm
     {
-        ErrorProvider er1 = new ErrorProvider();
-        ErrorProvider er = new ErrorProvider();
+        //ErrorProvider er1 = new ErrorProvider();
+        //ErrorProvider er = new ErrorProvider();
         public frmLogIn()
         {
             InitializeComponent();
             Data.Data.DataContext.ConnectionString = Settings1.Default.Connection;
 
+            using (DataContext con = new DataContext())
+            {
+                con.Database.CreateIfNotExists();
+                try
+                {
+                    var IsUser = con?.CallUsers?.SingleOrDefault(s => s.Username == "admin");
+                    if (IsUser == null)
+                    {
+                        SenderUser soso = new SenderUser() { Username = "admin", Password = "admin", Date = DateTime.Now };
+                        con.SenderUsers.Add(soso);
+                        con.SaveChanges();
+                    }
+                }
+                catch (Exception e) { }
 
-           
-                
-           
-        }
+
+            }
+            }
 
         private void txtEmailLogIN_Validating(object sender, CancelEventArgs e)
         {
             
-            if (string.IsNullOrEmpty(txtEmailLogIN.Text))
-            {
-                e.Cancel = true;
-                txtEmailLogIN.Focus();
-                er.SetError(txtEmailLogIN, "Please Enter Email");
-            }
-            else
-            {
-                e.Cancel = false;
-               er.SetError(txtEmailLogIN, null);
+            //if (string.IsNullOrEmpty(txtEmailLogIN.Text))
+            //{
+            //    e.Cancel = true;
+            //    txtEmailLogIN.Focus();
+            //    er.SetError(txtEmailLogIN, "Please Enter Email");
+            //}
+            //else
+            //{
+            //    e.Cancel = false;
+            //   er.SetError(txtEmailLogIN, null);
 
-            }
+            //}
         }
 
         private void txtEmailLogIN_KeyPress(object sender, KeyPressEventArgs e)
@@ -62,13 +75,13 @@ namespace ChatApp.Forms
         private void txtPasswordLogIN_Validating(object sender, CancelEventArgs e)
         {
            
-            if (txtPasswordLogIN.Text.Length < 0)
-            {
-                e.Cancel = true;
-                txtPasswordLogIN.Focus();
-               er1.SetError(txtPasswordLogIN, "The Password must be greater than Or Equal 8 letters");
-            }
-            else er1.SetError(txtPasswordLogIN, null);
+            //if (txtPasswordLogIN.Text.Length < 0)
+            //{
+            //    e.Cancel = true;
+            //    txtPasswordLogIN.Focus();
+            //   er1.SetError(txtPasswordLogIN, "The Password must be greater than Or Equal 8 letters");
+            //}
+            //else er1.SetError(txtPasswordLogIN, null);
         }
 
         private void btnLogIN_Click(object sender, EventArgs e)

@@ -53,7 +53,6 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -91,14 +90,14 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 51);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(357, 258);
+            this.layoutControl1.Size = new System.Drawing.Size(344, 423);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl2.Location = new System.Drawing.Point(242, 112);
+            this.labelControl2.Location = new System.Drawing.Point(246, 220);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 24);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -108,7 +107,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl1.Location = new System.Drawing.Point(195, 46);
+            this.labelControl1.Location = new System.Drawing.Point(199, 154);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(133, 24);
             this.labelControl1.StyleController = this.layoutControl1;
@@ -122,7 +121,7 @@
             this.pictureBox1.Image = global::SenderFrm.Properties.Resources.profile;
             this.pictureBox1.Location = new System.Drawing.Point(18, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(310, 20);
+            this.pictureBox1.Size = new System.Drawing.Size(314, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
@@ -131,9 +130,9 @@
             // 
             this.btnExit.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
-            this.btnExit.Location = new System.Drawing.Point(12, 220);
+            this.btnExit.Location = new System.Drawing.Point(12, 383);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(316, 28);
+            this.btnExit.Size = new System.Drawing.Size(320, 28);
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 12;
             this.btnExit.Text = "خروج";
@@ -141,12 +140,12 @@
             // 
             // txtPasswordLogIN
             // 
-            this.txtPasswordLogIN.Location = new System.Drawing.Point(12, 140);
+            this.txtPasswordLogIN.Location = new System.Drawing.Point(12, 248);
             this.txtPasswordLogIN.Name = "txtPasswordLogIN";
             this.txtPasswordLogIN.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswordLogIN.Properties.Appearance.Options.UseFont = true;
             this.txtPasswordLogIN.Properties.UseSystemPasswordChar = true;
-            this.txtPasswordLogIN.Size = new System.Drawing.Size(316, 24);
+            this.txtPasswordLogIN.Size = new System.Drawing.Size(320, 24);
             this.txtPasswordLogIN.StyleController = this.layoutControl1;
             this.txtPasswordLogIN.TabIndex = 8;
             this.txtPasswordLogIN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPasswordLogIN_KeyDown);
@@ -155,11 +154,11 @@
             // 
             // txtEmailLogIN
             // 
-            this.txtEmailLogIN.Location = new System.Drawing.Point(12, 74);
+            this.txtEmailLogIN.Location = new System.Drawing.Point(12, 182);
             this.txtEmailLogIN.Name = "txtEmailLogIN";
             this.txtEmailLogIN.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailLogIN.Properties.Appearance.Options.UseFont = true;
-            this.txtEmailLogIN.Size = new System.Drawing.Size(316, 24);
+            this.txtEmailLogIN.Size = new System.Drawing.Size(320, 24);
             this.txtEmailLogIN.StyleController = this.layoutControl1;
             this.txtEmailLogIN.TabIndex = 7;
             this.txtEmailLogIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmailLogIN_KeyPress);
@@ -169,9 +168,9 @@
             // 
             this.btnLogIN.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIN.Appearance.Options.UseFont = true;
-            this.btnLogIN.Location = new System.Drawing.Point(12, 178);
+            this.btnLogIN.Location = new System.Drawing.Point(12, 286);
             this.btnLogIN.Name = "btnLogIN";
-            this.btnLogIN.Size = new System.Drawing.Size(316, 28);
+            this.btnLogIN.Size = new System.Drawing.Size(320, 28);
             this.btnLogIN.StyleController = this.layoutControl1;
             this.btnLogIN.TabIndex = 6;
             this.btnLogIN.Text = "دخول";
@@ -195,15 +194,15 @@
             this.emptySpaceItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(340, 260);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(344, 423);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txtEmailLogIN;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 62);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 170);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(320, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(324, 28);
             this.layoutControlItem1.Text = "Email";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -211,9 +210,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtPasswordLogIN;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 128);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 236);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(320, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(324, 28);
             this.layoutControlItem2.Text = "Password";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -221,18 +220,18 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnExit;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 208);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 371);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(320, 32);
+            this.layoutControlItem7.Size = new System.Drawing.Size(324, 32);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnLogIN;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 166);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 274);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(320, 32);
+            this.layoutControlItem3.Size = new System.Drawing.Size(324, 32);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -241,25 +240,25 @@
             this.layoutControlItem4.Control = this.pictureBox1;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(320, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(324, 132);
             this.layoutControlItem4.Text = " ";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(3, 13);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 132);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(320, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(324, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.labelControl1;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 142);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(320, 28);
+            this.layoutControlItem5.Size = new System.Drawing.Size(324, 28);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -267,34 +266,34 @@
             // 
             this.layoutControlItem6.Control = this.labelControl2;
             this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 100);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 208);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(320, 28);
+            this.layoutControlItem6.Size = new System.Drawing.Size(324, 28);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 90);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 198);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(320, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(324, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 198);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 306);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(320, 10);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(324, 65);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 156);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 264);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(320, 10);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(324, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // defaultLookAndFeel1
@@ -305,8 +304,7 @@
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -316,7 +314,6 @@
             this.barButtonItem1});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 1;
-            this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
             // 
@@ -324,6 +321,7 @@
             this.bar1.DockCol = 0;
             this.bar1.DockRow = 1;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.Offset = 1;
             this.bar1.Text = "Tools";
             // 
             // bar2
@@ -345,45 +343,33 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(357, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(344, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 309);
-            this.barDockControlBottom.Size = new System.Drawing.Size(357, 22);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 474);
+            this.barDockControlBottom.Size = new System.Drawing.Size(344, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 258);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 423);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(357, 51);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 258);
+            this.barDockControlRight.Location = new System.Drawing.Point(344, 51);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 423);
             // 
             // frmLogIn
             // 
@@ -391,7 +377,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 331);
+            this.ClientSize = new System.Drawing.Size(344, 474);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -452,7 +438,6 @@
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

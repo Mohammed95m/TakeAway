@@ -20,12 +20,24 @@ namespace TakeAway
         public Form1(CallUser user)
         {
             InitializeComponent();
+
+            int sss = DateTime.Now.Day;
+            var s1 = sss + 1;
+            var s2 = sss + 2;
+            comboBoxEdit1.Properties.Items.Add(sss);
+            comboBoxEdit1.Properties.Items.Add(s1);
+            comboBoxEdit1.Properties.Items.Add(s2);
+            comboBoxEdit1.SelectedItem = sss;
             MessageBox.Show("f");
             TimeTxt.EditValueChanged += (sender, e) =>
             {
-                TimeSpan now = DateTime.Now.TimeOfDay;
-                TimeSpan def = TimeTxt.TimeSpan - now;
-                afterTimeLbl.Text = "بعد " + def.Hours + " ساعة و " + def.Minutes + "دقيقة";
+                //TimeSpan now = DateTime.Now.TimeOfDay;
+                TimeSpan now = new TimeSpan(DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute,0);
+                TimeSpan def = TimeTxt.TimeSpan /*- now*/;
+                TimeSpan deff = new TimeSpan((int)comboBoxEdit1.SelectedItem, def.Hours, def.Minutes,0);
+               var deffffffff= deff.Subtract(now);
+                if (deff <= now) 
+                afterTimeLbl.Text = "بعد "+ deffffffff.Days+"يوم و" + deffffffff.Hours + " ساعة و " + deffffffff.Minutes + "دقيقة";
             };
 
             using (DataContext _context = new DataContext())
@@ -97,6 +109,8 @@ namespace TakeAway
                 if (MainOrder != null)
                 {
                     //single
+                    TimeSpan def = TimeTxt.TimeSpan /*- now*/;
+                    TimeSpan deff = new TimeSpan((int)comboBoxEdit1.SelectedItem, def.Hours, def.Minutes, 0);
                     var Order = _context?.Orders?.FirstOrDefault(s => s.ID == MainOrder.ID);
                     if (Order != null)
                     {
@@ -105,7 +119,7 @@ namespace TakeAway
                      //   Order.Earn = Price;
                         Order.Updated = 1;
                         //  Order.Timer = time;
-                        Order.Time = TimeTxt.TimeSpan;
+                        Order.Time = deff;
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
                         //if(Order.Time>DateTime.Now.TimeOfDay)

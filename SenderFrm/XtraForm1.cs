@@ -83,8 +83,8 @@ namespace TakeAway
             tileView1.ItemClick += (sender, e) =>
             {
                 var row = tileView1.GetFocusedRow() as Order;
-                EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
-                fofo.ShowDialog();
+                EditFrm fofi = new EditFrm(row.ID, SenderUser.ID);
+                fofi.ShowDialog();
             };
             cardView2.Click += (sender, e)=>
             {
@@ -370,9 +370,8 @@ namespace TakeAway
             
            foreach (var item in TimerWating)
             {
-                    var t = new TimeSpan(0, 45, 0);
+                    var t = new TimeSpan(0, 45, 0,0);
                     var total = DateTime.Now.TimeOfDay + t;
-
                     if (item.Time <= total)
                 {
                     var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);

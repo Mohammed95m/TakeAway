@@ -374,3 +374,4 @@ E:\Source\Repos\TakeAway\TakeAway\obj\Debug\ChatApp.Forms.frmLogIn.resources
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.Properties.Resources.resources
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe.licenses
+E:\Source\Repos\TakeAway\TakeAway\obj\Debug\SenderFrm.ServerFrm.resources

@@ -29,8 +29,9 @@ namespace SenderFrm
                 afterTimeLbl.Text = "بعد " + def.Hours + " ساعة و " + def.Minutes + "دقيقة";
             };
             SenderUserID =(Guid) UserID;
-         using ( DataContext coco = new DataContext())
-            {
+           // DataContext.ConnectionString = Settings1.Default.Connection;
+            DataContext coco = new DataContext();
+        
                 MainOrder = coco?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
                 DetailsLbl.Text = MainOrder.Details + ": تفاصيل الطلب";
                 CustomerNameLbl.Text = MainOrder?.Customer?.Name + ": اسم الزبون";
@@ -50,12 +51,12 @@ namespace SenderFrm
                 PriceTxt.EditValue = MainOrder?.Earn?.ToString();
                 TimeTxt.EditValue = MainOrder.BikeTime;
                // textEdit1.EditValue = MainOrder?.Timer;
-            }
+            
         }
 
         private void EditFrm_Load(object sender, EventArgs e)
         {
-
+      
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
