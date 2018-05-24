@@ -148,6 +148,7 @@ namespace TakeAway
                         Order.Status = (int)Status.Created;
                         Order.CallUserID = CallUser.ID;
                         Order.WithTimer = isWait.Checked;
+                        Order.CustomerName = MainCustomer.Name;
                         _context.SaveChanges();
                      
                         return true;
@@ -166,6 +167,7 @@ namespace TakeAway
                     {
                         Customer = MainCustomer,
                         Details = OrderTxt.Text,
+                        CustomerName=MainCustomer.Name,
                         //Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue,
                         Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text),int.Parse(minCB.Text), 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
                         Date = DateTime.Now,

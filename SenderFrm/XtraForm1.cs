@@ -38,7 +38,7 @@ namespace TakeAway
             //   lau.DataController.AllowIEnumerableDetails = true;
             SenderUser = user;
 
-            MessageBox.Show("s2fds1");
+        
             
             var order = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
             foreach (var item in order)
@@ -61,11 +61,20 @@ namespace TakeAway
 
 
             LoadSendGrid();
-            tileView1.ItemCustomize += (sender, e) =>
-            {
-                ColorTile(e.Item);
+
+            /*
+             * test
+             * 
+             * 
+             * 
+             * 
+             */
+            
+            //tileView1.ItemCustomize += (sender, e) =>
+            //{
+            //    ColorTile(e.Item);
                 
-            };
+            //};
             
 
             tileView1.ItemClick += (sender, e) =>
@@ -248,7 +257,8 @@ namespace TakeAway
 
 
             Timer Wait = new Timer();
-            Wait.Interval = 300000;
+         Wait.Interval = 300000;
+        
             Wait.Tick += (Sender, E) =>
             {
                 foreach (var item in TimerWating)
@@ -269,6 +279,8 @@ namespace TakeAway
                             }
                         }
                         alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
+                        tileView1.RefreshData();
+                        //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(tileView1.));
                     }
                 }
             };
@@ -390,10 +402,13 @@ namespace TakeAway
             {
                 e.Elements[3].Appearance.Normal.BackColor = Color.DarkTurquoise;
             }
-
+          
         }
 
-
+        private void tileView1_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
+        {
+            ColorTile(e.Item);
+        }
     }
     public class TimerOrder
     {

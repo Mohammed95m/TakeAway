@@ -39,6 +39,7 @@ namespace Data.Data
         public Guid CustomerID { get; set; }
         [ForeignKey("CustomerID")]
         public Customer Customer { get; set; }
+        public string CustomerName { get; set; }
         public Guid? EmployeeID { get; set; }
         [ForeignKey("EmployeeID")]
         public Employee Employee { get; set; }

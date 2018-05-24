@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201805231304162_df.Designer.cs">
       <DependentUpon>201805231304162_df.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805241547194_CustName.cs" />
+    <Compile Include="Migrations\201805241547194_CustName.Designer.cs">
+      <DependentUpon>201805241547194_CustName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805231304162_df.resx">
       <DependentUpon>201805231304162_df.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241547194_CustName.resx">
+      <DependentUpon>201805241547194_CustName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
