@@ -37,7 +37,8 @@ namespace TakeAway
             
             //   lau.DataController.AllowIEnumerableDetails = true;
             SenderUser = user;
-            
+
+            MessageBox.Show("s2fds1");
             
             var order = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
             foreach (var item in order)
@@ -62,23 +63,10 @@ namespace TakeAway
             LoadSendGrid();
             tileView1.ItemCustomize += (sender, e) =>
             {
-
-                if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
-                {
-                    e.Item.Elements[4].Appearance.Normal.BackColor = Color.Red;
-                }
-                else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
-                {
-                    e.Item.Elements[4].Appearance.Normal.BackColor = Color.Orange;
-                }
-                int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
-                if (Updated == 1 || Updated == 2)
-                {
-                    e.Item.Elements[4].Appearance.Normal.BackColor = Color.Blue;
-                }
-
+                ColorTile(e.Item);
                 
             };
+            
 
             tileView1.ItemClick += (sender, e) =>
             {
@@ -86,9 +74,9 @@ namespace TakeAway
                 EditFrm fofi = new EditFrm(row.ID, SenderUser.ID);
                 fofi.ShowDialog();
             };
-            cardView2.Click += (sender, e)=>
+            tileView2.ItemClick += (sender, e)=>
             {
-                var row = cardView2.GetFocusedRow() as SendOrder;
+                var row = tileView2.GetFocusedRow() as SendOrder;
                 if (DialogResult.Yes==MessageBox.Show("","لتعديل الطلب اضغط على تعديل "+"\n"+"إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل", MessageBoxButtons.YesNo))
                 {
                  
@@ -138,84 +126,12 @@ namespace TakeAway
                     fofo.ShowDialog();
                 }
             };
-
-            //DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
-            //VehicleLookUpEdit.Columns.Add(col);
-            #region coments code
-            //var Vehicle = 
-            //    (from c in _context.Vehicles
-            //     select new Combo() { Text =c , Value = (int)c.Number }).ToList();
-
-            //repositoryItemComboBox1.DisplayMember = "Text";
-            //repositoryItemComboBox1.ValueMember = "Value";
-            //foreach (var item in Sectors)
-            //{
-            //    comboBox1.Items.Add(item);
-            //}
-
-            //VehicleLookUpEdit.EditValueChanged += (e, a) =>
-            //{
-
-            //    MessageBox.Show(((Guid)cardView1.ActiveEditor.EditValue).ToString());
-            //};
-            //gridControl1.DataSource = order;
-            //gridControl2.DataSource = SendOrder;
-
-            //cardView1.CustomDrawFilterPanel += (a, b) => {
-            //    Color color1 = Color.FromArgb(40, 170, 225);
-            //    Color color2 = Color.FromArgb(35, 80, 160);
-            //    Brush brush = b.Cache.GetGradientBrush(b.Bounds, color1, color2, LinearGradientMode.Horizontal);
-            //    b.Appearance.Options.UseBackColor = true;
-            //    b.Appearance.Options.UseBorderColor = true;
-            //    b.Appearance.BackColor = Color.Red;
-            //    b.Appearance.BackColor2 = Color.Red;
-            //    b.Appearance.BorderColor = Color.Red;
-            //    b.Appearance.ForeColor = Color.Red;
-            //    b.Cache.FillRectangle(brush, b.Bounds);
-            //    b.Appearance.DrawString(b.Cache, "", b.Bounds);
-
-
-            //};
-            //cardView1.CustomDrawCardCaption += (x, y) =>
-            //{
-            //    y.Appearance.Options.UseBackColor = true;
-            //    y.Appearance.Options.UseBorderColor = true;
-            //    y.Appearance.BackColor = Color.Red;
-            //    y.Appearance.BackColor2 = Color.Red;
-            //    y.Appearance.BorderColor = Color.Red;
-            //};
-            //cardView1.CustomCardStyle += (sender, e) =>
-            //{
-            //    var row = layoutView1.GetFocusedRow() as Order;
-            //    Bitmap Bmp = new Bitmap(50, 50);
-            //    using (Graphics gfx = Graphics.FromImage(Bmp))
-            //    using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 0, 0)))
-            //    {
-            //        gfx.FillRectangle(brush, 0, 0, 50, 50);
-            //    }
-            //    e.Appearance.Image = Bmp;
-            //};
-            // };
-            //        layoutView1.ItemCustomize += (sender, e) =>
-            //                {
-            //                    var row = tileView1.GetFocusedRow() as Order;
-            //        Bitmap Bmp = new Bitmap(50, 50);
-            //                    using (Graphics gfx = Graphics.FromImage(Bmp))
-            //                    using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 0, 0)))
-            //                    {
-            //                        gfx.FillRectangle(brush, 0, 0, 50, 50);
-            //                    }
-            //e.Item.BackgroundImage = Bmp;
-
-
-            //                };
-            #endregion
-
+            
             #region this event work after set employee $  Vehicle
             EditFrm.UpdateGrid += (o) =>
             {
                 LoadSendGrid();
-                TimerOrder.Add(new TakeAway.TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
+                TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
 
@@ -225,7 +141,7 @@ namespace TakeAway
             #region Finish click Event
             FinishBtn.Click += (sender, e) =>
             {
-                var row = cardView2.GetFocusedRow() as SendOrder;
+                var row = tileView2.GetFocusedRow() as SendOrder;
                 
                 var Ord = _context?.Orders
                 ?.Include("Customer")
@@ -282,42 +198,7 @@ namespace TakeAway
             };
             #endregion
 
-            #region /DELETED/ set Status Color /DELETED/
-            //var c = tileView1.Columns.ColumnByName("");
-            //c.AppearanceCell.BackColor = Color.Black;
-            ////tileView1.TileTemplate.OfType<TileViewItemElement>().
-            ////ToList().ForEach(t => t.Column = tileView1.Columns.ColumnByName(t.Text));
-            //tileView1.TileTemplate.OfType<TileViewItemElement>().
-            //ToList();
-            //cardView1.CustomDrawCardField += (sender, e) => {
-            //    if (e.Column.FieldName != "Status") return;
-            //    // The brush to fill the cell background.
-            //    if (e.Column.FieldName == "Status" && int.Parse(e.CellValue.ToString()) == (int)Status.Waiting)
-            //    {
-            //        Color color1 = Color.FromArgb(232, 42, 25);
-            //        Color color2 = Color.FromArgb(204, 71, 59);
-            //        Brush brush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.Horizontal);
-            //        e.Appearance.ForeColor = Color.White;
-            //        e.Appearance.Font = e.Cache.GetFont(e.Appearance.Font, FontStyle.Bold);
-            //        e.Cache.FillRectangle(brush, e.Bounds);
-            //        e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
-            //        // Prevent default painting.
-            //        e.Handled = true;
-            //    }
-            //    else
-            //    {
-            //        Color color1 = Color.FromArgb(33, 188, 41);
-            //        Color color2 = Color.FromArgb(21, 119, 26);
-            //        Brush brush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.Horizontal);
-            //        e.Appearance.ForeColor = Color.White;
-            //        e.Appearance.Font = e.Cache.GetFont(e.Appearance.Font, FontStyle.Bold);
-            //        e.Cache.FillRectangle(brush, e.Bounds);
-            //        e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
-            //        // Prevent default painting.
-            //        e.Handled = true;
-            //    }
-            //};
-            #endregion
+            
 
             #region intilize alert timer
             //Timer toto = new Timer();
@@ -363,28 +244,38 @@ namespace TakeAway
                
             };
             WaitBike.Start();
+
+
+
             Timer Wait = new Timer();
             Wait.Interval = 300000;
-            Wait.Tick += (Sender, e) =>
+            Wait.Tick += (Sender, E) =>
             {
-            
-           foreach (var item in TimerWating)
-            {
-                    var t = new TimeSpan(0, 45, 0,0);
-                    var total = DateTime.Now.TimeOfDay + t;
-                    if (item.Time <= total)
+                foreach (var item in TimerWating)
                 {
-                    var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
-                    orderRadey.Status = (int)Status.Seen;
-                    _context.SaveChanges();
-                    alertControl1.Show(this, "حان وقت ارسال الطلب", item.Details);
+                    var t = new TimeSpan(0, 45,0);
+                    var total = DateTime.Now.TimeOfDay;
+                //    MessageBox.Show("now: " + total + "\n " + "time: " + item.Time);
+                    if (item.Time <= total && item.WithTimer)
+                    {
+                        var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
+                        orderRadey.Status = (int)Status.Seen;
+                        _context.SaveChanges();
+                        for(int i = 0; i < tileView1.RowCount; i++)
+                        {
+                            if (item.ID.Equals(tileView1.GetRowCellValue(i, "ID")))
+                            {
+                                
+                            }
+                        }
+                        alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
+                    }
                 }
-            }
-        };
-        Wait.Start();
-                #endregion
+            };
+            Wait.Start();
+            #endregion
 
-                backgroundWorker1.RunWorkerAsync();
+            backgroundWorker1.RunWorkerAsync();
         }
 
 
@@ -415,7 +306,7 @@ namespace TakeAway
                     // Perform a time consuming operation and report progress.
                     System.Threading.Thread.Sleep(1000);
                     DataContext DB = new DataContext();
-                    var ISNewdata = DB?.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle")?.Where(S => S.Status == 0 || S.Updated == 1).Any();
+                    var ISNewdata = DB?.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle")?.Where(S => S.Status == (int)Status.Created || S.Updated == 1).Any();
 
                     if ((bool)ISNewdata)
                     {
@@ -484,23 +375,25 @@ namespace TakeAway
 
         }
 
-    //    private void tileView1_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
-    //    {
+        void ColorTile(TileViewItem e)
+        {
+            if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
+            {
+                e.Elements[3].Appearance.Normal.BackColor = Color.Red;
+            }
+            else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
+            {
+                e.Elements[3].Appearance.Normal.BackColor = Color.Orange;
+            }
+            int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
+            if (Updated == 1 || Updated == 2)
+            {
+                e.Elements[3].Appearance.Normal.BackColor = Color.DarkTurquoise;
+            }
 
-    //        if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
-    //        {
-    //            e.Item.Elements[4].Appearance.Normal.BackColor = Color.Red;
-    //        }
-    //        else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
-    //        {
-    //            e.Item.Elements[4].Appearance.Normal.BackColor = Color.Orange;
-    //        }
-    //        int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
-    //        if (Updated == 1 || Updated == 2)
-    //        {
-    //            e.Item.Elements[4].Appearance.Normal.BackColor = Color.Blue;
-    //        }
-    //    }
+        }
+
+
     }
     public class TimerOrder
     {

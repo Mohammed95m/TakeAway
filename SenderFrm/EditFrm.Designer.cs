@@ -709,6 +709,7 @@
             this.simpleButton3.StyleController = this.layoutControl4;
             this.simpleButton3.TabIndex = 9;
             this.simpleButton3.Text = "حذف";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // labelControl2
             // 
@@ -746,6 +747,7 @@
             this.simpleButton4.StyleController = this.layoutControl4;
             this.simpleButton4.TabIndex = 6;
             this.simpleButton4.Text = "إرسال";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // lookUpEdit1
             // 

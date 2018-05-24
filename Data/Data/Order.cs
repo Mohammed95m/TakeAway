@@ -21,6 +21,8 @@ namespace Data.Data
 
         public decimal? Earn { get; set; }
 
+        public bool WithTimer { get; set; }
+
         public int? Timer { get; set; }
         public TimeSpan? BikeTime { get; set; }
 

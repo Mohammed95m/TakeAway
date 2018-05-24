@@ -375,3 +375,4 @@ E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.Properties.Resources.resour
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe.licenses
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\SenderFrm.ServerFrm.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\SenderFrm.ServerFrm.resources

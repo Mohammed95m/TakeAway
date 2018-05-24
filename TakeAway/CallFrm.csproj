@@ -104,6 +104,7 @@
     <Compile Include="ServerFrm.Designer.cs">
       <DependentUpon>ServerFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings1.cs" />
     <Compile Include="Settings1.Designer.cs">
       <DependentUpon>Settings1.settings</DependentUpon>
       <AutoGen>True</AutoGen>

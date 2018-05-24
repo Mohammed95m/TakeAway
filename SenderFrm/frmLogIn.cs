@@ -23,11 +23,13 @@ namespace ChatApp.Forms
         public frmLogIn()
         {
             InitializeComponent();
+
             Data.Data.DataContext.ConnectionString = Settings1.Default.Connection;
 
             using (DataContext con = new DataContext())
             {
                 con.Database.CreateIfNotExists();
+
                 try
                 {
                     var IsUser = con?.CallUsers?.SingleOrDefault(s => s.Username == "admin");

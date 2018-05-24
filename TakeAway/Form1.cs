@@ -21,24 +21,47 @@ namespace TakeAway
         {
             InitializeComponent();
 
+            hoursCB.SelectedIndex = 0;
+            minCB.SelectedIndex = 0;
+            daysCB.SelectedIndex = 0;
+
+            isWait.CheckedChanged += (sender, e) =>
+            {
+                if (isWait.Checked)
+                {
+                    hoursCB.Enabled = true;
+                    minCB.Enabled = true;
+                    daysCB.Enabled = true;
+                }
+                else
+                { 
+                    hoursCB.Enabled = false;
+                    minCB.Enabled = false;
+                    daysCB.Enabled = false;
+                }
+            };
+            
+
             int sss = DateTime.Now.Day;
             var s1 = sss + 1;
             var s2 = sss + 2;
-            comboBoxEdit1.Properties.Items.Add(sss);
-            comboBoxEdit1.Properties.Items.Add(s1);
-            comboBoxEdit1.Properties.Items.Add(s2);
-            comboBoxEdit1.SelectedItem = sss;
-            MessageBox.Show("f");
-            TimeTxt.EditValueChanged += (sender, e) =>
-            {
-                //TimeSpan now = DateTime.Now.TimeOfDay;
-                TimeSpan now = new TimeSpan(DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute,0);
-                TimeSpan def = TimeTxt.TimeSpan /*- now*/;
-                TimeSpan deff = new TimeSpan((int)comboBoxEdit1.SelectedItem, def.Hours, def.Minutes,0);
-               var deffffffff= deff.Subtract(now);
-                if (deff <= now) 
-                afterTimeLbl.Text = "بعد "+ deffffffff.Days+"يوم و" + deffffffff.Hours + " ساعة و " + deffffffff.Minutes + "دقيقة";
-            };
+            //comboBoxEdit1.Properties.Items.Add(sss);
+            //comboBoxEdit1.Properties.Items.Add(s1);
+            //comboBoxEdit1.Properties.Items.Add(s2);
+            //comboBoxEdit1.SelectedItem = sss;
+            //MessageBox.Show("f");
+
+
+            //TimeTxt.EditValueChanged += (sender, e) =>
+            //{
+            //    //TimeSpan now = DateTime.Now.TimeOfDay;
+            //    TimeSpan now = new TimeSpan(DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute,0);
+            //    TimeSpan def = TimeTxt.TimeSpan /*- now*/;
+            //    TimeSpan deff = new TimeSpan(23, def.Hours, def.Minutes,0);
+            //   var deffffffff= deff.Subtract(now);
+            //    if (deff <= now) 
+            //    afterTimeLbl.Text = "بعد "+ deffffffff.Days+"يوم و" + deffffffff.Hours + " ساعة و " + deffffffff.Minutes + "دقيقة";
+            //};
 
             using (DataContext _context = new DataContext())
             {
@@ -48,6 +71,8 @@ namespace TakeAway
             gridView1.OptionsView.ShowGroupPanel = false;
 
         }
+        
+
         /// <summary>
         /// return True while Customer Exist
         /// </summary>
@@ -109,27 +134,20 @@ namespace TakeAway
                 if (MainOrder != null)
                 {
                     //single
-                    TimeSpan def = TimeTxt.TimeSpan /*- now*/;
-                    TimeSpan deff = new TimeSpan((int)comboBoxEdit1.SelectedItem, def.Hours, def.Minutes, 0);
+                    //TimeSpan def = TimeTxt.TimeSpan /*- now*/;
+                    //TimeSpan deff = new TimeSpan(23, def.Hours, def.Minutes, 0);
                     var Order = _context?.Orders?.FirstOrDefault(s => s.ID == MainOrder.ID);
                     if (Order != null)
                     {
                         Order.Customer = MainCustomer;
                         Order.Details = OrderTxt.Text;
-                     //   Order.Earn = Price;
                         Order.Updated = 1;
-                        //  Order.Timer = time;
-                        Order.Time = deff;
+                        Order.Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text), int.Parse(minCB.Text), 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0);
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
-                        //if(Order.Time>DateTime.Now.TimeOfDay)
-                        //    Order.Status = (int)Status.Waiting;
-                        //else
-                        //{
-                            Order.Status = (int)Status.Created;
-                      //  }
-                        
+                        Order.Status = (int)Status.Created;
                         Order.CallUserID = CallUser.ID;
+                        Order.WithTimer = isWait.Checked;
                         _context.SaveChanges();
                      
                         return true;
@@ -148,44 +166,32 @@ namespace TakeAway
                     {
                         Customer = MainCustomer,
                         Details = OrderTxt.Text,
-                        //           CallUser=
-              //          Earn = Price
-              //   ,
-                        //   Timer = time
-                        Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue
-                 ,
+                        //Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue,
+                        Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text),int.Parse(minCB.Text), 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
-                        Status = (int)Status.Created
-
+                        Status = (int)Status.Created,
+                        WithTimer = isWait.Checked
                     };
                     _context.Orders.Add(NewOrder);
-                    if (NewOrder.Time > DateTime.Now.TimeOfDay)
-                        NewOrder.Status = (int)Status.Waiting;
-                    else
-                    {
-                        NewOrder.Status = (int)Status.Created;
-                    }
+                    NewOrder.Status = (int)Status.Created;
                     _context.SaveChanges();
                     return true;
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
                 return false;
 
             }
 
         }
 
-
-  
         public void RefreshControls(DataContext _context)
         {
             MainOrder = null;
             MainCustomer = null;
-            TimeTxt.EditValue = new TimeSpan(0,0,0,0);
+            //TimeTxt.EditValue = new TimeSpan(0,0,0,0);
           //  PriceTxt.Text = null;
             OrderTxt.Text = null;
             LocationTxt.Text = null;
@@ -262,7 +268,7 @@ namespace TakeAway
                     OrderTxt.Text = row.Details;
                     
               //      PriceTxt.Text = RemovePoint(row.Earn.ToString());
-                    TimeTxt.TimeSpan = row.Time;
+                    //TimeTxt.TimeSpan = row.Time;
                     MainOrder = row;
 
                 }
@@ -280,7 +286,7 @@ namespace TakeAway
                         LocationTxt.Text = row?.Location;
                         OrderTxt.Text = row.Details;
                  //       PriceTxt.Text = RemovePoint(row.Earn.ToString());
-                        TimeTxt.TimeSpan = row.Time;
+                        //TimeTxt.TimeSpan = row.Time;
                         MainOrder = row;
                     }
                 }

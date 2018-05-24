@@ -12,7 +12,6 @@ using DevExpress.XtraEditors;
 using ChatApp.Classes;
 using Data.Data;
 using TakeAway;
-using CallForm;
 using SenderFrm;
 
 namespace ChatApp.Forms

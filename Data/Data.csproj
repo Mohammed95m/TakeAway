@@ -63,17 +63,9 @@
     <Compile Include="Data\Vehicle.cs" />
     <Compile Include="Data\VehicleType.cs" />
     <Compile Include="Enums\Status.cs" />
-    <Compile Include="Migrations\201805042000193_intial.cs" />
-    <Compile Include="Migrations\201805042000193_intial.Designer.cs">
-      <DependentUpon>201805042000193_intial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805132308080_sc.cs" />
-    <Compile Include="Migrations\201805132308080_sc.Designer.cs">
-      <DependentUpon>201805132308080_sc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805142230015_m3.cs" />
-    <Compile Include="Migrations\201805142230015_m3.Designer.cs">
-      <DependentUpon>201805142230015_m3.cs</DependentUpon>
+    <Compile Include="Migrations\201805231304162_df.cs" />
+    <Compile Include="Migrations\201805231304162_df.Designer.cs">
+      <DependentUpon>201805231304162_df.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,14 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805042000193_intial.resx">
-      <DependentUpon>201805042000193_intial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805132308080_sc.resx">
-      <DependentUpon>201805132308080_sc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805142230015_m3.resx">
-      <DependentUpon>201805142230015_m3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805231304162_df.resx">
+      <DependentUpon>201805231304162_df.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

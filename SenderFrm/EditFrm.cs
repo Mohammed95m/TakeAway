@@ -22,6 +22,7 @@ namespace SenderFrm
         public EditFrm(Guid OrderID,Guid? UserID)
         {
             InitializeComponent();
+            MessageBox.Show("ss");
             TimeTxt.EditValueChanged += (sender, e) =>
             {
                 TimeSpan now = DateTime.Now.TimeOfDay;
@@ -32,25 +33,25 @@ namespace SenderFrm
            // DataContext.ConnectionString = Settings1.Default.Connection;
             DataContext coco = new DataContext();
         
-                MainOrder = coco?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
-                DetailsLbl.Text = MainOrder.Details + ": تفاصيل الطلب";
-                CustomerNameLbl.Text = MainOrder?.Customer?.Name + ": اسم الزبون";
-                LocationLbl.Text = MainOrder.Location + ": الموقع";
-                VehicleLookUpEdit.Properties.DataSource = coco?.Vehicles?.ToList();
-                VehicleLookUpEdit.Properties.ValueMember = "ID";
-                VehicleLookUpEdit.Properties.DisplayMember = "Number";
-                DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
-                VehicleLookUpEdit.Properties.Columns.Add(col);
-                EmployeeLookUpEdit.Properties.DataSource = coco?.Employees?.ToList();
-               EmployeeLookUpEdit.Properties.ValueMember = "ID";
-               EmployeeLookUpEdit.Properties.DisplayMember = "Name";
-                DevExpress.XtraEditors.Controls.LookUpColumnInfo col2 = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name");
-                EmployeeLookUpEdit.Properties.Columns.Add(col2);
-                VehicleLookUpEdit.EditValue = MainOrder?.VehicleID;
-                EmployeeLookUpEdit.EditValue = MainOrder?.EmployeeID;
-                PriceTxt.EditValue = MainOrder?.Earn?.ToString();
-                TimeTxt.EditValue = MainOrder.BikeTime;
-               // textEdit1.EditValue = MainOrder?.Timer;
+            MainOrder = coco?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
+            labelControl4.Text = MainOrder.Details + ": تفاصيل الطلب";
+            labelControl3.Text = MainOrder?.Customer?.Name + ": اسم الزبون";
+            labelControl2.Text = MainOrder.Location + ": الموقع";
+            lookUpEdit2.Properties.DataSource = coco?.Vehicles?.ToList();
+            lookUpEdit2.Properties.ValueMember = "ID";
+            lookUpEdit2.Properties.DisplayMember = "Number";
+            DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
+            lookUpEdit2.Properties.Columns.Add(col);
+            lookUpEdit1.Properties.DataSource = coco?.Employees?.ToList();
+            lookUpEdit1.Properties.ValueMember = "ID";
+            lookUpEdit1.Properties.DisplayMember = "Name";
+            DevExpress.XtraEditors.Controls.LookUpColumnInfo col2 = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name");
+            lookUpEdit1.Properties.Columns.Add(col2);
+            lookUpEdit2.EditValue = MainOrder?.VehicleID;
+            lookUpEdit1.EditValue = MainOrder?.EmployeeID;
+            PriceTxt.EditValue = MainOrder?.Earn?.ToString();
+            TimeTxt.EditValue = MainOrder.BikeTime;
+            // textEdit1.EditValue = MainOrder?.Timer;
             
         }
 
@@ -65,8 +66,8 @@ namespace SenderFrm
             using (DataContext coco = new DataContext())
             {
                 var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
-                order.VehicleID = (Guid)VehicleLookUpEdit.EditValue;
-                order.EmployeeID = (Guid)EmployeeLookUpEdit.EditValue;
+                order.VehicleID = (Guid)lookUpEdit2.EditValue;
+                order.EmployeeID = (Guid)lookUpEdit1.EditValue;
                 //       order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
                 order.BikeTime = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue;
                 order.Status = (int)Status.InProgress;

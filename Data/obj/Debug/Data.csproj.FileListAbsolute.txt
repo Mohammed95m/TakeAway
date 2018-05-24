@@ -24,3 +24,15 @@ E:\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.sc.resources
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.m3.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\Data.dll.config
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\Data.dll
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\Data.pdb
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.dll
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.xml
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.df.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache

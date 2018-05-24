@@ -28,17 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement11 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement12 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement13 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement14 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement15 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.DetailsColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.LocationColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DetailsColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.LocationColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CustomerColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DetailsColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.StartTime = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.VehicleLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -55,17 +69,13 @@
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.cardView2 = new DevExpress.XtraGrid.Views.Card.CardView();
-            this.Status2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TimerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DetailsColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LocationColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EarnColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TimerColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EmployeeColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.StartTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CustomerColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Send2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tileView2 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.Status2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.TimerColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.EarnColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.TimerColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.EmployeeColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Send2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.FinishBtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
@@ -73,7 +83,7 @@
             this.repositoryItemCalcEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -81,9 +91,9 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl();
-            this.alertControl2 = new DevExpress.XtraBars.Alerter.AlertControl();
-            this.alertControl3 = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.alertControl2 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.alertControl3 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VehicleLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -96,7 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FinishBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
@@ -104,6 +114,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // LocationColumn
+            // 
+            this.LocationColumn.Caption = "الموقع";
+            this.LocationColumn.FieldName = "Location";
+            this.LocationColumn.Name = "LocationColumn";
+            this.LocationColumn.Visible = true;
+            this.LocationColumn.VisibleIndex = 3;
             // 
             // DetailsColumn
             // 
@@ -113,13 +131,45 @@
             this.DetailsColumn.Visible = true;
             this.DetailsColumn.VisibleIndex = 1;
             // 
-            // LocationColumn
+            // tileViewColumn1
             // 
-            this.LocationColumn.Caption = "الموقع";
-            this.LocationColumn.FieldName = "Location";
-            this.LocationColumn.Name = "LocationColumn";
-            this.LocationColumn.Visible = true;
-            this.LocationColumn.VisibleIndex = 3;
+            this.tileViewColumn1.Caption = "الزبون";
+            this.tileViewColumn1.FieldName = "CustomerName";
+            this.tileViewColumn1.Name = "tileViewColumn1";
+            this.tileViewColumn1.Visible = true;
+            this.tileViewColumn1.VisibleIndex = 7;
+            // 
+            // LocationColumn2
+            // 
+            this.LocationColumn2.Caption = "العنوان";
+            this.LocationColumn2.FieldName = "Location";
+            this.LocationColumn2.Name = "LocationColumn2";
+            this.LocationColumn2.Visible = true;
+            this.LocationColumn2.VisibleIndex = 3;
+            // 
+            // CustomerColumn1
+            // 
+            this.CustomerColumn1.Caption = "الزبون";
+            this.CustomerColumn1.FieldName = "CustomerName";
+            this.CustomerColumn1.Name = "CustomerColumn1";
+            this.CustomerColumn1.Visible = true;
+            this.CustomerColumn1.VisibleIndex = 8;
+            // 
+            // DetailsColumn2
+            // 
+            this.DetailsColumn2.Caption = "تفاصيل الطلب";
+            this.DetailsColumn2.FieldName = "Details";
+            this.DetailsColumn2.Name = "DetailsColumn2";
+            this.DetailsColumn2.Visible = true;
+            this.DetailsColumn2.VisibleIndex = 2;
+            // 
+            // StartTime
+            // 
+            this.StartTime.Caption = "وقت بداية الطلب";
+            this.StartTime.FieldName = "StartTime";
+            this.StartTime.Name = "StartTime";
+            this.StartTime.Visible = true;
+            this.StartTime.VisibleIndex = 7;
             // 
             // VehicleLookUpEdit
             // 
@@ -175,63 +225,68 @@
             this.LocationColumn,
             this.TimeColumn,
             this.Send,
-            this.UpdatedColumn1});
-            this.tileView1.ColumnSet.GroupColumn = this.StatusColumn;
+            this.UpdatedColumn1,
+            this.tileViewColumn1});
             this.tileView1.GridControl = this.gridControl1;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsTiles.ColumnCount = 4;
             this.tileView1.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(270, 200);
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.RowCount = 5;
             this.tileView1.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.tileView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.StatusColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
-            tileViewItemElement1.Column = this.DetailsColumn;
-            tileViewItemElement1.StretchHorizontal = true;
-            tileViewItemElement1.Text = "DetailsColumn";
+            tileViewItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement1.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement1.Column = null;
+            tileViewItemElement1.Text = "العنوان";
             tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement1.TextLocation = new System.Drawing.Point(-15, 70);
+            tileViewItemElement1.TextLocation = new System.Drawing.Point(-15, 0);
             tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             tileViewItemElement2.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement2.Appearance.Normal.Options.UseForeColor = true;
             tileViewItemElement2.Column = null;
-            tileViewItemElement2.Text = "الموقع";
+            tileViewItemElement2.Text = "اسم الزبون";
             tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement2.TextLocation = new System.Drawing.Point(-15, 0);
-            tileViewItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement3.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement3.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement3.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement3.Column = null;
-            tileViewItemElement3.Text = "الطلب";
+            tileViewItemElement2.TextLocation = new System.Drawing.Point(-15, 60);
+            tileViewItemElement3.Column = this.LocationColumn;
+            tileViewItemElement3.StretchHorizontal = true;
+            tileViewItemElement3.Text = "LocationColumn";
             tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement3.TextLocation = new System.Drawing.Point(-15, 50);
-            tileViewItemElement4.Column = this.LocationColumn;
-            tileViewItemElement4.StretchHorizontal = true;
-            tileViewItemElement4.Text = "LocationColumn";
-            tileViewItemElement4.TextLocation = new System.Drawing.Point(-15, -70);
-            tileViewItemElement5.Appearance.Normal.BackColor = System.Drawing.Color.DarkTurquoise;
-            tileViewItemElement5.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement3.TextLocation = new System.Drawing.Point(-15, 18);
+            tileViewItemElement4.Appearance.Normal.BackColor = System.Drawing.Color.DarkTurquoise;
+            tileViewItemElement4.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement4.Column = null;
+            tileViewItemElement4.Height = 200;
+            tileViewItemElement4.Text = "";
+            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement4.TextLocation = new System.Drawing.Point(18, 0);
+            tileViewItemElement4.Width = 20;
+            tileViewItemElement5.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement5.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement5.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement5.Appearance.Normal.Options.UseForeColor = true;
             tileViewItemElement5.Column = null;
-            tileViewItemElement5.Height = 200;
-            tileViewItemElement5.Text = "";
-            tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            tileViewItemElement5.TextLocation = new System.Drawing.Point(18, 0);
-            tileViewItemElement5.Width = 20;
-            tileViewItemElement6.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement6.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            tileViewItemElement6.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement6.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement6.Column = null;
-            tileViewItemElement6.Text = "";
-            tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            tileViewItemElement5.Text = "الطلب";
+            tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement5.TextLocation = new System.Drawing.Point(-15, 105);
+            tileViewItemElement6.Column = this.DetailsColumn;
+            tileViewItemElement6.Text = "DetailsColumn";
+            tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement6.TextLocation = new System.Drawing.Point(-15, 125);
+            tileViewItemElement7.Column = this.tileViewColumn1;
+            tileViewItemElement7.Text = "tileViewColumn1";
+            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement7.TextLocation = new System.Drawing.Point(-15, 77);
             this.tileView1.TileTemplate.Add(tileViewItemElement1);
             this.tileView1.TileTemplate.Add(tileViewItemElement2);
             this.tileView1.TileTemplate.Add(tileViewItemElement3);
             this.tileView1.TileTemplate.Add(tileViewItemElement4);
             this.tileView1.TileTemplate.Add(tileViewItemElement5);
             this.tileView1.TileTemplate.Add(tileViewItemElement6);
+            this.tileView1.TileTemplate.Add(tileViewItemElement7);
             // 
             // StatusColumn
             // 
@@ -275,7 +330,6 @@
             serializableAppearanceObject1.BackColor = System.Drawing.Color.Lime;
             serializableAppearanceObject1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             serializableAppearanceObject1.ForeColor = System.Drawing.Color.Black;
-            serializableAppearanceObject1.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject1.Image")));
             serializableAppearanceObject1.Options.UseBackColor = true;
             serializableAppearanceObject1.Options.UseForeColor = true;
             serializableAppearanceObject1.Options.UseImage = true;
@@ -327,7 +381,7 @@
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
-            this.gridControl2.MainView = this.cardView2;
+            this.gridControl2.MainView = this.tileView2;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
@@ -338,13 +392,11 @@
             this.gridControl2.Size = new System.Drawing.Size(1121, 463);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.cardView2});
+            this.tileView2});
             // 
-            // cardView2
+            // tileView2
             // 
-            this.cardView2.Appearance.Card.BackColor = System.Drawing.Color.Red;
-            this.cardView2.Appearance.Card.Options.UseBackColor = true;
-            this.cardView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tileView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Status2,
             this.TimerColumn1,
             this.DetailsColumn2,
@@ -355,9 +407,80 @@
             this.StartTime,
             this.CustomerColumn1,
             this.Send2});
-            this.cardView2.FocusedCardTopFieldIndex = 0;
-            this.cardView2.GridControl = this.gridControl2;
-            this.cardView2.Name = "cardView2";
+            this.tileView2.GridControl = this.gridControl2;
+            this.tileView2.Name = "tileView2";
+            this.tileView2.OptionsTiles.ColumnCount = 4;
+            this.tileView2.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tileView2.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(10, 8, 10, 8);
+            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(270, 200);
+            this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView2.OptionsTiles.RowCount = 5;
+            this.tileView2.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
+            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement8.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement8.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement8.Column = null;
+            tileViewItemElement8.Text = "العنوان";
+            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement8.TextLocation = new System.Drawing.Point(-15, 0);
+            tileViewItemElement9.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement9.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement9.Column = null;
+            tileViewItemElement9.Height = 200;
+            tileViewItemElement9.Text = "";
+            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement9.TextLocation = new System.Drawing.Point(18, 0);
+            tileViewItemElement9.Width = 20;
+            tileViewItemElement10.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement10.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            tileViewItemElement10.Column = this.LocationColumn2;
+            tileViewItemElement10.Text = "LocationColumn2";
+            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement10.TextLocation = new System.Drawing.Point(-15, 18);
+            tileViewItemElement11.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement11.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement11.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement11.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement11.Column = null;
+            tileViewItemElement11.Text = "اسم الزبون";
+            tileViewItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement11.TextLocation = new System.Drawing.Point(-15, 60);
+            tileViewItemElement12.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement12.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            tileViewItemElement12.Column = this.CustomerColumn1;
+            tileViewItemElement12.Text = "CustomerColumn1";
+            tileViewItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement12.TextLocation = new System.Drawing.Point(-15, 77);
+            tileViewItemElement13.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement13.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement13.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement13.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement13.Column = null;
+            tileViewItemElement13.Text = "تفاصيل الطلب";
+            tileViewItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement13.TextLocation = new System.Drawing.Point(-15, 105);
+            tileViewItemElement14.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement14.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            tileViewItemElement14.Column = this.DetailsColumn2;
+            tileViewItemElement14.Text = "DetailsColumn2";
+            tileViewItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement14.TextLocation = new System.Drawing.Point(-15, 125);
+            tileViewItemElement15.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement15.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            tileViewItemElement15.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement15.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement15.Column = this.StartTime;
+            tileViewItemElement15.Text = "StartTime";
+            tileViewItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileView2.TileTemplate.Add(tileViewItemElement8);
+            this.tileView2.TileTemplate.Add(tileViewItemElement9);
+            this.tileView2.TileTemplate.Add(tileViewItemElement10);
+            this.tileView2.TileTemplate.Add(tileViewItemElement11);
+            this.tileView2.TileTemplate.Add(tileViewItemElement12);
+            this.tileView2.TileTemplate.Add(tileViewItemElement13);
+            this.tileView2.TileTemplate.Add(tileViewItemElement14);
+            this.tileView2.TileTemplate.Add(tileViewItemElement15);
             // 
             // Status2
             // 
@@ -368,7 +491,7 @@
             this.Status2.OptionsColumn.AllowFocus = false;
             this.Status2.OptionsColumn.ReadOnly = true;
             this.Status2.Visible = true;
-            this.Status2.VisibleIndex = 6;
+            this.Status2.VisibleIndex = 0;
             // 
             // TimerColumn1
             // 
@@ -376,23 +499,7 @@
             this.TimerColumn1.FieldName = "Timer";
             this.TimerColumn1.Name = "TimerColumn1";
             this.TimerColumn1.Visible = true;
-            this.TimerColumn1.VisibleIndex = 0;
-            // 
-            // DetailsColumn2
-            // 
-            this.DetailsColumn2.Caption = "تفاصيل الطلب";
-            this.DetailsColumn2.FieldName = "Details";
-            this.DetailsColumn2.Name = "DetailsColumn2";
-            this.DetailsColumn2.Visible = true;
-            this.DetailsColumn2.VisibleIndex = 1;
-            // 
-            // LocationColumn2
-            // 
-            this.LocationColumn2.Caption = "العنوان";
-            this.LocationColumn2.FieldName = "Location";
-            this.LocationColumn2.Name = "LocationColumn2";
-            this.LocationColumn2.Visible = true;
-            this.LocationColumn2.VisibleIndex = 2;
+            this.TimerColumn1.VisibleIndex = 1;
             // 
             // EarnColumn2
             // 
@@ -400,7 +507,7 @@
             this.EarnColumn2.FieldName = "Earn";
             this.EarnColumn2.Name = "EarnColumn2";
             this.EarnColumn2.Visible = true;
-            this.EarnColumn2.VisibleIndex = 3;
+            this.EarnColumn2.VisibleIndex = 4;
             // 
             // TimerColumn2
             // 
@@ -408,7 +515,7 @@
             this.TimerColumn2.FieldName = "Timer";
             this.TimerColumn2.Name = "TimerColumn2";
             this.TimerColumn2.Visible = true;
-            this.TimerColumn2.VisibleIndex = 4;
+            this.TimerColumn2.VisibleIndex = 5;
             // 
             // EmployeeColumn2
             // 
@@ -416,23 +523,7 @@
             this.EmployeeColumn2.FieldName = "EmployeeName";
             this.EmployeeColumn2.Name = "EmployeeColumn2";
             this.EmployeeColumn2.Visible = true;
-            this.EmployeeColumn2.VisibleIndex = 5;
-            // 
-            // StartTime
-            // 
-            this.StartTime.Caption = "وقت بداية الطلب";
-            this.StartTime.FieldName = "StartTime";
-            this.StartTime.Name = "StartTime";
-            this.StartTime.Visible = true;
-            this.StartTime.VisibleIndex = 8;
-            // 
-            // CustomerColumn1
-            // 
-            this.CustomerColumn1.Caption = "الزبون";
-            this.CustomerColumn1.FieldName = "CustomerName";
-            this.CustomerColumn1.Name = "CustomerColumn1";
-            this.CustomerColumn1.Visible = true;
-            this.CustomerColumn1.VisibleIndex = 9;
+            this.EmployeeColumn2.VisibleIndex = 6;
             // 
             // Send2
             // 
@@ -440,11 +531,10 @@
             this.Send2.ColumnEdit = this.FinishBtn;
             this.Send2.Name = "Send2";
             this.Send2.Visible = true;
-            this.Send2.VisibleIndex = 7;
+            this.Send2.VisibleIndex = 9;
             // 
             // FinishBtn
             // 
-            serializableAppearanceObject2.Image = ((System.Drawing.Image)(resources.GetObject("serializableAppearanceObject2.Image")));
             serializableAppearanceObject2.Options.UseImage = true;
             this.FinishBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send", -15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
@@ -595,7 +685,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FinishBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
@@ -629,23 +719,12 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit EmployeeLookUpEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
         private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Card.CardView cardView2;
-        private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn LocationColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn EarnColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn TimerColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn EmployeeColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn Status2;
-        private DevExpress.XtraGrid.Columns.GridColumn Send2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit FinishBtn;
-        private DevExpress.XtraGrid.Columns.GridColumn StartTime;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit2;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
-        private DevExpress.XtraGrid.Columns.GridColumn CustomerColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn TimerColumn1;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
         private DevExpress.XtraGrid.Columns.TileViewColumn StatusColumn;
         private DevExpress.XtraGrid.Columns.TileViewColumn DetailsColumn;
@@ -656,5 +735,17 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn UpdatedColumn1;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl2;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl3;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Status2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn TimerColumn1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn DetailsColumn2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn LocationColumn2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn EarnColumn2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn TimerColumn2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn EmployeeColumn2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn StartTime;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CustomerColumn1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Send2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn1;
     }
 }

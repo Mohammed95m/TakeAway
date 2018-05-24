@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SenderFrm;
-using CallForm;
+using TakeAway;
 
 namespace SenderFrm
 {
@@ -31,7 +31,7 @@ namespace SenderFrm
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            Settings1.Default.Connection = textEdit1.Text;
+            //Settings1.Default.Connection = textEdit1.Text;
             Data.Data.DataContext.ConnectionString = textEdit1.Text;
             this.Close();
         }
