@@ -14,9 +14,11 @@ using Data.Enums;
 namespace SenderFrm
 {
     public delegate void UpGrid(Order o);
+    public delegate void UpAfterRemove(Order o);
     public partial class EditFrm : DevExpress.XtraEditors.XtraForm
     {
         public static event UpGrid UpdateGrid;
+        public static event UpAfterRemove UpdateGridAfterRemove;
         Order MainOrder;
         Guid SenderUserID;
         bool isExist = true;
@@ -43,7 +45,7 @@ namespace SenderFrm
             if (isExist)
             {
                 labelControl4.Text = MainOrder.Details + ": تفاصيل الطلب";
-                labelControl3.Text = MainOrder?.Customer?.Name + ": اسم الزبون";
+                labelControl3.Text = MainOrder?.CustomerName + ": اسم الزبون";
                 labelControl2.Text = MainOrder.Location + ": الموقع";
                 lookUpEdit2.Properties.DataSource = vList;
                 lookUpEdit2.Properties.ValueMember = "ID";
@@ -91,7 +93,8 @@ namespace SenderFrm
                 order.VehicleID = (Guid)lookUpEdit2.EditValue;
                 order.EmployeeID = (Guid)lookUpEdit1.EditValue;
                 //       order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
-                order.BikeTime = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue;
+                order.BikeTime = new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text)?DateTime.Now.TimeOfDay.Hours.ToString():hoursCB.Text))
+                                             ,int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
                 order.Status = (int)Status.InProgress;
                 order.StartTime = DateTime.Now;
                 order.Earn = decimal.Parse((!string.IsNullOrEmpty(earnTE.Text)? RemovePoint(earnTE.Text):"0"));
@@ -116,8 +119,10 @@ namespace SenderFrm
                 if(DialogResult.OK==MessageBox.Show("حذف","هل أنت متأكد من أنك ستحذف هذا الطلب ؟", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
                     var DelOrder = db.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
+                    Order RemovedInstanse = DelOrder;
                     db.Orders.Remove(DelOrder);
                     db.SaveChanges();
+                    UpdateGridAfterRemove(RemovedInstanse);
                     this.Close();
                 }
                

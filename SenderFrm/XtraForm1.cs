@@ -83,7 +83,7 @@ namespace TakeAway
             tileView2.ItemClick += (sender, e)=>
             {
                 var row = tileView2.GetFocusedRow() as SendOrder;
-                if (DialogResult.Yes==MessageBox.Show("","لتعديل الطلب اضغط على تعديل "+"\n"+"إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل", MessageBoxButtons.YesNo))
+                if (DialogResult.Yes==MessageBox.Show("لتعديل الطلب اضغط على تعديل \n إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل","", MessageBoxButtons.YesNo))
                 {
                  
 
@@ -132,7 +132,14 @@ namespace TakeAway
                     fofo.ShowDialog();
                 }
             };
-            
+
+            EditFrm.UpdateGridAfterRemove += (DeletedOrder) =>
+            {
+                var Torder = TimerWating?.SingleOrDefault(s => s.ID == DeletedOrder.ID);
+                if (Torder != null) TimerWating.Remove(Torder);
+                var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
+                gridControl1.DataSource = ord;
+            };
             #region this event work after set employee $  Vehicle
             EditFrm.UpdateGrid += (o) =>
             {
@@ -309,7 +316,7 @@ namespace TakeAway
                             {
                                 BeginInvoke(new MethodInvoker(delegate () {
                                     UpdateSound.Play();
-                                    AlertInfo info = new AlertInfo(item.Details + ": تم تعديل الطلب", item.Customer.Name = ": اسم الزبون ");
+                                    AlertInfo info = new AlertInfo(item.Details + ": تم تعديل الطلب", item.CustomerName = ": اسم الزبون ");
                                     alertControl1.Show(this, info);
                                 }));
                                 item.Updated = 2;
@@ -357,19 +364,23 @@ namespace TakeAway
 
         void ColorTile(TileViewItem e)
         {
-            if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
+            if (e != null)
             {
-                e.Elements[3].Appearance.Normal.BackColor = Color.Red;
+                if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
+                {
+                    e.Elements[3].Appearance.Normal.BackColor = Color.Red;
+                }
+                else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
+                {
+                    e.Elements[3].Appearance.Normal.BackColor = Color.Orange;
+                }
+                int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
+                if (Updated == 1 || Updated == 2)
+                {
+                    e.Elements[3].Appearance.Normal.BackColor = Color.DarkTurquoise;
+                }
             }
-            else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
-            {
-                e.Elements[3].Appearance.Normal.BackColor = Color.Orange;
-            }
-            int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
-            if (Updated == 1 || Updated == 2)
-            {
-                e.Elements[3].Appearance.Normal.BackColor = Color.DarkTurquoise;
-            }
+     
           
         }
 

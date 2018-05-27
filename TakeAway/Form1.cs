@@ -23,7 +23,7 @@ namespace TakeAway
 
             hoursCB.SelectedIndex = 0;
             minCB.SelectedIndex = 0;
-            daysCB.SelectedIndex = 0;
+        //    daysCB.SelectedIndex = 0;
 
             isWait.CheckedChanged += (sender, e) =>
             {
@@ -31,13 +31,13 @@ namespace TakeAway
                 {
                     hoursCB.Enabled = true;
                     minCB.Enabled = true;
-                    daysCB.Enabled = true;
+                //    daysCB.Enabled = true;
                 }
                 else
                 { 
                     hoursCB.Enabled = false;
                     minCB.Enabled = false;
-                    daysCB.Enabled = false;
+                 //   daysCB.Enabled = false;
                 }
             };
             
@@ -142,7 +142,7 @@ namespace TakeAway
                         Order.Customer = MainCustomer;
                         Order.Details = OrderTxt.Text;
                         Order.Updated = 1;
-                        Order.Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text), int.Parse(minCB.Text), 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0);
+                        Order.Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text), int.Parse(minCB.Text)+45, 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0);
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
                         Order.Status = (int)Status.Created;
@@ -169,7 +169,7 @@ namespace TakeAway
                         Details = OrderTxt.Text,
                         CustomerName=MainCustomer.Name,
                         //Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue,
-                        Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text),int.Parse(minCB.Text), 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
+                        Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text),int.Parse(minCB.Text)+45, 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
                         Status = (int)Status.Created,
@@ -200,6 +200,8 @@ namespace TakeAway
             LocationTxt.Text = null;
             CustomerNumberTxt.Text = null;
             CustomerNameTxt.Text = null;
+            minCB.Text = "";
+            hoursCB.Text="";
             gridControl1.DataSource = _context.Orders.Where(s => s.Date.Day == DateTime.Now.Day && s.Date.Year == DateTime.Now.Year && s.Date.Month == DateTime.Now.Month).ToList();
         }
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -269,8 +271,26 @@ namespace TakeAway
                     CustomerNumberTxt.Text = cost?.Phone;
                     LocationTxt.Text = row?.Location;
                     OrderTxt.Text = row.Details;
-                    
-              //      PriceTxt.Text = RemovePoint(row.Earn.ToString());
+           
+                    minCB.SelectedItem = row.Date.Minute.ToString();
+                    for (int i = 0; i < minCB.Items.Count; i++)
+                    {
+                        if (minCB.Items[i].ToString() == row.Date.Minute.ToString("00"))
+                        {
+                            minCB.SelectedItem = minCB.Items[i];
+                            break;
+                        }
+                    }
+                    for (int i = 0; i < hoursCB.Items.Count; i++)
+                    {
+                        if (hoursCB.Items[i].ToString() == row.Date.Hour.ToString("00"))
+                        {
+                            hoursCB.SelectedItem = hoursCB.Items[i];
+                            break;
+                        }
+                    }
+                 //   hoursCB.SelectedItem = row.Date.Hour.ToString();
+                    //      PriceTxt.Text = RemovePoint(row.Earn.ToString());
                     //TimeTxt.TimeSpan = row.Time;
                     MainOrder = row;
 
