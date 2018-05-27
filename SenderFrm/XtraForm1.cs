@@ -33,17 +33,14 @@ namespace TakeAway
         protected internal XtraForm1(SenderUser user)
         {
             InitializeComponent();
-            //cardView1.OptionsView.ShowQuickCustomizeButton = false;
-            
-            //   lau.DataController.AllowIEnumerableDetails = true;
-            SenderUser = user;
 
-        
+            SenderUser = user;
+            
             
             var order = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
             foreach (var item in order)
             {
-                if (item.Time > DateTime.Now.TimeOfDay)
+                if (item.Time > DateTime.Now.TimeOfDay && item.WithTimer)
                 {
                     item.Status = (int)Status.Waiting;
                 }
@@ -70,11 +67,11 @@ namespace TakeAway
              * 
              */
             
-            //tileView1.ItemCustomize += (sender, e) =>
-            //{
-            //    ColorTile(e.Item);
-                
-            //};
+            tileView1.ItemCustomize += (sender, e) =>
+            {
+                ColorTile(e.Item);
+              
+            };
             
 
             tileView1.ItemClick += (sender, e) =>
@@ -209,28 +206,7 @@ namespace TakeAway
 
             
 
-            #region intilize alert timer
-            //Timer toto = new Timer();
-            //toto.Interval = 1000;
-            //toto.Tick += (sender, e) =>
-            //{
-            //    if(TimerOrder.Count>0)
-            //    foreach (var item in TimerOrder)
-            //    {
-            //        if(item.Time==0)
-            //        {
-            //            var emp = _context.Employees.SingleOrDefault(s => s.ID == item.order.EmployeeID);
-            //            alertControl1.Show(this, "هذا الموظف يجب أن يكون قد وصل", emp.Name);
-            //            TimerOrder.Remove(item);
-            //            continue;
-            //            //var order2 = _context.Orders.SingleOrDefault(s => s.ID == item.order.ID);
-            //            //_context.SaveChanges();
-            //        }
-            //        item.Time--;
-            //    }
-            //};
-            //toto.Start();
-            #endregion
+            
 
             #region intilize Wating Timer
             Timer WaitBike = new Timer();
@@ -257,7 +233,7 @@ namespace TakeAway
 
 
             Timer Wait = new Timer();
-         Wait.Interval = 300000;
+            Wait.Interval = 5000;
         
             Wait.Tick += (Sender, E) =>
             {
@@ -265,19 +241,11 @@ namespace TakeAway
                 {
                     var t = new TimeSpan(0, 45,0);
                     var total = DateTime.Now.TimeOfDay;
-                //    MessageBox.Show("now: " + total + "\n " + "time: " + item.Time);
-                    if (item.Time <= total && item.WithTimer)
+                    if (item.Time <= total && item.WithTimer && item.Status == (int) Status.Waiting)
                     {
                         var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
                         orderRadey.Status = (int)Status.Seen;
                         _context.SaveChanges();
-                        for(int i = 0; i < tileView1.RowCount; i++)
-                        {
-                            if (item.ID.Equals(tileView1.GetRowCellValue(i, "ID")))
-                            {
-                                
-                            }
-                        }
                         alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
                         tileView1.RefreshData();
                         //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(tileView1.));
@@ -325,7 +293,7 @@ namespace TakeAway
                          UpData = DB?.Orders?.Include("Customer")?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting ).ToList();
                         foreach (var item in UpData)
                         {
-                            if (item.Time > DateTime.Now.TimeOfDay)
+                            if (item.Time > DateTime.Now.TimeOfDay && item.WithTimer)
                             {
                                 item.Status = (int)Status.Waiting;
                             }

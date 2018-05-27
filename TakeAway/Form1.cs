@@ -191,6 +191,7 @@ namespace TakeAway
 
         public void RefreshControls(DataContext _context)
         {
+            isWait.Checked = false;
             MainOrder = null;
             MainCustomer = null;
             //TimeTxt.EditValue = new TimeSpan(0,0,0,0);

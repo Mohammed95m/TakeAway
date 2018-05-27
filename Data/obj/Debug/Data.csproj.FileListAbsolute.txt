@@ -35,3 +35,4 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.df.resour
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.df.resources
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.CustName.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.CustName.resources

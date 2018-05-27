@@ -82,7 +82,7 @@
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.earnTE = new DevExpress.XtraEditors.TextEdit();
             this.timeSpanEdit1 = new DevExpress.XtraEditors.TimeSpanEdit();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -160,7 +160,7 @@
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.earnTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -677,7 +677,7 @@
             this.layoutControl4.Controls.Add(this.simpleButton4);
             this.layoutControl4.Controls.Add(this.lookUpEdit1);
             this.layoutControl4.Controls.Add(this.lookUpEdit2);
-            this.layoutControl4.Controls.Add(this.textEdit1);
+            this.layoutControl4.Controls.Add(this.earnTE);
             this.layoutControl4.Controls.Add(this.timeSpanEdit1);
             this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl4.Location = new System.Drawing.Point(0, 0);
@@ -769,17 +769,17 @@
             this.lookUpEdit2.StyleController = this.layoutControl4;
             this.lookUpEdit2.TabIndex = 4;
             // 
-            // textEdit1
+            // earnTE
             // 
-            this.textEdit1.EditValue = "0";
-            this.textEdit1.Location = new System.Drawing.Point(12, 161);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Mask.BeepOnError = true;
-            this.textEdit1.Properties.Mask.EditMask = "######";
-            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit1.Size = new System.Drawing.Size(372, 20);
-            this.textEdit1.StyleController = this.layoutControl4;
-            this.textEdit1.TabIndex = 5;
+            this.earnTE.EditValue = "0";
+            this.earnTE.Location = new System.Drawing.Point(12, 161);
+            this.earnTE.Name = "earnTE";
+            this.earnTE.Properties.Mask.BeepOnError = true;
+            this.earnTE.Properties.Mask.EditMask = "######";
+            this.earnTE.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.earnTE.Size = new System.Drawing.Size(372, 20);
+            this.earnTE.StyleController = this.layoutControl4;
+            this.earnTE.TabIndex = 5;
             // 
             // timeSpanEdit1
             // 
@@ -1046,7 +1046,7 @@
             // 
             // layoutControlItem18
             // 
-            this.layoutControlItem18.Control = this.textEdit1;
+            this.layoutControlItem18.Control = this.earnTE;
             this.layoutControlItem18.CustomizationFormText = "  : التكلفة ";
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 149);
             this.layoutControlItem18.Name = "layoutControlItem9";
@@ -1194,7 +1194,7 @@
             this.layoutControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.earnTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -1288,7 +1288,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit earnTE;
         private DevExpress.XtraEditors.TimeSpanEdit timeSpanEdit1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
