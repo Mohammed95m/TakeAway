@@ -93,3 +93,6 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csproj.Genera
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe.licenses
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.pdb
+E:\Source\Repos\TakeAway\TakeAway\bin\Debug\TakeAway.exe.config
+E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe
+E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.pdb

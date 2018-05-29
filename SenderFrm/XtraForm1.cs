@@ -30,6 +30,8 @@ namespace TakeAway
         DataContext _context = new DataContext();
         SoundPlayer UpdateSound = new SoundPlayer("UpdateOrder.wav");
         SoundPlayer FinishSound = new SoundPlayer("alert.wav");
+        int count1;
+        int count2;
         protected internal XtraForm1(SenderUser user)
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace TakeAway
                 }
             }
             gridControl1.DataSource = order;
-
+            count1 = order.Count;
 
             LoadSendGrid();
 
@@ -139,6 +141,7 @@ namespace TakeAway
                 if (Torder != null) TimerWating.Remove(Torder);
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
+                count1 = ord.Count;
             };
             #region this event work after set employee $  Vehicle
             EditFrm.UpdateGrid += (o) =>
@@ -147,6 +150,7 @@ namespace TakeAway
                 TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
+                count1 = ord.Count();
 
             };
             #endregion
@@ -277,6 +281,7 @@ namespace TakeAway
 
 
             gridControl2.DataSource = SendOrder;
+            count2 = SendOrder.Count();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -294,8 +299,9 @@ namespace TakeAway
                     System.Threading.Thread.Sleep(1000);
                     DataContext DB = new DataContext();
                     var ISNewdata = DB?.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle")?.Where(S => S.Status == (int)Status.Created || S.Updated == 1).Any();
-
-                    if ((bool)ISNewdata)
+                    var ss = DB?.Orders?.ToList()?.Count();
+                 
+                    if ((bool)ISNewdata||ss!=count1+count2)
                     {
                          UpData = DB?.Orders?.Include("Customer")?.Where(S => S.Status == (int)Status.Created||S.Status==(int)Status.Seen || S.Status == (int)Status.Waiting ).ToList();
                         foreach (var item in UpData)
