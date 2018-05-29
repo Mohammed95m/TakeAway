@@ -107,11 +107,10 @@
     <Compile Include="ServerFrm.Designer.cs">
       <DependentUpon>ServerFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings1.cs" />
     <Compile Include="Settings1.Designer.cs">
-      <DependentUpon>Settings1.settings</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

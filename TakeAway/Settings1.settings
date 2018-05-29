@@ -2,8 +2,12 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TakeAway" GeneratedClassName="Settings1">
   <Profiles />
   <Settings>
-    <Setting Name="Connection" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True</Value>
+    <Setting Name="Connection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=HP-PC\SQLEXPRESS;Initial Catalog=TakeAwayDB2;Persist Security Info=True;User ID=sa;Password=11223344;MultipleActiveResultSets=True&amp;quot;
+</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

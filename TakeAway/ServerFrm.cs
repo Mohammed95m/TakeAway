@@ -31,7 +31,8 @@ namespace SenderFrm
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //Settings1.Default.Connection = textEdit1.Text;
+            Settings1.Default.Connection = textEdit1.Text;
+            Settings1.Default.Save();
             Data.Data.DataContext.ConnectionString = textEdit1.Text;
             this.Close();
         }

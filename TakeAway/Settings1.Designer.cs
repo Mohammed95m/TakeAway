@@ -23,12 +23,28 @@ namespace TakeAway {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HP-PC\\SQLEXPRESS;Initial Catalog=TakeAwayDB2;Persist Security Info=Tr" +
+            "ue;User ID=sa;Password=11223344;MultipleActiveResultSets=True&quot;\r\n")]
         public string Connection {
             get {
                 return ((string)(this["Connection"]));
+            }
+            set {
+                this["Connection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
             }
         }
     }
