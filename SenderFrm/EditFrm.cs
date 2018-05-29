@@ -89,18 +89,26 @@ namespace SenderFrm
           
             using (DataContext coco = new DataContext())
             {
-                var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
-                order.VehicleID = (Guid)lookUpEdit2.EditValue;
-                order.EmployeeID = (Guid)lookUpEdit1.EditValue;
-                //       order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
-                order.BikeTime = new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text)?DateTime.Now.TimeOfDay.Hours.ToString():hoursCB.Text))
-                                             ,int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
-                order.Status = (int)Status.InProgress;
-                order.StartTime = DateTime.Now;
-                order.Earn = decimal.Parse((!string.IsNullOrEmpty(earnTE.Text)? RemovePoint(earnTE.Text):"0"));
-                order.SenderUserID = SenderUserID;
-                coco.SaveChanges();
-                UpdateGrid(order);
+                try
+                {
+                    var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
+                    order.VehicleID = (Guid)lookUpEdit2.EditValue;
+                    order.EmployeeID = (Guid)lookUpEdit1.EditValue;
+                    //       order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
+                    order.BikeTime = new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text))
+                                                 , int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
+                    order.Status = (int)Status.InProgress;
+                    order.StartTime = DateTime.Now;
+                    order.Earn = decimal.Parse((!string.IsNullOrEmpty(earnTE.Text) ? RemovePoint(earnTE.Text) : "0"));
+                    order.SenderUserID = SenderUserID;
+                    coco.SaveChanges();
+                    UpdateGrid(order);
+
+                }
+                catch
+                {
+
+                }
                 this.Close();
             }
             }
@@ -112,17 +120,25 @@ namespace SenderFrm
                 s = s.Substring(0, index);
             return s;
         }
-        private void simpleButton2_Click(object sender, EventArgs e)
+        internal void simpleButton2_Click(object sender, EventArgs e)
         {
            using(DataContext db = new DataContext())
             {
                 if(DialogResult.OK==MessageBox.Show("حذف","هل أنت متأكد من أنك ستحذف هذا الطلب ؟", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
-                    var DelOrder = db.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
-                    Order RemovedInstanse = DelOrder;
-                    db.Orders.Remove(DelOrder);
-                    db.SaveChanges();
-                    UpdateGridAfterRemove(RemovedInstanse);
+                    try
+                    {
+                        var DelOrder = db.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
+                        Order RemovedInstanse = DelOrder;
+                        db.Orders.Remove(DelOrder);
+                        db.SaveChanges();
+                        UpdateGridAfterRemove(RemovedInstanse);
+
+                    }
+                    catch
+                    {
+
+                    }
                     this.Close();
                 }
                

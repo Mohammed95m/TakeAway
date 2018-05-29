@@ -26,7 +26,7 @@ namespace TakeAway {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HP-PC\\SQLEXPRESS;Initial Catalog=TakeAwayDB2;Persist Security Info=Tr" +
-            "ue;User ID=sa;Password=11223344;MultipleActiveResultSets=True&quot;\r\n")]
+            "ue;User ID=sa;Password=11223344;\r\n")]
         public string Connection {
             get {
                 return ((string)(this["Connection"]));

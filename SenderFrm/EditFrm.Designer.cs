@@ -74,6 +74,9 @@
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem19 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.hoursCB = new System.Windows.Forms.ComboBox();
+            this.minCB = new System.Windows.Forms.ComboBox();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -108,20 +111,17 @@
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem34 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem35 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem36 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem37 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem38 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem39 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.minCB = new System.Windows.Forms.ComboBox();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.hoursCB = new System.Windows.Forms.ComboBox();
-            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem37 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem38 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem39 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -192,17 +192,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem38)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem39)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -697,6 +697,120 @@
             this.layoutControl4.TabIndex = 5;
             this.layoutControl4.Text = "layoutControl3";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(363, 195);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(125, 13);
+            this.labelControl1.StyleController = this.layoutControl4;
+            this.labelControl1.TabIndex = 12;
+            this.labelControl1.Text = ":الوقت اللازم لتوصيل الطلب";
+            // 
+            // hoursCB
+            // 
+            this.hoursCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hoursCB.FormattingEnabled = true;
+            this.hoursCB.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.hoursCB.Location = new System.Drawing.Point(221, 211);
+            this.hoursCB.Name = "hoursCB";
+            this.hoursCB.Size = new System.Drawing.Size(57, 21);
+            this.hoursCB.TabIndex = 11;
+            // 
+            // minCB
+            // 
+            this.minCB.AllowDrop = true;
+            this.minCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.minCB.FormattingEnabled = true;
+            this.minCB.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.minCB.Location = new System.Drawing.Point(292, 211);
+            this.minCB.Name = "minCB";
+            this.minCB.Size = new System.Drawing.Size(57, 21);
+            this.minCB.TabIndex = 10;
+            // 
             // simpleButton3
             // 
             this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
@@ -1053,6 +1167,26 @@
             this.emptySpaceItem35.Size = new System.Drawing.Size(10, 41);
             this.emptySpaceItem35.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.minCB;
+            this.layoutControlItem20.Location = new System.Drawing.Point(280, 183);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(61, 41);
+            this.layoutControlItem20.Text = "دقائق";
+            this.layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.hoursCB;
+            this.layoutControlItem21.Location = new System.Drawing.Point(209, 183);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(61, 41);
+            this.layoutControlItem21.Text = "ساعات";
+            this.layoutControlItem21.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(57, 13);
+            // 
             // emptySpaceItem36
             // 
             this.emptySpaceItem36.AllowHotTrack = false;
@@ -1060,6 +1194,45 @@
             this.emptySpaceItem36.Name = "emptySpaceItem19";
             this.emptySpaceItem36.Size = new System.Drawing.Size(10, 41);
             this.emptySpaceItem36.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem37
+            // 
+            this.emptySpaceItem37.AllowHotTrack = false;
+            this.emptySpaceItem37.CustomizationFormText = "emptySpaceItem19";
+            this.emptySpaceItem37.Location = new System.Drawing.Point(10, 183);
+            this.emptySpaceItem37.Name = "emptySpaceItem37";
+            this.emptySpaceItem37.Size = new System.Drawing.Size(199, 41);
+            this.emptySpaceItem37.Text = "emptySpaceItem19";
+            this.emptySpaceItem37.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.labelControl1;
+            this.layoutControlItem19.Location = new System.Drawing.Point(351, 183);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(129, 41);
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem19.TextVisible = false;
+            // 
+            // emptySpaceItem38
+            // 
+            this.emptySpaceItem38.AllowHotTrack = false;
+            this.emptySpaceItem38.CustomizationFormText = "emptySpaceItem19";
+            this.emptySpaceItem38.Location = new System.Drawing.Point(0, 224);
+            this.emptySpaceItem38.Name = "emptySpaceItem38";
+            this.emptySpaceItem38.Size = new System.Drawing.Size(480, 16);
+            this.emptySpaceItem38.Text = "emptySpaceItem19";
+            this.emptySpaceItem38.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem39
+            // 
+            this.emptySpaceItem39.AllowHotTrack = false;
+            this.emptySpaceItem39.CustomizationFormText = "emptySpaceItem19";
+            this.emptySpaceItem39.Location = new System.Drawing.Point(0, 282);
+            this.emptySpaceItem39.Name = "emptySpaceItem39";
+            this.emptySpaceItem39.Size = new System.Drawing.Size(480, 29);
+            this.emptySpaceItem39.Text = "emptySpaceItem19";
+            this.emptySpaceItem39.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControl5
             // 
@@ -1096,179 +1269,6 @@
             this.layoutControlGroup6.Name = "layoutControlGroup1";
             this.layoutControlGroup6.Size = new System.Drawing.Size(20, 20);
             this.layoutControlGroup6.TextVisible = false;
-            // 
-            // minCB
-            // 
-            this.minCB.AllowDrop = true;
-            this.minCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.minCB.FormattingEnabled = true;
-            this.minCB.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59"});
-            this.minCB.Location = new System.Drawing.Point(292, 211);
-            this.minCB.Name = "minCB";
-            this.minCB.Size = new System.Drawing.Size(57, 21);
-            this.minCB.TabIndex = 10;
-            // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.minCB;
-            this.layoutControlItem20.Location = new System.Drawing.Point(280, 183);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(61, 41);
-            this.layoutControlItem20.Text = "دقائق";
-            this.layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // hoursCB
-            // 
-            this.hoursCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.hoursCB.FormattingEnabled = true;
-            this.hoursCB.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23"});
-            this.hoursCB.Location = new System.Drawing.Point(221, 211);
-            this.hoursCB.Name = "hoursCB";
-            this.hoursCB.Size = new System.Drawing.Size(57, 21);
-            this.hoursCB.TabIndex = 11;
-            // 
-            // layoutControlItem21
-            // 
-            this.layoutControlItem21.Control = this.hoursCB;
-            this.layoutControlItem21.Location = new System.Drawing.Point(209, 183);
-            this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(61, 41);
-            this.layoutControlItem21.Text = "ساعات";
-            this.layoutControlItem21.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // emptySpaceItem37
-            // 
-            this.emptySpaceItem37.AllowHotTrack = false;
-            this.emptySpaceItem37.CustomizationFormText = "emptySpaceItem19";
-            this.emptySpaceItem37.Location = new System.Drawing.Point(10, 183);
-            this.emptySpaceItem37.Name = "emptySpaceItem37";
-            this.emptySpaceItem37.Size = new System.Drawing.Size(199, 41);
-            this.emptySpaceItem37.Text = "emptySpaceItem19";
-            this.emptySpaceItem37.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem38
-            // 
-            this.emptySpaceItem38.AllowHotTrack = false;
-            this.emptySpaceItem38.CustomizationFormText = "emptySpaceItem19";
-            this.emptySpaceItem38.Location = new System.Drawing.Point(0, 224);
-            this.emptySpaceItem38.Name = "emptySpaceItem38";
-            this.emptySpaceItem38.Size = new System.Drawing.Size(480, 16);
-            this.emptySpaceItem38.Text = "emptySpaceItem19";
-            this.emptySpaceItem38.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(363, 195);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(125, 13);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 12;
-            this.labelControl1.Text = ":الوقت اللازم لتوصيل الطلب";
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.labelControl1;
-            this.layoutControlItem19.Location = new System.Drawing.Point(351, 183);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(129, 41);
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem19.TextVisible = false;
-            // 
-            // emptySpaceItem39
-            // 
-            this.emptySpaceItem39.AllowHotTrack = false;
-            this.emptySpaceItem39.CustomizationFormText = "emptySpaceItem19";
-            this.emptySpaceItem39.Location = new System.Drawing.Point(0, 282);
-            this.emptySpaceItem39.Name = "emptySpaceItem39";
-            this.emptySpaceItem39.Size = new System.Drawing.Size(480, 29);
-            this.emptySpaceItem39.Text = "emptySpaceItem19";
-            this.emptySpaceItem39.TextSize = new System.Drawing.Size(0, 0);
             // 
             // EditFrm
             // 
@@ -1354,17 +1354,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem39)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -84,7 +84,6 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\bin\Debug\de\DevExpress.Office.
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\bin\Debug\es\DevExpress.Office.v15.1.Core.resources.dll
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\bin\Debug\ja\DevExpress.Office.v15.1.Core.resources.dll
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
-C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csprojResolveAssemblyReference.cache
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.Form1.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\ChatApp.Forms.frmLogIn.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.Properties.Resources.resources
@@ -93,6 +92,3 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csproj.Genera
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe.licenses
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe
 C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.pdb
-E:\Source\Repos\TakeAway\TakeAway\bin\Debug\TakeAway.exe.config
-E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe
-E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.pdb
