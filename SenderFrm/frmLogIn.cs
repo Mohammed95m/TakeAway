@@ -26,24 +26,24 @@ namespace ChatApp.Forms
 
             Data.Data.DataContext.ConnectionString = Settings1.Default.Connection;
 
-            using (DataContext con = new DataContext())
-            {
-                con.Database.CreateIfNotExists();
+            //using (DataContext con = new DataContext())
+            //{
+            //    con.Database.CreateIfNotExists();
 
-                try
-                {
-                    var IsUser = con?.CallUsers?.SingleOrDefault(s => s.Username == "admin");
-                    if (IsUser == null)
-                    {
-                        SenderUser soso = new SenderUser() { Username = "admin", Password = "admin", Date = DateTime.Now };
-                        con.SenderUsers.Add(soso);
-                        con.SaveChanges();
-                    }
-                }
-                catch (Exception e) { }
+            //    try
+            //    {
+            //        var IsUser = con?.CallUsers?.SingleOrDefault(s => s.Username == "admin");
+            //        if (IsUser == null)
+            //        {
+            //            SenderUser soso = new SenderUser() { Username = "admin", Password = "admin", Date = DateTime.Now };
+            //            con.SenderUsers.Add(soso);
+            //            con.SaveChanges();
+            //        }
+            //    }
+            //    catch (Exception e) { }
 
 
-            }
+            //}
             }
 
         private void txtEmailLogIN_Validating(object sender, CancelEventArgs e)
@@ -92,6 +92,7 @@ namespace ChatApp.Forms
             string emailUser = txtEmailLogIN.Text;
             using (var mes = new DataContext())
             {
+                mes.Database.CreateIfNotExists();
                 var logInUser = mes.SenderUsers.Where(s => s.Username.ToLower() == emailUser.ToLower()).FirstOrDefault();
                 if (logInUser == null)
                 {

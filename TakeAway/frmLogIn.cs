@@ -88,6 +88,7 @@ namespace ChatApp.Forms
             string emailUser = txtEmailLogIN.Text;
             using (var mes = new DataContext())
             {
+                mes.Database.CreateIfNotExists();
                 var logInUser = mes.CallUsers.Where(s => s.Username.ToLower() == emailUser.ToLower()).FirstOrDefault();
                 if (logInUser == null)
                 {

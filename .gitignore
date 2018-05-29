@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TakeAway/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/TakeAway/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/TakeAway/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/SenderFrm/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/SenderFrm/obj/Debug/SenderFrm.csprojResolveAssemblyReference.cache
+/SenderFrm/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/SenderFrm/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/Data/Migrations/201805290220394_2.cs
+/TakeAway/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/TakeAway/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/SenderFrm/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/SenderFrm/obj/Debug/SenderFrm.csprojResolveAssemblyReference.cache
+/SenderFrm/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/SenderFrm/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/Data/Migrations/201805290220394_2.cs
