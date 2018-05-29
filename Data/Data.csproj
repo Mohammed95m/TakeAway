@@ -63,13 +63,9 @@
     <Compile Include="Data\Vehicle.cs" />
     <Compile Include="Data\VehicleType.cs" />
     <Compile Include="Enums\Status.cs" />
-    <Compile Include="Migrations\201805231304162_df.cs" />
-    <Compile Include="Migrations\201805231304162_df.Designer.cs">
-      <DependentUpon>201805231304162_df.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241547194_CustName.cs" />
-    <Compile Include="Migrations\201805241547194_CustName.Designer.cs">
-      <DependentUpon>201805241547194_CustName.cs</DependentUpon>
+    <Compile Include="Migrations\201805291154582_ggs.cs" />
+    <Compile Include="Migrations\201805291154582_ggs.Designer.cs">
+      <DependentUpon>201805291154582_ggs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,11 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805231304162_df.resx">
-      <DependentUpon>201805231304162_df.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241547194_CustName.resx">
-      <DependentUpon>201805241547194_CustName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805291154582_ggs.resx">
+      <DependentUpon>201805291154582_ggs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -183,3 +183,4 @@ E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.ServerFrm.resources
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\TakeAway.XtraForm1.resources
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.exe.licenses
+C:\Users\Majed-PC\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.csprojResolveAssemblyReference.cache
