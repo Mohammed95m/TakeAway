@@ -23,13 +23,24 @@ namespace Admin.InsertForms
             InitializeComponent();
             Connection = con;
             ID = id;
+            DataContext.ConnectionString = Connection;
+            using (DataContext Db = new DataContext())
+            {
+                var Emp = Db?.Employees?.SingleOrDefault(s => s.ID == ID);
+            NameTxt.Text = Emp.Name ;
+                LastNameTxt.Text= Emp.LastName ;
+                SalaryTxt.Text = Emp.Salary.ToString();
+                LocationTxt.Text = Emp.Address;
+                PhoneTxt.Text = Emp.Phone;
+    
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
           
 
-            DataContext.ConnectionString = Connection;
+         
             try
             {
                 using (DataContext Db = new DataContext())

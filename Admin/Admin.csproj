@@ -73,6 +73,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUserfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUserfrm.Designer.cs">
+      <DependentUpon>AdminUserfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForms\AdminUserInfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForms\AdminUserInfrm.Designer.cs">
+      <DependentUpon>AdminUserInfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForms\SenderUserInfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForms\SenderUserInfrm.Designer.cs">
+      <DependentUpon>SenderUserInfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForms\CallUserInfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForms\CallUserInfrm.Designer.cs">
+      <DependentUpon>CallUserInfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SenderUserfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SenderUserfrm.Designer.cs">
+      <DependentUpon>SenderUserfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CallUserfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CallUserfrm.Designer.cs">
+      <DependentUpon>CallUserfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +146,48 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
+    <Compile Include="UpdateForms\AdminUserUpfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForms\AdminUserUpfrm.Designer.cs">
+      <DependentUpon>AdminUserUpfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateForms\SenderUserUpfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForms\SenderUserUpfrm.Designer.cs">
+      <DependentUpon>SenderUserUpfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateForms\CallUserUPfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForms\CallUserUPfrm.Designer.cs">
+      <DependentUpon>CallUserUPfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateForms\EmployeeUPFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateForms\EmployeeUPFrm.Designer.cs">
       <DependentUpon>EmployeeUPFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminUserfrm.resx">
+      <DependentUpon>AdminUserfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForms\AdminUserInfrm.resx">
+      <DependentUpon>AdminUserInfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForms\SenderUserInfrm.resx">
+      <DependentUpon>SenderUserInfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForms\CallUserInfrm.resx">
+      <DependentUpon>CallUserInfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SenderUserfrm.resx">
+      <DependentUpon>SenderUserfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CallUserfrm.resx">
+      <DependentUpon>CallUserfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +212,15 @@
     </Compile>
     <EmbeddedResource Include="ServerFrm.resx">
       <DependentUpon>ServerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForms\AdminUserUpfrm.resx">
+      <DependentUpon>AdminUserUpfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForms\SenderUserUpfrm.resx">
+      <DependentUpon>SenderUserUpfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForms\CallUserUPfrm.resx">
+      <DependentUpon>CallUserUPfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateForms\EmployeeUPFrm.resx">
       <DependentUpon>EmployeeUPFrm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Admin
 {
-    partial class Employee
+    partial class AdminUserfrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUserfrm));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.NameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LastNameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SalaryColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PhoneColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.AddressColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PasswordColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.إَ = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -69,59 +66,34 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.NameColumn,
-            this.LastNameColumn,
-            this.SalaryColumn,
-            this.PhoneColumn,
-            this.AddressColumn,
-            this.ID});
+            this.PasswordColumn,
+            this.DateColumn});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
             // NameColumn
             // 
             this.NameColumn.Caption = "الاسم";
-            this.NameColumn.FieldName = "Name";
+            this.NameColumn.FieldName = "Username";
             this.NameColumn.Name = "NameColumn";
             this.NameColumn.Visible = true;
             this.NameColumn.VisibleIndex = 0;
             // 
-            // LastNameColumn
+            // PasswordColumn
             // 
-            this.LastNameColumn.Caption = "الكنية";
-            this.LastNameColumn.FieldName = "LastName";
-            this.LastNameColumn.Name = "LastNameColumn";
-            this.LastNameColumn.Visible = true;
-            this.LastNameColumn.VisibleIndex = 1;
+            this.PasswordColumn.Caption = "كلمة السر";
+            this.PasswordColumn.FieldName = "Password";
+            this.PasswordColumn.Name = "PasswordColumn";
+            this.PasswordColumn.Visible = true;
+            this.PasswordColumn.VisibleIndex = 1;
             // 
-            // SalaryColumn
+            // DateColumn
             // 
-            this.SalaryColumn.Caption = "الراتب";
-            this.SalaryColumn.FieldName = "Salary";
-            this.SalaryColumn.Name = "SalaryColumn";
-            this.SalaryColumn.Visible = true;
-            this.SalaryColumn.VisibleIndex = 2;
-            // 
-            // PhoneColumn
-            // 
-            this.PhoneColumn.Caption = "الرقم";
-            this.PhoneColumn.FieldName = "Phone";
-            this.PhoneColumn.Name = "PhoneColumn";
-            this.PhoneColumn.Visible = true;
-            this.PhoneColumn.VisibleIndex = 3;
-            // 
-            // AddressColumn
-            // 
-            this.AddressColumn.Caption = "العنوان";
-            this.AddressColumn.FieldName = "Address";
-            this.AddressColumn.Name = "AddressColumn";
-            this.AddressColumn.Visible = true;
-            this.AddressColumn.VisibleIndex = 4;
-            // 
-            // ID
-            // 
-            this.ID.Caption = "gridColumn1";
-            this.ID.FieldName = "ID";
-            this.ID.Name = "ID";
+            this.DateColumn.Caption = "تاريخ الإضافة";
+            this.DateColumn.FieldName = "Date";
+            this.DateColumn.Name = "DateColumn";
+            this.DateColumn.Visible = true;
+            this.DateColumn.VisibleIndex = 2;
             // 
             // ribbonControl1
             // 
@@ -215,14 +187,14 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // Employee
+            // AdminUserfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 365);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "Employee";
+            this.Name = "AdminUserfrm";
             this.Text = "Employee";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -241,17 +213,14 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn NameColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn LastNameColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn SalaryColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn PhoneColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn AddressColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn PasswordColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn DateColumn;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.BarButtonItem إَ;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraGrid.Columns.GridColumn ID;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

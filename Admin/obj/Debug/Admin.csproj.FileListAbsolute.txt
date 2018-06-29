@@ -98,3 +98,12 @@ E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.EmployeeINFrm.resourc
 E:\Source\Repos\TakeAway\Admin\obj\Debug\SenderFrm.ServerFrm.resources
 E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.EmployeeUPFrm.resources
 E:\Source\Repos\TakeAway\Admin\bin\Debug\Admin.exe.config
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.AdminUserfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.AdminUserInfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.SenderUserInfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.CallUserInfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.SenderUserfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.CallUserfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.AdminUserUpfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.SenderUserUpfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.CallUserUPfrm.resources

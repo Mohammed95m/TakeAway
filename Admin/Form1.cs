@@ -51,5 +51,21 @@ namespace Admin
         {
             ShowChild(new Employee(connection));
         }
+
+        private void SenderUserbtn_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new SenderUserfrm(connection));
+        }
+
+
+        private void AdminUserbtn_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new AdminUserfrm(connection));
+        }
+
+        private void CallUserbtn_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new CallUserfrm(connection));
+        }
     }
 }
