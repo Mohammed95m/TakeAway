@@ -116,6 +116,7 @@ namespace TakeAway
                         CallUserName = Ord?.CallUser?.Employee?.Name,
                         CustomerName = Ord?.Customer?.Name,
                         EmployeeNaame = Ord?.Employee?.Name,
+                        VehicleNumber = Ord?.Vehicle?.Number
                     };
                     _context.FinishedOrders.Add(finishOrder);
                     if (TimerWating.Contains(Ord)) TimerWating.Remove(Ord);

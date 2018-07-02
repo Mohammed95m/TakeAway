@@ -107,3 +107,8 @@ E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.CallUserfrm.resources
 E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.AdminUserUpfrm.resources
 E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.SenderUserUpfrm.resources
 E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.CallUserUPfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.analysisfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.BikeFrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.BikeInfrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.OrdersGridFrm.resources
+E:\Source\Repos\TakeAway\Admin\obj\Debug\Admin.InsertForms.BikeUpfrm.resources

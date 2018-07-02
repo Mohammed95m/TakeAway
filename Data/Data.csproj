@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201805291154582_ggs.Designer.cs">
       <DependentUpon>201805291154582_ggs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807020909363_Ninit.cs" />
+    <Compile Include="Migrations\201807020909363_Ninit.Designer.cs">
+      <DependentUpon>201807020909363_Ninit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805291154582_ggs.resx">
       <DependentUpon>201805291154582_ggs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020909363_Ninit.resx">
+      <DependentUpon>201807020909363_Ninit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

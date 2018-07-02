@@ -17,7 +17,6 @@ E:\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.dll
 E:\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.SqlServer.dll
 E:\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.xml
 E:\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.SqlServer.xml
-E:\Source\Repos\TakeAway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
@@ -31,7 +30,7 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.SqlServer
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
-E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.df.resources
-E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.CustName.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.ggs.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
+E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.ggs.resources
+E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.Ninit.resources

@@ -23,7 +23,7 @@ namespace Data.Data
         public Guid? VehicleID { get; set; }
         [ForeignKey("VehicleID")]
         public Vehicle Vehicle { get; set; }
-        public int? VehicleNumber { get { return Vehicle.Number; } }
+        public int? VehicleNumber { get; set; }
 
         public Guid CustomerID { get; set; }
         [ForeignKey("CustomerID")]

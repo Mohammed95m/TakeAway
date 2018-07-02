@@ -37,6 +37,10 @@
             this.SenderUserbtn = new DevExpress.XtraNavBar.NavBarItem();
             this.CallUserbtn = new DevExpress.XtraNavBar.NavBarItem();
             this.AdminUserbtn = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -65,12 +69,16 @@
             this.navBarControl1.ActiveGroup = this.navBarGroup1;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup1});
+            this.navBarGroup1,
+            this.navBarGroup2});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem1,
             this.SenderUserbtn,
             this.CallUserbtn,
-            this.AdminUserbtn});
+            this.AdminUserbtn,
+            this.navBarItem2,
+            this.navBarItem3,
+            this.navBarItem4});
             this.navBarControl1.Location = new System.Drawing.Point(513, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
@@ -80,13 +88,13 @@
             // 
             // navBarGroup1
             // 
-            this.navBarGroup1.Caption = "navBarGroup1";
-            this.navBarGroup1.Expanded = true;
+            this.navBarGroup1.Caption = "الإضافة ";
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
             new DevExpress.XtraNavBar.NavBarItemLink(this.SenderUserbtn),
             new DevExpress.XtraNavBar.NavBarItemLink(this.CallUserbtn),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.AdminUserbtn)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.AdminUserbtn),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarItem1
@@ -112,6 +120,32 @@
             this.AdminUserbtn.Caption = "المدير";
             this.AdminUserbtn.Name = "AdminUserbtn";
             this.AdminUserbtn.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.AdminUserbtn_LinkClicked);
+            // 
+            // navBarGroup2
+            // 
+            this.navBarGroup2.Caption = "التحليل";
+            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
+            this.navBarGroup2.Name = "navBarGroup2";
+            // 
+            // navBarItem2
+            // 
+            this.navBarItem2.Caption = "الأرباح و عدد الطلبات";
+            this.navBarItem2.Name = "navBarItem2";
+            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
+            // 
+            // navBarItem3
+            // 
+            this.navBarItem3.Caption = "كل الطلبيات";
+            this.navBarItem3.Name = "navBarItem3";
+            this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
+            // 
+            // navBarItem4
+            // 
+            this.navBarItem4.Caption = "الدراجات";
+            this.navBarItem4.Name = "navBarItem4";
+            this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
             // 
             // Form1
             // 
@@ -139,6 +173,10 @@
         private DevExpress.XtraNavBar.NavBarItem SenderUserbtn;
         private DevExpress.XtraNavBar.NavBarItem CallUserbtn;
         private DevExpress.XtraNavBar.NavBarItem AdminUserbtn;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem4;
     }
 }
 

@@ -67,5 +67,22 @@ namespace Admin
         {
             ShowChild(new CallUserfrm(connection));
         }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new analysisfrm());
+           
+        }
+
+        private void navBarItem3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new OrdersGridFrm());
+        }
+
+        private void navBarItem4_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new BikeFrm(connection));
+           
+        }
     }
 }

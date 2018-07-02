@@ -34,7 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="Data">
+    <Reference Include="Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Data\bin\Debug\Data.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.1" />
@@ -79,6 +80,24 @@
     <Compile Include="AdminUserfrm.Designer.cs">
       <DependentUpon>AdminUserfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="analysisfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="analysisfrm.Designer.cs">
+      <DependentUpon>analysisfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BikeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BikeFrm.Designer.cs">
+      <DependentUpon>BikeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForms\BikeInfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForms\BikeInfrm.Designer.cs">
+      <DependentUpon>BikeInfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertForms\AdminUserInfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +115,12 @@
     </Compile>
     <Compile Include="InsertForms\CallUserInfrm.Designer.cs">
       <DependentUpon>CallUserInfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersGridFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersGridFrm.Designer.cs">
+      <DependentUpon>OrdersGridFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="SenderUserfrm.cs">
       <SubType>Form</SubType>
@@ -146,6 +171,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
+    <Compile Include="UpdateForms\BikeUpfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForms\BikeUpfrm.Designer.cs">
+      <DependentUpon>BikeUpfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateForms\AdminUserUpfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +204,15 @@
     <EmbeddedResource Include="AdminUserfrm.resx">
       <DependentUpon>AdminUserfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="analysisfrm.resx">
+      <DependentUpon>analysisfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BikeFrm.resx">
+      <DependentUpon>BikeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForms\BikeInfrm.resx">
+      <DependentUpon>BikeInfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InsertForms\AdminUserInfrm.resx">
       <DependentUpon>AdminUserInfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertForms\CallUserInfrm.resx">
       <DependentUpon>CallUserInfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersGridFrm.resx">
+      <DependentUpon>OrdersGridFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SenderUserfrm.resx">
       <DependentUpon>SenderUserfrm.cs</DependentUpon>
@@ -212,6 +255,9 @@
     </Compile>
     <EmbeddedResource Include="ServerFrm.resx">
       <DependentUpon>ServerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForms\BikeUpfrm.resx">
+      <DependentUpon>BikeUpfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateForms\AdminUserUpfrm.resx">
       <DependentUpon>AdminUserUpfrm.cs</DependentUpon>
