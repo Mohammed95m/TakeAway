@@ -60,14 +60,7 @@ namespace TakeAway
             count1 = order.Count;
 
             LoadSendGrid();
-
-            /*
-             * test
-             * 
-             * 
-             * 
-             * 
-             */
+            
             
             tileView1.ItemCustomize += (sender, e) =>
             {
@@ -323,7 +316,7 @@ namespace TakeAway
                             {
                                 BeginInvoke(new MethodInvoker(delegate () {
                                     UpdateSound.Play();
-                                    AlertInfo info = new AlertInfo(item.Details + ": تم تعديل الطلب", item.CustomerName = ": اسم الزبون ");
+                                    AlertInfo info = new AlertInfo(item.Details + ": تم تعديل الطلب \n", item.CustomerName + ": اسم الزبون  \n");
                                     alertControl1.Show(this, info);
                                 }));
                                 item.Updated = 2;
@@ -379,12 +372,12 @@ namespace TakeAway
                 }
                 else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
                 {
-                    e.Elements[3].Appearance.Normal.BackColor = Color.Orange;
+                    e.Elements[3].Appearance.Normal.BackColor = Color.Blue;
                 }
                 int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
                 if (Updated == 1 || Updated == 2)
                 {
-                    e.Elements[3].Appearance.Normal.BackColor = Color.DarkTurquoise;
+                    e.Elements[3].Appearance.Normal.BackColor = Color.Black;
                 }
             }
      

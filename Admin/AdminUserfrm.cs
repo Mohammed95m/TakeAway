@@ -19,7 +19,7 @@ namespace Admin
 {
     public partial class AdminUserfrm : DevExpress.XtraEditors.XtraForm
     {
-        string con = "Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True";
+        string con = "Data Source=localhost;Initial Catalog=ldjks;Integrated Security=True";
         public AdminUserfrm( string connection)
         {
             InitializeComponent();
@@ -30,10 +30,10 @@ namespace Admin
             //gridView1.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
 
 
-            EmployeeUPFrm.UpdateGridUP += () => {
+            AdminUserInfrm.UpdateGridIN += () => {
                 gridControl1.DataSource = DB.AdminUsers.Select(x => new { x.ID, x.Username, x.Password, x.Date }).ToList();
             };
-            EmployeeINFrm.UpdateGridIN+=() => {
+            AdminUserUpfrm.UpdateGridUP +=() => {
                 gridControl1.DataSource = DB.AdminUsers.Select(x => new { x.ID, x.Username, x.Password, x.Date }).ToList();
             };
 
@@ -60,10 +60,9 @@ namespace Admin
                 AdminUserUpfrm fofo = new AdminUserUpfrm(Guid.Parse(id), con);
                 fofo.ShowDialog();
             }
-            catch (Exception)
+            catch (Exception q)
             {
-
-       
+                MessageBox.Show(q.Message);
             }
           
         }
@@ -79,7 +78,7 @@ namespace Admin
                     var emp = DB?.AdminUsers?.SingleOrDefault(s => s.ID == ID);
                     DB.AdminUsers.Remove(emp);
                     DB.SaveChanges();
-                    gridControl1.DataSource = DB.Employees.ToList();
+                    gridControl1.DataSource = DB.AdminUsers.Select(x => new { x.ID, x.Username, x.Password, x.Date }).ToList(); ;
                 }
                     
             }

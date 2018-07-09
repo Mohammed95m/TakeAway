@@ -187,3 +187,4 @@ E:\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csproj.GenerateResource.Cach
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe.licenses
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.exe
 E:\Source\Repos\TakeAway\TakeAway\obj\Debug\TakeAway.pdb
+C:\Users\Majed-PC\Source\Repos\TakeAway\TakeAway\obj\Debug\CallFrm.csprojResolveAssemblyReference.cache

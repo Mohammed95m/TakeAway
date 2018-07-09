@@ -10,7 +10,7 @@ namespace Data.Data
 {
   public  class DataContext :DbContext
     {
-        public static string ConnectionString { get; set; } = "Data Source=HP-PC\\SQLEXPRESS;Initial Catalog=TakeAwayDB2;Integrated Security=True" +
+        public static string ConnectionString { get; set; } = "Data Source=DESKTOP-KIBTH37;Initial Catalog=TakeAwayDB3;Integrated Security=True" +
             ";User ID=sa;Password=11223344";
         // = "Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True";
         public DataContext():base(ConnectionString)

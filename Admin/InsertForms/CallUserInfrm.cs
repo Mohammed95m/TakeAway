@@ -23,7 +23,7 @@ namespace Admin.InsertForms
             DataContext.ConnectionString = Connection;
             using (DataContext Db = new DataContext())
             {
-                EmployeeLUE.Properties.DataSource = Db.Employees;
+                EmployeeLUE.Properties.DataSource = Db.Employees.ToList();
                 EmployeeLUE.Properties.ValueMember = "ID";
                 EmployeeLUE.Properties.DisplayMember = "Name";
                 DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name");
@@ -34,16 +34,18 @@ namespace Admin.InsertForms
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            Data.Data.CallUser Emp = new Data.Data.CallUser
-            {
-                Username = NameTxt.Text,
-                Password = PasswordTxt.Text,
-                EmployeeID = (Guid)EmployeeLUE.EditValue,
-                Date = DateTime.Now
-            };
+            
           
             try
             {
+                Data.Data.CallUser Emp = new Data.Data.CallUser
+                {
+                    Username = NameTxt.Text,
+                    Password = PasswordTxt.Text,
+                    EmployeeID = (Guid)EmployeeLUE.EditValue,
+                    Date = DateTime.Now
+                };
+
                 using (DataContext Db = new DataContext())
                 {
                     Db.CallUsers.Add(Emp);
@@ -54,7 +56,7 @@ namespace Admin.InsertForms
             }
             catch (Exception a)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show(" تأكد من المدخلات أو من اتصالك بالسيرفر");
             }
           
 

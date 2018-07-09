@@ -25,7 +25,7 @@ namespace SenderFrm {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Data Source=HP-PC\SQLEXPRESS;Initial Catalog=TakeAwayDB2;Integrated Security=True;User ID=sa;Password=11223344")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=TakeAwayDB3;Integrated Security=True")]
         public string Connection {
             get {
                 return ((string)(this["Connection"]));

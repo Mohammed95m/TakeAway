@@ -17,12 +17,12 @@ namespace Admin
         public OrdersGridFrm()
         {
             InitializeComponent();
-            DataContext.ConnectionString = "Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True";
-            using (DataContext DB = new DataContext())
-            {
-                var orders = DB?.FinishedOrders?.ToList();
-                gridControl1.DataSource = orders;
-            }
+            //DataContext.ConnectionString = "Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True";
+                using (DataContext DB = new DataContext())
+                {
+                    var orders = DB?.FinishedOrders?.ToList();
+                    gridControl1.DataSource = orders;
+                }
             }
     }
 }

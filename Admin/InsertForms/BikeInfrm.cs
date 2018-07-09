@@ -34,6 +34,28 @@ namespace Admin.InsertForms
             else
             {
 
+                try
+                {
+                    using (DataContext Db = new DataContext())
+                    {
+                        VehicleType firstRow = Db.VehicleTypes.ToList()[0];
+                        Data.Data.Vehicle Emp = new Data.Data.Vehicle
+                        {
+                            VehicleTypeID = firstRow.ID,
+                            Number = int.Parse(NameTxt.Text),
+                            IsAvailable = IsAvalibleChx.Checked,
+                            Date = DateTime.Now                            
+                        };
+                        Db.Vehicles.Add(Emp);
+                        Db.SaveChanges();
+                        UpdateGridIN();
+                        this.Close();
+                    }
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show(" تأكد من المدخلات أو من اتصالك بالسيرفر");
+                }
             }
            
 

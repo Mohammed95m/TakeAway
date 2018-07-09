@@ -30,7 +30,7 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\Data\bin\Debug\EntityFramework.SqlServer
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
-C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.ggs.resources
-C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.ggs.resources
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.Ninit.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.a.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache

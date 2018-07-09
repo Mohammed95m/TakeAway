@@ -46,7 +46,7 @@ namespace Admin.InsertForms
             }
             catch (Exception a)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show(a.Message + " f");
             }
           
 

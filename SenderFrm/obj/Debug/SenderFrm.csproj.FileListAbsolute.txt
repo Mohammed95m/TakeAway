@@ -183,3 +183,4 @@ E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.csproj.GenerateResource.C
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.exe.licenses
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.exe
 E:\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.pdb
+C:\Users\Majed-PC\Source\Repos\TakeAway\SenderFrm\obj\Debug\SenderFrm.csprojResolveAssemblyReference.cache

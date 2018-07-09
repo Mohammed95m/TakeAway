@@ -882,7 +882,7 @@
             // 
             // earnTE
             // 
-            this.earnTE.EditValue = "0";
+            this.earnTE.EditValue = "300";
             this.earnTE.Location = new System.Drawing.Point(12, 161);
             this.earnTE.Name = "earnTE";
             this.earnTE.Properties.Mask.BeepOnError = true;

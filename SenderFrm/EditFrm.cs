@@ -36,6 +36,7 @@ namespace SenderFrm
            // DataContext.ConnectionString = Settings1.Default.Connection;
             DataContext coco = new DataContext();
 
+            try { hoursCB.SelectedIndex = 0; minCB.SelectedIndex = 30; } catch { }
 
             List<Vehicle> vList = coco?.Vehicles?.ToList();
             List<Employee> eList = coco?.Employees?.ToList();
@@ -59,7 +60,7 @@ namespace SenderFrm
                 lookUpEdit1.Properties.Columns.Add(col2);
                 lookUpEdit2.EditValue = MainOrder?.VehicleID;
                 lookUpEdit1.EditValue = MainOrder?.EmployeeID;
-                earnTE.EditValue = MainOrder?.Earn?.ToString();
+                earnTE.EditValue = string.IsNullOrEmpty(MainOrder?.Earn?.ToString()) ? "300" : MainOrder?.Earn?.ToString();
                 TimeTxt.EditValue = MainOrder.BikeTime;
                 // textEdit1.EditValue = MainOrder?.Timer;
 

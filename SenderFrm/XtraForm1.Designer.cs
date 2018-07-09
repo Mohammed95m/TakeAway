@@ -35,8 +35,8 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement11 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
@@ -44,6 +44,7 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement13 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement14 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement15 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement16 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
             this.LocationColumn = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -64,6 +65,7 @@
             this.Send = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.SendButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.UpdatedColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.EmployeeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
@@ -246,7 +248,8 @@
             this.TimeColumn,
             this.Send,
             this.UpdatedColumn1,
-            this.tileViewColumn1});
+            this.tileViewColumn1,
+            this.tileViewColumn2});
             this.tileView1.GridControl = this.gridControl1;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsTiles.ColumnCount = 4;
@@ -300,6 +303,10 @@
             tileViewItemElement7.Text = "tileViewColumn1";
             tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
             tileViewItemElement7.TextLocation = new System.Drawing.Point(-15, 77);
+            tileViewItemElement8.Column = null;
+            tileViewItemElement8.Text = "0966555444";
+            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileViewItemElement8.TextLocation = new System.Drawing.Point(0, -5);
             this.tileView1.TileTemplate.Add(tileViewItemElement1);
             this.tileView1.TileTemplate.Add(tileViewItemElement2);
             this.tileView1.TileTemplate.Add(tileViewItemElement3);
@@ -307,6 +314,7 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement5);
             this.tileView1.TileTemplate.Add(tileViewItemElement6);
             this.tileView1.TileTemplate.Add(tileViewItemElement7);
+            this.tileView1.TileTemplate.Add(tileViewItemElement8);
             this.tileView1.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView1_ItemCustomize);
             // 
             // StatusColumn
@@ -369,6 +377,13 @@
             this.UpdatedColumn1.Name = "UpdatedColumn1";
             this.UpdatedColumn1.Visible = true;
             this.UpdatedColumn1.VisibleIndex = 6;
+            // 
+            // tileViewColumn2
+            // 
+            this.tileViewColumn2.Caption = "tileViewColumn2";
+            this.tileViewColumn2.Name = "tileViewColumn2";
+            this.tileViewColumn2.Visible = true;
+            this.tileViewColumn2.VisibleIndex = 8;
             // 
             // repositoryItemComboBox1
             // 
@@ -452,64 +467,63 @@
             this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView2.OptionsTiles.RowCount = 5;
             this.tileView2.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
-            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement8.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement8.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement8.Column = null;
-            tileViewItemElement8.Text = "العنوان";
-            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement8.TextLocation = new System.Drawing.Point(-15, 0);
-            tileViewItemElement9.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement9.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement9.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement9.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement9.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement9.Appearance.Normal.Options.UseForeColor = true;
             tileViewItemElement9.Column = null;
-            tileViewItemElement9.Height = 200;
-            tileViewItemElement9.Text = "";
-            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            tileViewItemElement9.TextLocation = new System.Drawing.Point(18, 0);
-            tileViewItemElement9.Width = 20;
-            tileViewItemElement10.Appearance.Normal.Options.UseTextOptions = true;
-            tileViewItemElement10.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            tileViewItemElement10.Column = this.LocationColumn2;
-            tileViewItemElement10.Text = "LocationColumn2";
-            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement10.TextLocation = new System.Drawing.Point(-15, 18);
-            tileViewItemElement11.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement11.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement11.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement11.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement11.Column = null;
-            tileViewItemElement11.Text = "اسم الزبون";
+            tileViewItemElement9.Text = "العنوان";
+            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement9.TextLocation = new System.Drawing.Point(-15, 0);
+            tileViewItemElement10.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement10.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement10.Column = null;
+            tileViewItemElement10.Height = 200;
+            tileViewItemElement10.Text = "";
+            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement10.TextLocation = new System.Drawing.Point(18, 0);
+            tileViewItemElement10.Width = 20;
+            tileViewItemElement11.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement11.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            tileViewItemElement11.Column = this.LocationColumn2;
+            tileViewItemElement11.Text = "LocationColumn2";
             tileViewItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement11.TextLocation = new System.Drawing.Point(-15, 60);
-            tileViewItemElement12.Appearance.Normal.Options.UseTextOptions = true;
-            tileViewItemElement12.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            tileViewItemElement12.Column = this.CustomerColumn1;
-            tileViewItemElement12.Text = "CustomerColumn1";
+            tileViewItemElement11.TextLocation = new System.Drawing.Point(-15, 18);
+            tileViewItemElement12.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement12.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement12.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement12.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement12.Column = null;
+            tileViewItemElement12.Text = "اسم الزبون";
             tileViewItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement12.TextLocation = new System.Drawing.Point(-15, 77);
-            tileViewItemElement13.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement13.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            tileViewItemElement13.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement13.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement13.Column = null;
-            tileViewItemElement13.Text = "تفاصيل الطلب";
+            tileViewItemElement12.TextLocation = new System.Drawing.Point(-15, 60);
+            tileViewItemElement13.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement13.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            tileViewItemElement13.Column = this.CustomerColumn1;
+            tileViewItemElement13.Text = "CustomerColumn1";
             tileViewItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement13.TextLocation = new System.Drawing.Point(-15, 105);
-            tileViewItemElement14.Appearance.Normal.Options.UseTextOptions = true;
-            tileViewItemElement14.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            tileViewItemElement14.Column = this.DetailsColumn2;
-            tileViewItemElement14.Text = "DetailsColumn2";
+            tileViewItemElement13.TextLocation = new System.Drawing.Point(-15, 77);
+            tileViewItemElement14.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement14.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            tileViewItemElement14.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement14.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement14.Column = null;
+            tileViewItemElement14.Text = "تفاصيل الطلب";
             tileViewItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement14.TextLocation = new System.Drawing.Point(-15, 125);
-            tileViewItemElement15.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement15.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            tileViewItemElement15.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement15.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement15.Column = this.StartTime;
-            tileViewItemElement15.Text = "StartTime";
-            tileViewItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileView2.TileTemplate.Add(tileViewItemElement8);
+            tileViewItemElement14.TextLocation = new System.Drawing.Point(-15, 105);
+            tileViewItemElement15.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement15.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            tileViewItemElement15.Column = this.DetailsColumn2;
+            tileViewItemElement15.Text = "DetailsColumn2";
+            tileViewItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileViewItemElement15.TextLocation = new System.Drawing.Point(-15, 125);
+            tileViewItemElement16.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement16.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            tileViewItemElement16.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement16.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement16.Column = this.StartTime;
+            tileViewItemElement16.Text = "StartTime";
+            tileViewItemElement16.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
             this.tileView2.TileTemplate.Add(tileViewItemElement9);
             this.tileView2.TileTemplate.Add(tileViewItemElement10);
             this.tileView2.TileTemplate.Add(tileViewItemElement11);
@@ -517,6 +531,7 @@
             this.tileView2.TileTemplate.Add(tileViewItemElement13);
             this.tileView2.TileTemplate.Add(tileViewItemElement14);
             this.tileView2.TileTemplate.Add(tileViewItemElement15);
+            this.tileView2.TileTemplate.Add(tileViewItemElement16);
             // 
             // Status2
             // 
@@ -759,5 +774,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn CustomerColumn1;
         private DevExpress.XtraGrid.Columns.TileViewColumn Send2;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn2;
     }
 }

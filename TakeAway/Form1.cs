@@ -142,7 +142,19 @@ namespace TakeAway
                         Order.Customer = MainCustomer;
                         Order.Details = OrderTxt.Text;
                         Order.Updated = 1;
-                        Order.Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text), int.Parse(minCB.Text)+45, 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0);
+                        TimeSpan time = new TimeSpan();
+
+                        if (isWait.Checked)
+                        {
+                            int h = int.Parse(hoursCB.Text);
+                            int m = int.Parse(minCB.Text);
+                            if(!(h == 23 && m > 14))
+                            {
+                                m += 45;
+                            }
+                            time = new TimeSpan(h,m,0);
+                        }
+                        Order.Time = isWait.Checked ? time : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0);
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
                         Order.Status = (int)Status.Created;
@@ -163,13 +175,26 @@ namespace TakeAway
           
                 else
                 {
+                    TimeSpan time = new TimeSpan();
+
+                    if (isWait.Checked)
+                    {
+                        int h = int.Parse(hoursCB.Text);
+                        int m = int.Parse(minCB.Text);
+                        if (!(h == 23 && m > 14))
+                        {
+                            m += 45;
+                        }
+                        time = new TimeSpan(h, m, 0);
+                    }
                     Order NewOrder = new Order
                     {
                         Customer = MainCustomer,
                         Details = OrderTxt.Text,
                         CustomerName=MainCustomer.Name,
                         //Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue,
-                        Time = isWait.Checked ? new TimeSpan(int.Parse(hoursCB.Text),int.Parse(minCB.Text)+45, 0) : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
+
+                        Time = isWait.Checked ? time : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
                         Status = (int)Status.Created,
@@ -183,6 +208,7 @@ namespace TakeAway
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return false;
 
             }

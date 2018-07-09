@@ -17,7 +17,6 @@ namespace Admin.InsertForms
         public static event UpGrid UpdateGridUP;
         string Connection = "";
         Guid ID;
-        public static event UpGrid UpdateGridIN;
         public AdminUserUpfrm(Guid id, string con)
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace Admin.InsertForms
             DataContext.ConnectionString = Connection;
             using (DataContext Db = new DataContext())
             {
-                var Emp = Db?.AdminUsers?.Include("Employees")?.SingleOrDefault(s => s.ID == ID);
+                var Emp = Db?.AdminUsers?.SingleOrDefault(s => s.ID == ID);
                 NameTxt.Text = Emp.Username;
                 PasswordTxt.Text = Emp.Password;
             //EmployeeLUE.Properties.DataSource = Db.Employees;
