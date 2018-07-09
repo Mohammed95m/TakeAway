@@ -241,7 +241,7 @@
             this.ClientSize = new System.Drawing.Size(433, 193);
             this.Controls.Add(this.layoutControl1);
             this.Name = "CallUserInfrm";
-            this.Text = "EmployeeINFrm";
+            this.Text = "إضافة موظف إتصال";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NameTxt.Properties)).EndInit();

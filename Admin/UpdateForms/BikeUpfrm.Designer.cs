@@ -32,6 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.NameTxt = new DevExpress.XtraEditors.TextEdit();
+            this.IsAvalibleChx = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -41,10 +42,10 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.IsAvalibleChx = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTxt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsAvalibleChx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -54,7 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IsAvalibleChx.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -89,6 +89,18 @@
             this.NameTxt.Size = new System.Drawing.Size(365, 20);
             this.NameTxt.StyleController = this.layoutControl1;
             this.NameTxt.TabIndex = 4;
+            // 
+            // IsAvalibleChx
+            // 
+            this.IsAvalibleChx.EditValue = null;
+            this.IsAvalibleChx.Location = new System.Drawing.Point(12, 46);
+            this.IsAvalibleChx.Name = "IsAvalibleChx";
+            this.IsAvalibleChx.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.IsAvalibleChx.Properties.Caption = "checkEdit1";
+            this.IsAvalibleChx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.IsAvalibleChx.Size = new System.Drawing.Size(397, 19);
+            this.IsAvalibleChx.StyleController = this.layoutControl1;
+            this.IsAvalibleChx.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
@@ -183,18 +195,6 @@
             this.emptySpaceItem5.Text = "emptySpaceItem1";
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // IsAvalibleChx
-            // 
-            this.IsAvalibleChx.EditValue = null;
-            this.IsAvalibleChx.Location = new System.Drawing.Point(12, 46);
-            this.IsAvalibleChx.Name = "IsAvalibleChx";
-            this.IsAvalibleChx.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.IsAvalibleChx.Properties.Caption = "checkEdit1";
-            this.IsAvalibleChx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IsAvalibleChx.Size = new System.Drawing.Size(397, 19);
-            this.IsAvalibleChx.StyleController = this.layoutControl1;
-            this.IsAvalibleChx.TabIndex = 4;
-            // 
             // BikeUpfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,10 +202,11 @@
             this.ClientSize = new System.Drawing.Size(421, 155);
             this.Controls.Add(this.layoutControl1);
             this.Name = "BikeUpfrm";
-            this.Text = "EmployeeINFrm";
+            this.Text = "تعديل دراجة";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NameTxt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsAvalibleChx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -215,7 +216,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IsAvalibleChx.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

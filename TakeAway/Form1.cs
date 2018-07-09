@@ -125,7 +125,7 @@ namespace TakeAway
 
         }
 
-        public bool SaveOrder(DataContext _context)
+        private bool SaveOrder(DataContext _context)
         {
             try
             {
@@ -148,12 +148,14 @@ namespace TakeAway
                         {
                             int h = int.Parse(hoursCB.Text);
                             int m = int.Parse(minCB.Text);
-                            if(!(h == 23 && m > 14))
+
+                            time = new TimeSpan(h, m, 0);
+                            if (!(h == 0 && m < 45))
                             {
-                                m += 45;
+                                time -= new TimeSpan(0, 45, 0);
                             }
-                            time = new TimeSpan(h,m,0);
                         }
+                        
                         Order.Time = isWait.Checked ? time : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0);
                         Order.Date = DateTime.Now;
                         Order.Location = LocationTxt.Text;
@@ -181,11 +183,12 @@ namespace TakeAway
                     {
                         int h = int.Parse(hoursCB.Text);
                         int m = int.Parse(minCB.Text);
-                        if (!(h == 23 && m > 14))
-                        {
-                            m += 45;
-                        }
+
                         time = new TimeSpan(h, m, 0);
+                        if (!(h == 0 && m < 45))
+                        {
+                            time -= new TimeSpan(0, 45, 0);
+                        }
                     }
                     Order NewOrder = new Order
                     {
@@ -297,25 +300,34 @@ namespace TakeAway
                     CustomerNumberTxt.Text = cost?.Phone;
                     LocationTxt.Text = row?.Location;
                     OrderTxt.Text = row.Details;
-           
-                    minCB.SelectedItem = row.Date.Minute.ToString();
-                    for (int i = 0; i < minCB.Items.Count; i++)
+                    if (row.WithTimer)
                     {
-                        if (minCB.Items[i].ToString() == row.Date.Minute.ToString("00"))
-                        {
-                            minCB.SelectedItem = minCB.Items[i];
-                            break;
-                        }
+                        isWait.Checked = true;
+                        TimeSpan time = row.Date.TimeOfDay;
+                        time += new TimeSpan(0, 45, 0);
+                        minCB.SelectedItem = time.Minutes.ToString("00");
+
+                        hoursCB.SelectedItem = time.Hours.ToString("00");
+                        //for (int i = 0; i < minCB.Items.Count; i++)
+                        //{
+                        //    if (minCB.Items[i].ToString() == row.Date.Minute.ToString("00"))
+                        //    {
+                        //        minCB.SelectedItem = minCB.Items[i];
+                        //        break;
+                        //    }
+                        //}
+                        //for (int i = 0; i < hoursCB.Items.Count; i++)
+                        //{
+                        //    if (hoursCB.Items[i].ToString() == row.Date.Hour.ToString("00"))
+                        //    {
+                        //        hoursCB.SelectedItem = hoursCB.Items[i];
+                        //        break;
+                        //    }
+                        //}
                     }
-                    for (int i = 0; i < hoursCB.Items.Count; i++)
-                    {
-                        if (hoursCB.Items[i].ToString() == row.Date.Hour.ToString("00"))
-                        {
-                            hoursCB.SelectedItem = hoursCB.Items[i];
-                            break;
-                        }
-                    }
-                 //   hoursCB.SelectedItem = row.Date.Hour.ToString();
+                    //minCB.SelectedItem = row.Date.Minute.ToString();
+
+                    //   hoursCB.SelectedItem = row.Date.Hour.ToString();
                     //      PriceTxt.Text = RemovePoint(row.Earn.ToString());
                     //TimeTxt.TimeSpan = row.Time;
                     MainOrder = row;

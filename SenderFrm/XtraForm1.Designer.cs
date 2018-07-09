@@ -166,6 +166,8 @@
             // StartTime
             // 
             this.StartTime.Caption = "وقت بداية الطلب";
+            this.StartTime.DisplayFormat.FormatString = "yyyy/MM/dd   HH:mm";
+            this.StartTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.StartTime.FieldName = "StartTime";
             this.StartTime.Name = "StartTime";
             this.StartTime.Visible = true;
@@ -304,7 +306,7 @@
             tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
             tileViewItemElement7.TextLocation = new System.Drawing.Point(-15, 77);
             tileViewItemElement8.Column = null;
-            tileViewItemElement8.Text = "0966555444";
+            tileViewItemElement8.Text = "";
             tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             tileViewItemElement8.TextLocation = new System.Drawing.Point(0, -5);
             this.tileView1.TileTemplate.Add(tileViewItemElement1);
@@ -423,7 +425,7 @@
             this.xtraTabPage2.Appearance.HeaderActive.Options.UseForeColor = true;
             this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1117, 510);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1121, 505);
             this.xtraTabPage2.TabPageWidth = 200;
             this.xtraTabPage2.Text = "الطلبات المرسلة";
             // 
@@ -440,7 +442,7 @@
             this.FinishBtn,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemCalcEdit2});
-            this.gridControl2.Size = new System.Drawing.Size(1117, 510);
+            this.gridControl2.Size = new System.Drawing.Size(1121, 505);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView2});

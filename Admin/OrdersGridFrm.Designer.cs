@@ -160,7 +160,7 @@
             this.ClientSize = new System.Drawing.Size(595, 367);
             this.Controls.Add(this.gridControl1);
             this.Name = "OrdersGridFrm";
-            this.Text = "OrdersGridFrm";
+            this.Text = "كل العمليات";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);

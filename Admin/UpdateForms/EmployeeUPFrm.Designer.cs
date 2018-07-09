@@ -314,7 +314,7 @@
             this.ClientSize = new System.Drawing.Size(421, 272);
             this.Controls.Add(this.layoutControl1);
             this.Name = "EmployeeUPFrm";
-            this.Text = "EmployeeINFrm";
+            this.Text = "تعديل موظف";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NameTxt.Properties)).EndInit();

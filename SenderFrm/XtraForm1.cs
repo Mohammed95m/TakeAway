@@ -24,6 +24,7 @@ namespace TakeAway
     {
       
         List<Order> UpData = new List<Order>();
+        List<Guid> alerted = new List<Guid>();
         public SenderUser SenderUser { get; set; }
         List<TimerOrder> TimerOrder = new List<TimerOrder>();
         List<Order> TimerWating = new List<Order>();
@@ -215,7 +216,7 @@ namespace TakeAway
 
             #region intilize Wating Timer
             Timer WaitBike = new Timer();
-            WaitBike.Interval = 300000;
+            WaitBike.Interval = 5000;
             WaitBike.Tick += (Sender, e) =>
             {
                 if (TimerWating?.Count > 0)
@@ -246,12 +247,13 @@ namespace TakeAway
                 {
                     var t = new TimeSpan(0, 45,0);
                     var total = DateTime.Now.TimeOfDay;
-                    if (item.Time <= total && item.WithTimer && item.Status == (int) Status.Waiting)
+                    if (item.Time <= total && item.WithTimer && item.Status == (int) Status.Waiting && !(alerted.Contains(item.ID)))
                     {
                         var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
                         orderRadey.Status = (int)Status.Seen;
                         _context.SaveChanges();
                         alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
+                        alerted.Add(item.ID);
                         tileView1.RefreshData();
                         //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(tileView1.));
                     }
@@ -325,8 +327,12 @@ namespace TakeAway
                                 System.Threading.Thread.Sleep(5000);
                             }
                         }
+                        try
+                        {
+                            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { gridControl1.DataSource = UpData; });
 
-                        this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { gridControl1.DataSource = UpData; });
+                        }
+                        catch { }
                         DB.SaveChangesAsync();
                     }
 
