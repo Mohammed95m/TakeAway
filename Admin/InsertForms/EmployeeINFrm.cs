@@ -30,7 +30,9 @@ namespace Admin.InsertForms
                 Salary = decimal.Parse(String.IsNullOrEmpty(SalaryTxt.Text) ? "00" : SalaryTxt.Text),
                 Address = LocationTxt.Text,
                 Phone = PhoneTxt.Text,
-                Date = DateTime.Now
+                Date = DateTime.Now,
+                IsBike=IsBikeChx.Checked
+                
             };
             DataContext.ConnectionString = Connection;
             try

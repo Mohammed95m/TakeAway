@@ -38,10 +38,10 @@ namespace Admin.InsertForms
                 {
                     using (DataContext Db = new DataContext())
                     {
-                        VehicleType firstRow = Db.VehicleTypes.ToList()[0];
+                       // VehicleType firstRow = Db.VehicleTypes.ToList()[0];
                         Data.Data.Vehicle Emp = new Data.Data.Vehicle
                         {
-                            VehicleTypeID = firstRow.ID,
+                         //   VehicleTypeID = firstRow.ID,
                             Number = int.Parse(NameTxt.Text),
                             IsAvailable = IsAvalibleChx.Checked,
                             Date = DateTime.Now                            

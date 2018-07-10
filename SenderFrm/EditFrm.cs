@@ -39,7 +39,7 @@ namespace SenderFrm
             try { hoursCB.SelectedIndex = 0; minCB.SelectedIndex = 30; } catch { }
 
             List<Vehicle> vList = coco?.Vehicles?.ToList();
-            List<Employee> eList = coco?.Employees?.ToList();
+            List<Employee> eList = coco?.Employees?.Where(s=>s.IsBike==true)?.ToList();
 
             MainOrder = coco?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
             isExist = MainOrder == null ? false : true;
@@ -96,8 +96,13 @@ namespace SenderFrm
                     order.VehicleID = (Guid)lookUpEdit2.EditValue;
                     order.EmployeeID = (Guid)lookUpEdit1.EditValue;
                     //       order.Timer = int.Parse(string.IsNullOrEmpty(textEdit1.Text) ? "0" : textEdit1.Text);
-                    order.BikeTime = new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text))
-                                                 , int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
+                    int h = int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text));
+                    int m = int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text));
+
+                  var  time = new TimeSpan(h, m, 0);
+                    order.BikeTime = time;
+                        //new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text))
+                        //                         , int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
                     order.Status = (int)Status.InProgress;
                     order.StartTime = DateTime.Now;
                     order.Earn = decimal.Parse((!string.IsNullOrEmpty(earnTE.Text) ? RemovePoint(earnTE.Text) : "0"));

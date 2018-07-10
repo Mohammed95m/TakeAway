@@ -13,6 +13,7 @@ namespace Data.Data
         public string Phone { get; set; }
         public decimal? Salary { get; set; }
         public string Address { get; set; }
+        public bool? IsBike { get; set; }
 
 
     }

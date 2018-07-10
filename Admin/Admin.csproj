@@ -119,6 +119,12 @@
     <Compile Include="InsertForms\CallUserInfrm.Designer.cs">
       <DependentUpon>CallUserInfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerGrid.Designer.cs">
+      <DependentUpon>CustomerGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrdersGridFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertForms\CallUserInfrm.resx">
       <DependentUpon>CallUserInfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerGrid.resx">
+      <DependentUpon>CustomerGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrdersGridFrm.resx">
       <DependentUpon>OrdersGridFrm.cs</DependentUpon>

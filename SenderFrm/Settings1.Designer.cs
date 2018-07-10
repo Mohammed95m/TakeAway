@@ -25,7 +25,7 @@ namespace SenderFrm {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=TakeAwayDB3;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True")]
         public string Connection {
             get {
                 return ((string)(this["Connection"]));

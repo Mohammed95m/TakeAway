@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Connection" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=HP-PC\SQLEXPRESS;Initial Catalog=TakeAwayDB2;Persist Security Info=True;User ID=sa;Password=11223344;
+      <Value Profile="(Default)">Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True
 </Value>
     </Setting>
     <Setting Name="Setting" Type="System.String" Scope="User">

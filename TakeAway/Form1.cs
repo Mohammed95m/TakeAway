@@ -142,6 +142,7 @@ namespace TakeAway
                         Order.Customer = MainCustomer;
                         Order.Details = OrderTxt.Text;
                         Order.Updated = 1;
+                        Order.CustomerPhone = CustomerNumberTxt.Text;
                         TimeSpan time = new TimeSpan();
 
                         if (isWait.Checked)
@@ -195,9 +196,10 @@ namespace TakeAway
                         Customer = MainCustomer,
                         Details = OrderTxt.Text,
                         CustomerName=MainCustomer.Name,
-                        //Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue,
+                        CustomerPhone = CustomerNumberTxt.Text,
+                    //Time = ((TimeSpan)TimeTxt.EditValue == new TimeSpan(0, 0, 0, 0)) ? DateTime.Now.TimeOfDay : (TimeSpan)TimeTxt.EditValue,
 
-                        Time = isWait.Checked ? time : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
+                    Time = isWait.Checked ? time : new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, 0),
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
                         Status = (int)Status.Created,

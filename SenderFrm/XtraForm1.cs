@@ -114,7 +114,7 @@ namespace TakeAway
                     };
                     _context.FinishedOrders.Add(finishOrder);
                     if (TimerWating.Contains(Ord)) TimerWating.Remove(Ord);
-                    var Tord = TimerOrder?.SingleOrDefault(s => s.order == Ord);
+                    var Tord = TimerOrder?.SingleOrDefault(s => s.order.ID == Ord.ID);
                     if (Tord != null) TimerOrder.Remove(Tord);
                     //     _context.SaveChanges();
                     _context.Orders.Remove(Ord);
@@ -213,21 +213,24 @@ namespace TakeAway
             
 
             
-
+            // seeeeeeeeeeeeeeeeeeeeeee
+            //seeeeeeeeeeeeeeeeeeeeee
+            // T4
             #region intilize Wating Timer
             Timer WaitBike = new Timer();
             WaitBike.Interval = 5000;
             WaitBike.Tick += (Sender, e) =>
             {
-                if (TimerWating?.Count > 0)
+                if (TimerOrder?.Count > 0)
                 {
-                    foreach (var item in TimerWating)
+                    foreach (var item in TimerOrder)
                     {
-                    
-                        if (item.BikeTime> DateTime.Now.TimeOfDay)
+                        var total = DateTime.Now.TimeOfDay;
+
+                        if (item.Time <= total  && item.order.Status == (int)Status.InProgress)
                         {
                             FinishSound.Play();
-                            alertControl1.Show(this, ": تنبيه ", item.Details+": إن الطلبية \n"+"\n يجب أن تكون قد وصلت");
+                            alertControl1.Show(this, ": تنبيه ", item.order.Details+": إن الطلبية \n"+"\n يجب أن تكون قد وصلت");
                         }
                         
                 }

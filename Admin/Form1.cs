@@ -84,5 +84,11 @@ namespace Admin
             ShowChild(new BikeFrm(connection));
            
         }
+
+        private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ShowChild(new CustomerGrid());
+
+        }
     }
 }

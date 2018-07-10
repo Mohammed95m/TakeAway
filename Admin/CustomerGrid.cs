@@ -12,15 +12,15 @@ using Data.Data;
 
 namespace Admin
 {
-    public partial class OrdersGridFrm : DevExpress.XtraEditors.XtraForm
+    public partial class CustomerGrid : DevExpress.XtraEditors.XtraForm
     {
-        public OrdersGridFrm()
+        public CustomerGrid()
         {
             InitializeComponent();
             //DataContext.ConnectionString = "Data Source=localhost;Initial Catalog=TakeAwayDB2;Integrated Security=True";
                 using (DataContext DB = new DataContext())
                 {
-                    var orders = DB?.FinishedOrders?.ToList();
+                    var orders = DB?.Customers?.ToList();
                     gridControl1.DataSource = orders;
                 }
             }
@@ -35,11 +35,9 @@ namespace Admin
                 {
                     using (DataContext DB = new DataContext())
                     {
-                        var finOrder = DB?.FinishedOrders?.SingleOrDefault(s => s.ID == ID);
-                        DB.FinishedOrders.Remove(finOrder);
+                        var finOrder = DB?.Customers?.SingleOrDefault(s => s.ID == ID);
+                        DB.Customers.Remove(finOrder);
                         DB.SaveChanges();
-                        var orders = DB?.FinishedOrders?.ToList();
-                        gridControl1.DataSource = orders;
                         MessageBox.Show("تمت العملية بنجاح");
                     }
                 }

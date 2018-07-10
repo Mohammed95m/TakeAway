@@ -13,7 +13,7 @@ namespace Data.Data
     {
         public TimeSpan Time { get; set; }
         public string Details { get; set; }
-
+        public string CustomerPhone { get; set; }
         public string Location { get; set; }
 
         public int Status { get; set; }

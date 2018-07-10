@@ -32,7 +32,8 @@ namespace Admin.InsertForms
                 SalaryTxt.Text = Emp.Salary.ToString();
                 LocationTxt.Text = Emp.Address;
                 PhoneTxt.Text = Emp.Phone;
-    
+                IsBikeChx.Checked = Emp.IsBike??false;
+
             }
         }
 
@@ -51,6 +52,7 @@ namespace Admin.InsertForms
                     Emp.Salary = decimal.Parse(String.IsNullOrEmpty(SalaryTxt.Text) ? "00" : SalaryTxt.Text);
                     Emp.Address = LocationTxt.Text;
                     Emp.Phone = PhoneTxt.Text;
+                    Emp.IsBike = IsBikeChx.Checked;
                     Db.SaveChanges();
                     UpdateGridUP();
                     this.Close();
