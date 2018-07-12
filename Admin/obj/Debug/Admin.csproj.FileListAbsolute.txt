@@ -226,3 +226,4 @@ E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.InsertForms.EmployeeUPFrm.resour
 E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.exe.licenses
 E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.CustomerGrid.resources
+E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.EmployeeOrders.resources

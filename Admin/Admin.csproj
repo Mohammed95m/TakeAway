@@ -125,6 +125,12 @@
     <Compile Include="CustomerGrid.Designer.cs">
       <DependentUpon>CustomerGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeOrders.Designer.cs">
+      <DependentUpon>EmployeeOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrdersGridFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerGrid.resx">
       <DependentUpon>CustomerGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeOrders.resx">
+      <DependentUpon>EmployeeOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrdersGridFrm.resx">
       <DependentUpon>OrdersGridFrm.cs</DependentUpon>

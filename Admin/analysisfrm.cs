@@ -36,7 +36,7 @@ namespace Admin
                 }
                 var earn = Orders.Sum(s => s.Earn);
                 var Count = Orders.Count();
-                var ordersEMP = Orders.GroupBy(s => s.Employee.Name,(key,value)=>new {الموظف=key,عدد_الطلبيات=value.Count()});
+                var ordersEMP = Orders.GroupBy(s => s.Employee.Name,(key,value)=>new EmployeeOrder { Employee=key,Count=value.Count(), EmployeeID = value?.FirstOrDefault()?.EmployeeID});
                 var ordersVic = Orders.GroupBy(s => s.Vehicle.Number, (key, value) => new { الدراجة = key, عدد_الطلبيات = value.Count() });
                 EmployeeGrid.DataSource = ordersEMP;
                 BikeGrid.DataSource = ordersVic;
@@ -56,5 +56,33 @@ namespace Admin
                 ToDate.Enabled = true;
             }
         }
+        class EmployeeOrder
+        {
+            public string Employee { get; set; }
+            public int Count { get; set; }
+            public Guid? EmployeeID { get; set; }
+        }
+
+        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            try
+            {
+                var id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "EmployeeID").ToString();
+                Guid ID = Guid.Parse(id);
+                using (DataContext DB = new DataContext())
+                {
+                    var emp = DB?.Employees?.SingleOrDefault(s => s.ID == ID);
+                    EmployeeOrders empfrm = new EmployeeOrders(ID, OnlyDayChx.Checked, frmoDate.DateTime, ToDate.DateTime);
+                    empfrm.ShowDialog();
+                }
+            }
+            catch (Exception v)
+            {
+
+                MessageBox.Show("حدث خطأ");
+            }
+           
+        }
+ 
     }
 }
