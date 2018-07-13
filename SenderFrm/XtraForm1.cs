@@ -248,7 +248,7 @@ namespace TakeAway
             {
                 foreach (var item in TimerWating)
                 {
-                    var t = new TimeSpan(0, 45,0);
+                    //var t = new TimeSpan(0, 45,0);
                     var total = DateTime.Now.TimeOfDay;
                     if (item.Time <= total && item.WithTimer && item.Status == (int) Status.Waiting && !(alerted.Contains(item.ID)))
                     {

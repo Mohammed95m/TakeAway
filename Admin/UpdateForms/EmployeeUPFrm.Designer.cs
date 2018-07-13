@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeUPFrm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.IsBikeChx = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.NameTxt = new DevExpress.XtraEditors.TextEdit();
             this.LastNameTxt = new DevExpress.XtraEditors.TextEdit();
@@ -51,11 +52,11 @@
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.IsBikeChx = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IsBikeChx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastNameTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryTxt.Properties)).BeginInit();
@@ -76,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IsBikeChx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +97,15 @@
             this.layoutControl1.Size = new System.Drawing.Size(421, 272);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // IsBikeChx
+            // 
+            this.IsBikeChx.Location = new System.Drawing.Point(135, 172);
+            this.IsBikeChx.Name = "IsBikeChx";
+            this.IsBikeChx.Properties.Caption = "هل هة موظف دراجة ؟";
+            this.IsBikeChx.Size = new System.Drawing.Size(124, 19);
+            this.IsBikeChx.StyleController = this.layoutControl1;
+            this.IsBikeChx.TabIndex = 7;
             // 
             // simpleButton1
             // 
@@ -316,15 +325,6 @@
             this.emptySpaceItem8.Size = new System.Drawing.Size(401, 10);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // IsBikeChx
-            // 
-            this.IsBikeChx.Location = new System.Drawing.Point(135, 172);
-            this.IsBikeChx.Name = "IsBikeChx";
-            this.IsBikeChx.Properties.Caption = "هل هة موظف دراجة ؟";
-            this.IsBikeChx.Size = new System.Drawing.Size(124, 19);
-            this.IsBikeChx.StyleController = this.layoutControl1;
-            this.IsBikeChx.TabIndex = 7;
-            // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.IsBikeChx;
@@ -352,6 +352,7 @@
             this.Text = "تعديل موظف";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IsBikeChx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastNameTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryTxt.Properties)).EndInit();
@@ -372,7 +373,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IsBikeChx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
             this.ResumeLayout(false);

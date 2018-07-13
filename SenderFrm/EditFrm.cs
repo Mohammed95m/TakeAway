@@ -99,8 +99,8 @@ namespace SenderFrm
                     int h = int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text));
                     int m = int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text));
 
-                  var  time = new TimeSpan(h, m, 0);
-                    order.BikeTime = time;
+                    var time = new TimeSpan(h, m, 0);
+                    order.BikeTime = time + DateTime.Now.TimeOfDay;
                         //new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text))
                         //                         , int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
                     order.Status = (int)Status.InProgress;

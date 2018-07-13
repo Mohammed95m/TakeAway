@@ -32,7 +32,6 @@ C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.dll
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.pdb
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.ggs.resources
 E:\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.Ninit.resources
-C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.a.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway2\Data\bin\Debug\Data.dll.config
 E:\Source\Repos\TakeAway2\Data\bin\Debug\Data.dll
@@ -47,3 +46,5 @@ E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.pdb
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.Migrations.init4.resources
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.Migrations.init.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.init4.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.init.resources

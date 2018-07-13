@@ -227,3 +227,6 @@ E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.exe.licenses
 E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.CustomerGrid.resources
 E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.EmployeeOrders.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.CustomerGrid.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.EmployeeOrders.resources

@@ -305,7 +305,7 @@ namespace TakeAway
                     if (row.WithTimer)
                     {
                         isWait.Checked = true;
-                        TimeSpan time = row.Date.TimeOfDay;
+                        TimeSpan time = row.Time;
                         time += new TimeSpan(0, 45, 0);
                         minCB.SelectedItem = time.Minutes.ToString("00");
 
