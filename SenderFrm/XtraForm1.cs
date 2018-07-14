@@ -57,6 +57,7 @@ namespace TakeAway
                     TimerWating.Add(item);
                 }
             }
+            _context.Dispose();
             gridControl1.DataSource = order;
             count1 = order.Count;
 
@@ -73,7 +74,7 @@ namespace TakeAway
             tileView1.ItemClick += (sender, e) =>
             {
                 var row = tileView1.GetFocusedRow() as Order;
-                EditFrm fofi = new EditFrm(row.ID, SenderUser.ID);
+                EditFrm fofi = new EditFrm(row.ID, SenderUser.ID,_context);
                 fofi.ShowDialog();
             };
             tileView2.ItemClick += (sender, e)=>
@@ -81,9 +82,9 @@ namespace TakeAway
                 var row = tileView2.GetFocusedRow() as SendOrder;
                 if (DialogResult.Yes==MessageBox.Show("لتعديل الطلب اضغط على تعديل \n إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل","", MessageBoxButtons.YesNo))
                 {
-                 
+                    _context = new DataContext();
 
-                    var Ord = _context?.Orders
+                       var Ord = _context?.Orders
                     ?.Include("Customer")
                     ?.Include("Employee")
                     ?.Include("Vehicle")
@@ -119,19 +120,23 @@ namespace TakeAway
                     //     _context.SaveChanges();
                     _context.Orders.Remove(Ord);
                     _context.SaveChanges();
+                    _context.Dispose();
                     MessageBox.Show("تمت العملية بنجاح");
                     LoadSendGrid();
              
             }
                 else
                 {
-                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
+                    _context.Dispose();
+                    _context = new DataContext();
+                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID,_context);
                     fofo.ShowDialog();
                 }
             };
 
             EditFrm.UpdateGridAfterRemove += (DeletedOrder) =>
             {
+                _context = new DataContext();
                 var Torder = TimerWating?.SingleOrDefault(s => s.ID == DeletedOrder.ID);
                 if (Torder != null) TimerWating.Remove(Torder);
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
@@ -141,17 +146,24 @@ namespace TakeAway
             #region this event work after set employee $  Vehicle
             EditFrm.UpdateGrid += (o) =>
             {
+               
+                   
+
                 LoadSendGrid();
-                var oldToSave = _context.Orders.FirstOrDefault(s => s.ID == o.ID);
-                oldToSave = o;
-                oldToSave.VehicleID = o.VehicleID;
-                oldToSave.EmployeeID = o.EmployeeID;
-                oldToSave.BikeTime = o.BikeTime;
-                oldToSave.Status = (int)Status.InProgress;
-                oldToSave.StartTime = DateTime.Now;
-                oldToSave.Earn = o.Earn;
-                oldToSave.SenderUserID = o.SenderUserID;
-                _context.SaveChanges();
+               using(DataContext newContext= new DataContext())
+                {
+                    var oldToSave = newContext.Orders.FirstOrDefault(s => s.ID == o.ID);
+                    oldToSave = o;
+                    oldToSave.VehicleID = o.VehicleID;
+                    oldToSave.EmployeeID = o.EmployeeID;
+                    oldToSave.BikeTime = o.BikeTime;
+                    oldToSave.Status = (int)Status.InProgress;
+                    oldToSave.StartTime = DateTime.Now;
+                    oldToSave.Earn = o.Earn;
+                    oldToSave.SenderUserID = o.SenderUserID;
+                    newContext.SaveChanges();
+                }
+                
                 TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
@@ -164,7 +176,8 @@ namespace TakeAway
             FinishBtn.Click += (sender, e) =>
             {
                 var row = tileView2.GetFocusedRow() as SendOrder;
-                
+                _context.Dispose();
+                _context = new DataContext();
                 var Ord = _context?.Orders
                 ?.Include("Customer")
                 ?.Include("Employee")
@@ -207,9 +220,21 @@ namespace TakeAway
 
                 try
                 {
-                //   var v= VehicleLookUpEdit.value as Vehicle;
+                    //   var v= VehicleLookUpEdit.value as Vehicle;
+                    //foreach (Form f in Application.OpenForms)
+                    //{
+                    //    if (f.Name == "EditFrm")
+                    //    {
+                    //        f.Dispose();
+                    //        f.Close();
+                    //        break;
+                    //    }
+                    //}
+         
                     var row = tileView1.GetFocusedRow() as Order;
-                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID);
+                    _context.Dispose();
+                    _context = new DataContext();
+                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID,_context);
                     fofo.ShowDialog();
 
                 }
@@ -262,6 +287,8 @@ namespace TakeAway
                     var total = DateTime.Now.TimeOfDay;
                     if (item.Time <= total && item.WithTimer && item.Status == (int) Status.Waiting && !(alerted.Contains(item.ID)))
                     {
+                        _context.Dispose();
+                        _context = new DataContext();
                         var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
                         orderRadey.Status = (int)Status.Seen;
                         _context.SaveChanges();
@@ -284,6 +311,8 @@ namespace TakeAway
         /// </summary>
         void LoadSendGrid()
         {
+            _context.Dispose();
+            _context = new DataContext();
             var SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
                 s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn, Location = s.Location, StartTime = s.StartTime, Status = s.Status, Timer = s.Timer }
                 ).ToList();

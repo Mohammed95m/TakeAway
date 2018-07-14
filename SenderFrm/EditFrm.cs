@@ -22,10 +22,12 @@ namespace SenderFrm
         Order MainOrder;
         Guid SenderUserID;
         bool isExist = true;
+        DataContext coco;
 
-        public EditFrm(Guid OrderID,Guid? UserID)
+        public EditFrm(Guid OrderID,Guid? UserID,DataContext context)
         {
             InitializeComponent();
+            coco = context;
             TimeTxt.EditValueChanged += (sender, e) =>
             {
                 TimeSpan now = DateTime.Now.TimeOfDay;
@@ -34,7 +36,7 @@ namespace SenderFrm
             };
             SenderUserID =(Guid) UserID;
            // DataContext.ConnectionString = Settings1.Default.Connection;
-            DataContext coco = new DataContext();
+
 
             try { hoursCB.SelectedIndex = 0; minCB.SelectedIndex = 30; } catch { }
 
@@ -88,8 +90,9 @@ namespace SenderFrm
         private async void simpleButton1_Click(object sender, EventArgs e)
         {
 
-            DataContext coco = new DataContext();
-          
+            using (DataContext coco = new DataContext())
+            {
+
                 try
                 {
                     var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
@@ -101,33 +104,40 @@ namespace SenderFrm
 
                     var time = new TimeSpan(h, m, 0);
                     order.BikeTime = time + DateTime.Now.TimeOfDay;
-                        //new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text))
-                        //                         , int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
+                    //new TimeSpan(int.Parse((string.IsNullOrEmpty(hoursCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : hoursCB.Text))
+                    //                         , int.Parse((string.IsNullOrEmpty(minCB.Text) ? DateTime.Now.TimeOfDay.Hours.ToString() : minCB.Text)), 0);
                     order.Status = (int)Status.InProgress;
                     order.StartTime = DateTime.Now;
                     order.Earn = decimal.Parse((!string.IsNullOrEmpty(earnTE.Text) ? RemovePoint(earnTE.Text) : "0"));
                     order.SenderUserID = SenderUserID;
-              var IsSave=  await coco.SaveChangesAsync();
-                if (IsSave > 0)
-                {
-                    UpdateGrid(order);
-                    coco.Dispose();
-                    MainOrder = null;
-                    this.Dispose();
+                      
+
+                    var IsSave = await coco.SaveChangesAsync();
+                    coco.SaveChanges();
+                   // coco.Dispose();
+                    if (IsSave > 0)
+                    {
+                        UpdateGrid(order);
+                        //coco.Dispose();
+                        MainOrder = null;
+                 
                    
                 }
+               
+                    else
+                        MessageBox.Show("حدث تضارب أعد المحاولة");
 
-                else
-                    MessageBox.Show("حدث تضارب أعد المحاولة");
-    
                 }
-                catch
+                catch(Exception ex)
                 {
 
                 }
-                this.Close();
             }
-      
+            this.Dispose();
+
+            this.Close();
+        }
+     
         public string RemovePoint(string s)
         {
 
