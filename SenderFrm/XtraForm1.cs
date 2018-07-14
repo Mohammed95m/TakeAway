@@ -114,7 +114,7 @@ namespace TakeAway
                     };
                     _context.FinishedOrders.Add(finishOrder);
                     if (TimerWating.Contains(Ord)) TimerWating.Remove(Ord);
-                    var Tord = TimerOrder?.SingleOrDefault(s => s.order.ID == Ord.ID);
+                    var Tord = TimerOrder?.FirstOrDefault(s => s.order.ID == Ord.ID);
                     if (Tord != null) TimerOrder.Remove(Tord);
                     //     _context.SaveChanges();
                     _context.Orders.Remove(Ord);
@@ -142,6 +142,16 @@ namespace TakeAway
             EditFrm.UpdateGrid += (o) =>
             {
                 LoadSendGrid();
+                var oldToSave = _context.Orders.FirstOrDefault(s => s.ID == o.ID);
+                oldToSave = o;
+                oldToSave.VehicleID = o.VehicleID;
+                oldToSave.EmployeeID = o.EmployeeID;
+                oldToSave.BikeTime = o.BikeTime;
+                oldToSave.Status = (int)Status.InProgress;
+                oldToSave.StartTime = DateTime.Now;
+                oldToSave.Earn = o.Earn;
+                oldToSave.SenderUserID = o.SenderUserID;
+                _context.SaveChanges();
                 TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;

@@ -85,11 +85,11 @@ namespace SenderFrm
             }
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private async void simpleButton1_Click(object sender, EventArgs e)
         {
+
+            DataContext coco = new DataContext();
           
-            using (DataContext coco = new DataContext())
-            {
                 try
                 {
                     var order = coco.Orders.SingleOrDefault(s => s.ID == MainOrder.ID);
@@ -107,9 +107,19 @@ namespace SenderFrm
                     order.StartTime = DateTime.Now;
                     order.Earn = decimal.Parse((!string.IsNullOrEmpty(earnTE.Text) ? RemovePoint(earnTE.Text) : "0"));
                     order.SenderUserID = SenderUserID;
-                    coco.SaveChanges();
+              var IsSave=  await coco.SaveChangesAsync();
+                if (IsSave > 0)
+                {
                     UpdateGrid(order);
+                    coco.Dispose();
+                    MainOrder = null;
+                    this.Dispose();
+                   
+                }
 
+                else
+                    MessageBox.Show("حدث تضارب أعد المحاولة");
+    
                 }
                 catch
                 {
@@ -117,7 +127,7 @@ namespace SenderFrm
                 }
                 this.Close();
             }
-            }
+      
         public string RemovePoint(string s)
         {
 

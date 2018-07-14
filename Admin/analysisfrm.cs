@@ -40,7 +40,7 @@ namespace Admin
                 var ordersVic = Orders.GroupBy(s => s.Vehicle.Number, (key, value) => new { الدراجة = key, عدد_الطلبيات = value.Count() });
                 EmployeeGrid.DataSource = ordersEMP;
                 BikeGrid.DataSource = ordersVic;
-                EarnLbl.Text = earn.ToString();
+                EarnLbl.Text = earn?.ToString("#,##;(#,#)");
                 NumOrderLbl.Text = Count.ToString();
 
             }

@@ -203,7 +203,8 @@ namespace TakeAway
                         Date = DateTime.Now,
                         Location = LocationTxt.Text,
                         Status = (int)Status.Created,
-                        WithTimer = isWait.Checked
+                        WithTimer = isWait.Checked,
+                       CallUserID = CallUser?.ID
                     };
                     _context.Orders.Add(NewOrder);
                     NewOrder.Status = (int)Status.Created;
