@@ -63,7 +63,7 @@
             this.gridControl1.Location = new System.Drawing.Point(12, 12);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(571, 291);
+            this.gridControl1.Size = new System.Drawing.Size(571, 294);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -86,6 +86,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.row_click);
             // 
             // DetailsColumn1
             // 
@@ -184,7 +185,7 @@
             this.ribbonControl2.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl2.ShowCategoryInCaption = false;
             this.ribbonControl2.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl2.Size = new System.Drawing.Size(595, 52);
+            this.ribbonControl2.Size = new System.Drawing.Size(595, 49);
             // 
             // barButtonItem1
             // 
@@ -221,10 +222,10 @@
             // 
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 52);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 49);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(595, 315);
+            this.layoutControl1.Size = new System.Drawing.Size(595, 318);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -236,7 +237,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(595, 315);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(595, 318);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -244,7 +245,7 @@
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(575, 295);
+            this.layoutControlItem1.Size = new System.Drawing.Size(575, 298);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -272,6 +273,7 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl gridControl1;
+        
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn CustomerNameColumn1;

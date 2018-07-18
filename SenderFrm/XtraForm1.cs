@@ -164,7 +164,7 @@ namespace TakeAway
                     newContext.SaveChanges();
                 }
                 
-                TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true });
+                TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true, ID = o.ID });
                 var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
                 gridControl1.DataSource = ord;
                 count1 = ord.Count();
@@ -248,9 +248,6 @@ namespace TakeAway
             
 
             
-            // seeeeeeeeeeeeeeeeeeeeeee
-            //seeeeeeeeeeeeeeeeeeeeee
-            // T4
             #region intilize Wating Timer
             Timer WaitBike = new Timer();
             WaitBike.Interval = 5000;
@@ -262,9 +259,10 @@ namespace TakeAway
                     {
                         var total = DateTime.Now.TimeOfDay;
 
-                        if (item.Time <= total  && item.order.Status == (int)Status.InProgress)
+                        if (item.Time <= total  && item.order.Status == (int)Status.InProgress && !(alerted.Contains(item.ID)))
                         {
                             FinishSound.Play();
+                            alerted.Add(item.ID);
                             alertControl1.Show(this, ": تنبيه ", item.order.Details+": إن الطلبية \n"+"\n يجب أن تكون قد وصلت");
                         }
                         
@@ -439,6 +437,7 @@ namespace TakeAway
     }
     public class TimerOrder
     {
+        public Guid ID { get; set; }
         public Order order { get; set; }
         public TimeSpan? Time { get; set; }
         public bool IsNew { get; set; }

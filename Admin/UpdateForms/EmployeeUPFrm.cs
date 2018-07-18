@@ -27,7 +27,7 @@ namespace Admin.InsertForms
             using (DataContext Db = new DataContext())
             {
                 var Emp = Db?.Employees?.SingleOrDefault(s => s.ID == ID);
-            NameTxt.Text = Emp.Name ;
+                NameTxt.Text = Emp.Name ;
                 LastNameTxt.Text= Emp.LastName ;
                 SalaryTxt.Text = Emp.Salary.ToString();
                 LocationTxt.Text = Emp.Address;

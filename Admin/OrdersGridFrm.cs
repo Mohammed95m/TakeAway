@@ -62,8 +62,16 @@ namespace Admin
             {
                 var id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").ToString();
                 Guid ID = Guid.Parse(id);
-                //  EmployeeUPFrm fofo = new EmployeeUPFrm(Guid.Parse(id), con);
-              //       fofo.ShowDialog();
+                UpdateForms.OrdersUpdateXFrom frm = new UpdateForms.OrdersUpdateXFrom(ID);
+                frm.FormClosed += (s, a) =>
+                {
+                    using (DataContext DB = new DataContext())
+                    {
+                        var orders = DB?.FinishedOrders?.ToList();
+                        gridControl1.DataSource = orders;
+                    }
+                };
+                frm.ShowDialog();
             }
             catch (Exception)
             {
@@ -92,6 +100,30 @@ namespace Admin
             {
                 MessageBox.Show("حدث خطأ ");
             }
+        }
+
+        private void row_click(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            //try
+            //{
+            //    var id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").ToString();
+            //    Guid ID = Guid.Parse(id);
+            //    UpdateForms.OrdersUpdateXFrom frm = new UpdateForms.OrdersUpdateXFrom(ID);
+            //    frm.FormClosed += (s, a) =>
+            //    {
+            //        using (DataContext DB = new DataContext())
+            //        {
+            //            var orders = DB?.FinishedOrders?.ToList();
+            //            gridControl1.DataSource = orders;
+            //        }
+            //    };
+            //    frm.ShowDialog();
+            //}
+            //catch (Exception v)
+            //{
+
+            //    MessageBox.Show("حدث خطأ");
+            //}
         }
     }
 }

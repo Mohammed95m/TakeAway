@@ -198,6 +198,12 @@
     <Compile Include="UpdateForms\AdminUserUpfrm.Designer.cs">
       <DependentUpon>AdminUserUpfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateForms\OrdersUpdateXFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForms\OrdersUpdateXFrom.Designer.cs">
+      <DependentUpon>OrdersUpdateXFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateForms\SenderUserUpfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateForms\AdminUserUpfrm.resx">
       <DependentUpon>AdminUserUpfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForms\OrdersUpdateXFrom.resx">
+      <DependentUpon>OrdersUpdateXFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateForms\SenderUserUpfrm.resx">
       <DependentUpon>SenderUserUpfrm.cs</DependentUpon>

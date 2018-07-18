@@ -230,3 +230,4 @@ E:\Source\Repos\TakeAway2\Admin\obj\Debug\Admin.EmployeeOrders.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
 C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.CustomerGrid.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.EmployeeOrders.resources
+C:\Users\Majed-PC\Source\Repos\TakeAway\Admin\obj\Debug\Admin.UpdateForms.OrdersUpdateXFrom.resources
