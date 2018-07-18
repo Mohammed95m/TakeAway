@@ -312,7 +312,7 @@ namespace TakeAway
             _context.Dispose();
             _context = new DataContext();
             var SendOrder = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.InProgress).Select(
-                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, Earn = s.Earn, Location = s.Location, StartTime = s.StartTime, Status = s.Status, Timer = s.Timer }
+                s => new SendOrder { ID = s.ID, Details = s.Details, CustomerName = s.Customer.Name, EmployeeName = s.Employee.Name, CustomerPhone=s.CustomerPhone, Earn = s.Earn, Location = s.Location, StartTime = s.StartTime, Status = s.Status, Timer = s.Timer }
                 ).ToList();
 
 
@@ -445,6 +445,7 @@ namespace TakeAway
     public class SendOrder
     {
         public Guid ID { get; set; }
+        public string CustomerPhone { get; set; }
         public string Details { get; set; }
         public string CustomerName { get; set; }
         public string EmployeeName { get; set; }
