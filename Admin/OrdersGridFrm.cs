@@ -22,6 +22,7 @@ namespace Admin
                 {
                     var orders = DB?.FinishedOrders?.ToList();
                     gridControl1.DataSource = orders;
+                    countTxt.Caption = "عدد كل الطلبيات: " + orders.Count;
                 }
             }
 
@@ -40,6 +41,7 @@ namespace Admin
                         DB.SaveChanges();
                         var orders = DB?.FinishedOrders?.ToList();
                         gridControl1.DataSource = orders;
+                        countTxt.Caption = "عدد كل الطلبيات: " + orders.Count;
                         MessageBox.Show("تمت العملية بنجاح");
                     }
                 }
@@ -69,6 +71,7 @@ namespace Admin
                     {
                         var orders = DB?.FinishedOrders?.ToList();
                         gridControl1.DataSource = orders;
+                        countTxt.Caption = "عدد كل الطلبيات: " + orders.Count;
                     }
                 };
                 frm.ShowDialog();
@@ -93,6 +96,7 @@ namespace Admin
                     DB.SaveChanges();
                     var orders = DB?.FinishedOrders?.ToList();
                     gridControl1.DataSource = orders;
+                    countTxt.Caption = "عدد كل الطلبيات: " + orders.Count;
                     MessageBox.Show("تمت العملية بنجاح");
                 }
             }

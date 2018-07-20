@@ -49,6 +49,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.countTxt = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl2)).BeginInit();
@@ -174,9 +175,10 @@
             this.ribbonControl2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl2.ExpandCollapseItem,
             this.barButtonItem1,
-            this.barButtonItem2});
+            this.barButtonItem2,
+            this.countTxt});
             this.ribbonControl2.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl2.MaxItemId = 4;
+            this.ribbonControl2.MaxItemId = 5;
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
@@ -215,6 +217,7 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup2.ItemLinks.Add(this.countTxt);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup1";
             // 
@@ -248,6 +251,17 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(575, 298);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // countTxt
+            // 
+            this.countTxt.Caption = "عدد كل الطلبيات: 50";
+            this.countTxt.Id = 4;
+            this.countTxt.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.countTxt.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.countTxt.ItemAppearance.Normal.Options.UseFont = true;
+            this.countTxt.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.countTxt.Name = "countTxt";
+            this.countTxt.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // OrdersGridFrm
             // 
@@ -293,5 +307,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraBars.BarStaticItem countTxt;
     }
 }
