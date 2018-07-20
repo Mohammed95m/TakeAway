@@ -53,6 +53,9 @@
             this.emptySpaceItem10 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.date = new System.Windows.Forms.DateTimePicker();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmpLook.Properties)).BeginInit();
@@ -78,10 +81,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.date);
             this.layoutControl1.Controls.Add(this.EmpLook);
             this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.LocationTxt);
@@ -99,7 +105,7 @@
             // 
             // EmpLook
             // 
-            this.EmpLook.Location = new System.Drawing.Point(12, 147);
+            this.EmpLook.Location = new System.Drawing.Point(12, 138);
             this.EmpLook.Name = "EmpLook";
             this.EmpLook.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -110,7 +116,7 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(115, 273);
+            this.simpleButton1.Location = new System.Drawing.Point(115, 308);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(187, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
@@ -130,7 +136,7 @@
             // EarnTxt
             // 
             this.EarnTxt.EditValue = "0";
-            this.EarnTxt.Location = new System.Drawing.Point(12, 113);
+            this.EarnTxt.Location = new System.Drawing.Point(12, 104);
             this.EarnTxt.Name = "EarnTxt";
             this.EarnTxt.Properties.Mask.EditMask = "######";
             this.EarnTxt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -144,13 +150,13 @@
             this.OrderTxt.Location = new System.Drawing.Point(12, 46);
             this.OrderTxt.Name = "OrderTxt";
             this.OrderTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.OrderTxt.Size = new System.Drawing.Size(331, 49);
+            this.OrderTxt.Size = new System.Drawing.Size(331, 42);
             this.OrderTxt.StyleController = this.layoutControl1;
             this.OrderTxt.TabIndex = 6;
             // 
             // VehicleLook
             // 
-            this.VehicleLook.Location = new System.Drawing.Point(12, 181);
+            this.VehicleLook.Location = new System.Drawing.Point(12, 172);
             this.VehicleLook.Name = "VehicleLook";
             this.VehicleLook.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -161,7 +167,7 @@
             // 
             // CustomerLook
             // 
-            this.CustomerLook.Location = new System.Drawing.Point(12, 218);
+            this.CustomerLook.Location = new System.Drawing.Point(12, 207);
             this.CustomerLook.Name = "CustomerLook";
             this.CustomerLook.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -190,7 +196,9 @@
             this.layoutControlItem7,
             this.emptySpaceItem10,
             this.emptySpaceItem11,
-            this.emptySpaceItem4});
+            this.emptySpaceItem4,
+            this.layoutControlItem2,
+            this.emptySpaceItem5});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(417, 386);
@@ -209,7 +217,7 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.simpleButton1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(103, 261);
+            this.layoutControlItem5.Location = new System.Drawing.Point(103, 296);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(191, 26);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -218,7 +226,7 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 261);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 296);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(103, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -226,7 +234,7 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(294, 261);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(294, 296);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(103, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -245,16 +253,16 @@
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
             this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 230);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 259);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(397, 31);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(397, 37);
             this.emptySpaceItem7.Text = "emptySpaceItem1";
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.EmpLook;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 135);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 126);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(397, 24);
             this.layoutControlItem8.Text = ": الموظف";
@@ -267,7 +275,7 @@
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(397, 53);
+            this.layoutControlItem9.Size = new System.Drawing.Size(397, 46);
             this.layoutControlItem9.Text = ": الطلبية";
             this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(59, 13);
@@ -275,7 +283,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 125);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 116);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(397, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -284,7 +292,7 @@
             // 
             this.layoutControlItem3.Control = this.EarnTxt;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 101);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 92);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(397, 24);
             this.layoutControlItem3.Text = ": الربح";
@@ -294,16 +302,16 @@
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 87);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 80);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(397, 14);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(397, 12);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.VehicleLook;
             this.layoutControlItem6.CustomizationFormText = ": الزبون";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 169);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 160);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(397, 24);
             this.layoutControlItem6.Text = ": رقم الدراجة";
@@ -314,7 +322,7 @@
             // 
             this.layoutControlItem7.Control = this.CustomerLook;
             this.layoutControlItem7.CustomizationFormText = ": الزبون";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 206);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 195);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(397, 24);
             this.layoutControlItem7.Text = ": الزبون";
@@ -325,7 +333,7 @@
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
             this.emptySpaceItem10.CustomizationFormText = "emptySpaceItem8";
-            this.emptySpaceItem10.Location = new System.Drawing.Point(0, 159);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(0, 150);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
             this.emptySpaceItem10.Size = new System.Drawing.Size(397, 10);
             this.emptySpaceItem10.Text = "emptySpaceItem8";
@@ -335,9 +343,9 @@
             // 
             this.emptySpaceItem11.AllowHotTrack = false;
             this.emptySpaceItem11.CustomizationFormText = "emptySpaceItem8";
-            this.emptySpaceItem11.Location = new System.Drawing.Point(0, 193);
+            this.emptySpaceItem11.Location = new System.Drawing.Point(0, 184);
             this.emptySpaceItem11.Name = "emptySpaceItem11";
-            this.emptySpaceItem11.Size = new System.Drawing.Size(397, 13);
+            this.emptySpaceItem11.Size = new System.Drawing.Size(397, 11);
             this.emptySpaceItem11.Text = "emptySpaceItem8";
             this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -345,11 +353,37 @@
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem8";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 287);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 322);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(397, 79);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(397, 44);
             this.emptySpaceItem4.Text = "emptySpaceItem8";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // date
+            // 
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date.Location = new System.Drawing.Point(12, 247);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(331, 21);
+            this.date.TabIndex = 9;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.date;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 235);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(397, 24);
+            this.layoutControlItem2.Text = ": التاريخ";
+            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Right;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(59, 13);
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 219);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(397, 16);
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // OrdersUpdateXFrom
             // 
@@ -384,6 +418,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,5 +451,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem10;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem11;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private System.Windows.Forms.DateTimePicker date;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
     }
 }

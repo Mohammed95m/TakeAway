@@ -70,6 +70,7 @@ namespace Admin.UpdateForms
                 EmpLook.EditValue = order.EmployeeID;
                 CustomerLook.EditValue = order.CustomerID;
                 VehicleLook.EditValue = order.VehicleID;
+                date.Value = order.Date;
                 //SenderEmpLook.EditValue = order.SenderUserID;
                 //CallEmpLook.EditValue = order.CallUserID;
 
@@ -94,6 +95,7 @@ namespace Admin.UpdateForms
                     order.EmployeeNaame = coco.Employees.SingleOrDefault(s => s.ID == (Guid)EmpLook.EditValue).Name;
                     order.CustomerID = (Guid) CustomerLook.EditValue;
                     order.CustomerName = coco.Customers.SingleOrDefault(s => s.ID == (Guid)CustomerLook.EditValue).Name;
+                    order.Date = date.Value;
 
                     var IsSave = await coco.SaveChangesAsync();
                     coco.SaveChanges();

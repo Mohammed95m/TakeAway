@@ -33,6 +33,10 @@ namespace TakeAway
         SoundPlayer FinishSound = new SoundPlayer("alert.wav");
         int count1;
         int count2;
+
+        Timer WaitBike;
+        Timer Wait;
+
         protected internal XtraForm1(SenderUser user)
         {
             InitializeComponent();
@@ -249,7 +253,7 @@ namespace TakeAway
 
             
             #region intilize Wating Timer
-            Timer WaitBike = new Timer();
+            WaitBike = new Timer();
             WaitBike.Interval = 5000;
             WaitBike.Tick += (Sender, e) =>
             {
@@ -274,7 +278,7 @@ namespace TakeAway
 
 
 
-            Timer Wait = new Timer();
+            Wait = new Timer();
             Wait.Interval = 5000;
         
             Wait.Tick += (Sender, E) =>
@@ -412,19 +416,32 @@ namespace TakeAway
         {
             if (e != null)
             {
+                TimeSpan time = (TimeSpan)tileView1.GetRowCellValue(e.RowHandle, "Time") + new TimeSpan(0, 45, 0);
                 if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Waiting)
                 {
                     e.Elements[3].Appearance.Normal.BackColor = Color.Red;
+                    e.Elements[8].Text = time.ToString();
                 }
                 else if ((int)tileView1.GetRowCellValue(e.RowHandle, "Status") == (int)Status.Seen)
                 {
                     e.Elements[3].Appearance.Normal.BackColor = Color.Blue;
+                    e.Elements[8].Text = "الطلب الآن";
                 }
                 int Updated = (int)tileView1.GetRowCellValue(e.RowHandle, "Updated");
                 if (Updated == 1 || Updated == 2)
                 {
                     e.Elements[3].Appearance.Normal.BackColor = Color.Black;
+                    if(time <= DateTime.Now.TimeOfDay)
+                    {
+                        e.Elements[8].Text = time.ToString();
+                    }
+                    else
+                    {
+                        e.Elements[8].Text = "الطلب الآن";
+                    }
                 }
+
+
             }
      
           

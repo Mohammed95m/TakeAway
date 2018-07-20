@@ -21,6 +21,17 @@ namespace TakeAway
         {
             InitializeComponent();
 
+            CustomerNumberTxt.TextChanged += (s, a) =>
+            {
+                if(CustomerNumberTxt.Text.Length >= 6)
+                {
+                    using (DataContext _context = new DataContext())
+                    {
+                        ChecKCustomer(_context, true);
+                    }
+                }
+            };
+
             hoursCB.SelectedIndex = 0;
             minCB.SelectedIndex = 0;
         //    daysCB.SelectedIndex = 0;
@@ -45,23 +56,6 @@ namespace TakeAway
             int sss = DateTime.Now.Day;
             var s1 = sss + 1;
             var s2 = sss + 2;
-            //comboBoxEdit1.Properties.Items.Add(sss);
-            //comboBoxEdit1.Properties.Items.Add(s1);
-            //comboBoxEdit1.Properties.Items.Add(s2);
-            //comboBoxEdit1.SelectedItem = sss;
-            //MessageBox.Show("f");
-
-
-            //TimeTxt.EditValueChanged += (sender, e) =>
-            //{
-            //    //TimeSpan now = DateTime.Now.TimeOfDay;
-            //    TimeSpan now = new TimeSpan(DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute,0);
-            //    TimeSpan def = TimeTxt.TimeSpan /*- now*/;
-            //    TimeSpan deff = new TimeSpan(23, def.Hours, def.Minutes,0);
-            //   var deffffffff= deff.Subtract(now);
-            //    if (deff <= now) 
-            //    afterTimeLbl.Text = "بعد "+ deffffffff.Days+"يوم و" + deffffffff.Hours + " ساعة و " + deffffffff.Minutes + "دقيقة";
-            //};
 
             using (DataContext _context = new DataContext())
             {
@@ -92,6 +86,8 @@ namespace TakeAway
             }
             else
             {
+                CustomerNameTxt.Text = "";
+                LocationTxt.Text = "";
                 if (!saveBtn)
                     MessageBox.Show("هذا الزبون غير مسجل مسبقا");
                 return false;
