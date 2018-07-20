@@ -22,12 +22,12 @@ namespace SenderFrm
         Order MainOrder;
         Guid SenderUserID;
         bool isExist = true;
-        DataContext coco;
+
 
         public EditFrm(Guid OrderID,Guid? UserID,DataContext context)
         {
             InitializeComponent();
-            coco = context;
+        
             TimeTxt.EditValueChanged += (sender, e) =>
             {
                 TimeSpan now = DateTime.Now.TimeOfDay;
@@ -40,10 +40,10 @@ namespace SenderFrm
 
             try { hoursCB.SelectedIndex = 0; minCB.SelectedIndex = 30; } catch { }
 
-            List<Vehicle> vList = coco?.Vehicles?.ToList();
-            List<Employee> eList = coco?.Employees?.Where(s=>s.IsBike==true)?.ToList();
+            List<Vehicle> vList = context?.Vehicles?.ToList();
+            List<Employee> eList = context?.Employees?.Where(s=>s.IsBike==true)?.ToList();
 
-            MainOrder = coco?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
+            MainOrder = context?.Orders.Include("Customer")?.SingleOrDefault(s => s.ID == OrderID);
             isExist = MainOrder == null ? false : true;
             if (isExist)
             {
@@ -72,10 +72,10 @@ namespace SenderFrm
                 }
                 if (vList.Count > 0)
                 {
-                    lookUpEdit2.EditValue = vList[0].ID;
+                    lookUpEdit2.EditValue = eList[0].VehicleID;
                 }
             }
-            
+            context.Dispose();
         }
 
         private void EditFrm_Load(object sender, EventArgs e)
@@ -171,5 +171,20 @@ namespace SenderFrm
             }
       
         }
+
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            var emp = (Guid)lookUpEdit1.EditValue;
+            using (DataContext coco = new DataContext())
+            {
+                var employee = coco?.Employees?.SingleOrDefault(s => s.ID == emp);
+                if(employee!=null)
+                {
+                    lookUpEdit2.EditValue = employee.VehicleID;
+
+                }
+            }
+
+            }
     }
 }

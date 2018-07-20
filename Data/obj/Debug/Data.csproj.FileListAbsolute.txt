@@ -40,7 +40,6 @@ E:\Source\Repos\TakeAway2\Data\bin\Debug\EntityFramework.dll
 E:\Source\Repos\TakeAway2\Data\bin\Debug\EntityFramework.SqlServer.dll
 E:\Source\Repos\TakeAway2\Data\bin\Debug\EntityFramework.xml
 E:\Source\Repos\TakeAway2\Data\bin\Debug\EntityFramework.SqlServer.xml
-E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.dll
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.pdb
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.Migrations.init4.resources
@@ -48,3 +47,4 @@ E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.csproj.GenerateResource.Cache
 E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.Migrations.init.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.init4.resources
 C:\Users\Majed-PC\Source\Repos\TakeAway\Data\obj\Debug\Data.Migrations.init.resources
+E:\Source\Repos\TakeAway2\Data\obj\Debug\Data.Migrations.InitEmp.resources

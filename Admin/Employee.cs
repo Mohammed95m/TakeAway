@@ -31,10 +31,16 @@ namespace Admin
 
 
             EmployeeUPFrm.UpdateGridUP += () => {
-                gridControl1.DataSource = DB.Employees.ToList();
+                gridControl1.DataSource = DB.Employees?.Include("Vehicle").Select(
+                    s=>new {s.Vehicle.Number,s.Name,s.LastName,s.Phone,s.Salary,s.ID}
+                    
+                    ).ToList();
             };
             EmployeeINFrm.UpdateGridIN+=() => {
-                gridControl1.DataSource = DB.Employees.ToList();
+                gridControl1.DataSource = DB.Employees?.Include("Vehicle").Select(
+              s => new { s.Vehicle.Number, s.Name, s.LastName, s.Phone, s.Salary, s.ID }
+
+              ).ToList();
             };
 
 

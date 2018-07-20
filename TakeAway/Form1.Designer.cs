@@ -39,7 +39,6 @@
             this.isWait = new System.Windows.Forms.CheckBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.SearchBtn = new DevExpress.XtraEditors.SimpleButton();
             this.SaveBtn = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -72,7 +71,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -121,7 +119,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -152,7 +149,6 @@
             this.layoutControl1.Controls.Add(this.isWait);
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Controls.Add(this.simpleButton1);
-            this.layoutControl1.Controls.Add(this.SearchBtn);
             this.layoutControl1.Controls.Add(this.SaveBtn);
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Controls.Add(this.CustomerNumberTxt);
@@ -250,17 +246,6 @@
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Text = "تحديث";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // SearchBtn
-            // 
-            this.SearchBtn.Image = ((System.Drawing.Image)(resources.GetObject("SearchBtn.Image")));
-            this.SearchBtn.Location = new System.Drawing.Point(175, 52);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(66, 38);
-            this.SearchBtn.StyleController = this.layoutControl1;
-            this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "بحث";
-            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // SaveBtn
             // 
@@ -368,10 +353,10 @@
             // 
             // CustomerNumberTxt
             // 
-            this.CustomerNumberTxt.Location = new System.Drawing.Point(245, 62);
+            this.CustomerNumberTxt.Location = new System.Drawing.Point(175, 62);
             this.CustomerNumberTxt.Name = "CustomerNumberTxt";
             this.CustomerNumberTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerNumberTxt.Size = new System.Drawing.Size(276, 20);
+            this.CustomerNumberTxt.Size = new System.Drawing.Size(346, 20);
             this.CustomerNumberTxt.StyleController = this.layoutControl1;
             this.CustomerNumberTxt.TabIndex = 0;
             // 
@@ -496,7 +481,6 @@
             this.layoutControlItem1,
             this.layoutControlItem9,
             this.emptySpaceItem5,
-            this.layoutControlItem10,
             this.emptySpaceItem17,
             this.emptySpaceItem18,
             this.layoutControlItem7,
@@ -655,9 +639,9 @@
             // 
             this.layoutControlItem1.Control = this.CustomerNumberTxt;
             this.layoutControlItem1.CustomizationFormText = ": الرقم ";
-            this.layoutControlItem1.Location = new System.Drawing.Point(233, 50);
+            this.layoutControlItem1.Location = new System.Drawing.Point(163, 50);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(364, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(434, 24);
             this.layoutControlItem1.Text = "              : الرقم ";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 13);
@@ -679,29 +663,20 @@
             this.emptySpaceItem5.Size = new System.Drawing.Size(434, 12);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.SearchBtn;
-            this.layoutControlItem10.Location = new System.Drawing.Point(163, 40);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(70, 44);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
             // emptySpaceItem17
             // 
             this.emptySpaceItem17.AllowHotTrack = false;
-            this.emptySpaceItem17.Location = new System.Drawing.Point(233, 40);
+            this.emptySpaceItem17.Location = new System.Drawing.Point(163, 40);
             this.emptySpaceItem17.Name = "emptySpaceItem17";
-            this.emptySpaceItem17.Size = new System.Drawing.Size(364, 10);
+            this.emptySpaceItem17.Size = new System.Drawing.Size(434, 10);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem18
             // 
             this.emptySpaceItem18.AllowHotTrack = false;
-            this.emptySpaceItem18.Location = new System.Drawing.Point(233, 74);
+            this.emptySpaceItem18.Location = new System.Drawing.Point(163, 74);
             this.emptySpaceItem18.Name = "emptySpaceItem18";
-            this.emptySpaceItem18.Size = new System.Drawing.Size(364, 10);
+            this.emptySpaceItem18.Size = new System.Drawing.Size(434, 10);
             this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -896,7 +871,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -947,11 +921,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit DeleteBtn;
-        private DevExpress.XtraEditors.SimpleButton SearchBtn;
         private DevExpress.XtraEditors.SimpleButton SaveBtn;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem13;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem16;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit UpdateBtn;

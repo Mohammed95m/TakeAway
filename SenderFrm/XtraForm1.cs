@@ -42,53 +42,149 @@ namespace TakeAway
             InitializeComponent();
 
             SenderUser = user;
-            
-            
-            var order = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S=>S.Status==(int)Status.Created|| S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
-            foreach (var item in order)
+            try
             {
-                if (item.Time > DateTime.Now.TimeOfDay && item.WithTimer)
-                {
-                    item.Status = (int)Status.Waiting;
-                }
-                else
-                {
-                    item.Status = (int)Status.Seen;
-                }
 
-                if (!TimerWating.Any(s => s.ID == item.ID))
+                var order = _context.Orders?.Include("Customer")?.Include("Employee")?.Include("Vehicle").Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
+                foreach (var item in order)
                 {
-                    TimerWating.Add(item);
+                    if (item.Time > DateTime.Now.TimeOfDay && item.WithTimer)
+                    {
+                        item.Status = (int)Status.Waiting;
+                    }
+                    else
+                    {
+                        item.Status = (int)Status.Seen;
+                    }
+
+                    if (!TimerWating.Any(s => s.ID == item.ID))
+                    {
+                        TimerWating.Add(item);
+                    }
                 }
-            }
-            _context.Dispose();
-            gridControl1.DataSource = order;
-            count1 = order.Count;
+                _context.Dispose();
+                gridControl1.DataSource = order;
+                count1 = order.Count;
 
-            LoadSendGrid();
-            
-            
-            tileView1.ItemCustomize += (sender, e) =>
-            {
-                ColorTile(e.Item);
-              
-            };
-            
+                LoadSendGrid();
 
-            tileView1.ItemClick += (sender, e) =>
-            {
-                var row = tileView1.GetFocusedRow() as Order;
-                EditFrm fofi = new EditFrm(row.ID, SenderUser.ID,_context);
-                fofi.ShowDialog();
-            };
-            tileView2.ItemClick += (sender, e)=>
-            {
-                var row = tileView2.GetFocusedRow() as SendOrder;
-                if (DialogResult.Yes==MessageBox.Show("لتعديل الطلب اضغط على تعديل \n إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل","", MessageBoxButtons.YesNo))
+
+                tileView1.ItemCustomize += (sender, e) =>
+                {
+                    ColorTile(e.Item);
+
+                };
+
+
+                tileView1.ItemClick += (sender, e) =>
                 {
                     _context = new DataContext();
+                    var row = tileView1.GetFocusedRow() as Order;
+                    EditFrm fofi = new EditFrm(row.ID, SenderUser.ID, _context);
+                    fofi.ShowDialog();
+                };
+                tileView2.ItemClick += (sender, e) =>
+                {
+                    var row = tileView2.GetFocusedRow() as SendOrder;
+                    if (DialogResult.Yes == MessageBox.Show("لتعديل الطلب اضغط على تعديل \n إذا تم وصول الطلب بنجاح اضغط على : تم التوصيل", "", MessageBoxButtons.YesNo))
+                    {
+                        _context = new DataContext();
 
-                       var Ord = _context?.Orders
+                        var Ord = _context?.Orders
+                     ?.Include("Customer")
+                     ?.Include("Employee")
+                     ?.Include("Vehicle")
+                     ?.Include("SenderUser")
+                     ?.Include("SenderUser.Employee")
+                     ?.Include("CallUser")
+                     ?.Include("CallUser.Employee")
+                     ?.SingleOrDefault(s => s.ID == row.ID);
+
+                        var finishOrder = new FinishedOrder
+                        {
+                            Location = Ord?.Location,
+                            SenderUserID = Ord?.SenderUserID,
+                            StartTime = Ord?.StartTime,
+                            CallUserID = Ord?.CallUserID,
+                            CustomerID = Ord.CustomerID,
+                            Date = Ord.Date,
+                            Details = Ord?.Details,
+                            Earn = Ord?.Earn,
+                            EmployeeID = Ord?.EmployeeID,
+                            EndTime = DateTime.Now,
+                            VehicleID = Ord?.VehicleID,
+                            SenderUserName = Ord?.SenderUser?.Employee?.Name,
+                            CallUserName = Ord?.CallUser?.Employee?.Name,
+                            CustomerName = Ord?.Customer?.Name,
+                            EmployeeNaame = Ord?.Employee?.Name,
+                            VehicleNumber = Ord?.Vehicle?.Number
+                        };
+                        _context.FinishedOrders.Add(finishOrder);
+                        if (TimerWating.Contains(Ord)) TimerWating.Remove(Ord);
+                        var Tord = TimerOrder?.FirstOrDefault(s => s.order.ID == Ord.ID);
+                        if (Tord != null) TimerOrder.Remove(Tord);
+                        //     _context.SaveChanges();
+                        _context.Orders.Remove(Ord);
+                        _context.SaveChanges();
+                        _context.Dispose();
+                        MessageBox.Show("تمت العملية بنجاح");
+                        LoadSendGrid();
+
+                    }
+                    else
+                    {
+                        _context.Dispose();
+                        _context = new DataContext();
+                        EditFrm fofo = new EditFrm(row.ID, SenderUser.ID, _context);
+                        fofo.ShowDialog();
+                    }
+                };
+
+                EditFrm.UpdateGridAfterRemove += (DeletedOrder) =>
+                {
+                    _context = new DataContext();
+                    var Torder = TimerWating?.SingleOrDefault(s => s.ID == DeletedOrder.ID);
+                    if (Torder != null) TimerWating.Remove(Torder);
+                    var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
+                    gridControl1.DataSource = ord;
+                    count1 = ord.Count;
+                };
+                #region this event work after set employee $  Vehicle
+                EditFrm.UpdateGrid += (o) =>
+                {
+
+
+
+                    LoadSendGrid();
+                    //using (DataContext newContext = new DataContext())
+                    //{
+                    //    var oldToSave = newContext.Orders.FirstOrDefault(s => s.ID == o.ID);
+                    //    oldToSave = o;
+                    //    oldToSave.VehicleID = o.VehicleID;
+                    //    oldToSave.EmployeeID = o.EmployeeID;
+                    //    oldToSave.BikeTime = o.BikeTime;
+                    //    oldToSave.Status = (int)Status.InProgress;
+                    //    oldToSave.StartTime = DateTime.Now;
+                    //    oldToSave.Earn = o.Earn;
+                    //    oldToSave.SenderUserID = o.SenderUserID;
+                    //    newContext.SaveChanges();
+                    //}
+
+                    TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime, IsNew = true, ID = o.ID });
+                    var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
+                    gridControl1.DataSource = ord;
+                    count1 = ord.Count();
+
+                };
+                #endregion
+
+                #region Finish click Event
+                FinishBtn.Click += (sender, e) =>
+                {
+                    var row = tileView2.GetFocusedRow() as SendOrder;
+                    _context.Dispose();
+                    _context = new DataContext();
+                    var Ord = _context?.Orders
                     ?.Include("Customer")
                     ?.Include("Employee")
                     ?.Include("Vehicle")
@@ -115,196 +211,118 @@ namespace TakeAway
                         CallUserName = Ord?.CallUser?.Employee?.Name,
                         CustomerName = Ord?.Customer?.Name,
                         EmployeeNaame = Ord?.Employee?.Name,
-                        VehicleNumber = Ord?.Vehicle?.Number
                     };
                     _context.FinishedOrders.Add(finishOrder);
-                    if (TimerWating.Contains(Ord)) TimerWating.Remove(Ord);
-                    var Tord = TimerOrder?.FirstOrDefault(s => s.order.ID == Ord.ID);
-                    if (Tord != null) TimerOrder.Remove(Tord);
                     //     _context.SaveChanges();
                     _context.Orders.Remove(Ord);
                     _context.SaveChanges();
-                    _context.Dispose();
                     MessageBox.Show("تمت العملية بنجاح");
                     LoadSendGrid();
-             
-            }
-                else
-                {
-                    _context.Dispose();
-                    _context = new DataContext();
-                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID,_context);
-                    fofo.ShowDialog();
-                }
-            };
-
-            EditFrm.UpdateGridAfterRemove += (DeletedOrder) =>
-            {
-                _context = new DataContext();
-                var Torder = TimerWating?.SingleOrDefault(s => s.ID == DeletedOrder.ID);
-                if (Torder != null) TimerWating.Remove(Torder);
-                var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
-                gridControl1.DataSource = ord;
-                count1 = ord.Count;
-            };
-            #region this event work after set employee $  Vehicle
-            EditFrm.UpdateGrid += (o) =>
-            {
-               
-                   
-
-                LoadSendGrid();
-               using(DataContext newContext= new DataContext())
-                {
-                    var oldToSave = newContext.Orders.FirstOrDefault(s => s.ID == o.ID);
-                    oldToSave = o;
-                    oldToSave.VehicleID = o.VehicleID;
-                    oldToSave.EmployeeID = o.EmployeeID;
-                    oldToSave.BikeTime = o.BikeTime;
-                    oldToSave.Status = (int)Status.InProgress;
-                    oldToSave.StartTime = DateTime.Now;
-                    oldToSave.Earn = o.Earn;
-                    oldToSave.SenderUserID = o.SenderUserID;
-                    newContext.SaveChanges();
-                }
-                
-                TimerOrder.Add(new TimerOrder { order = o, Time = o.BikeTime,IsNew=true, ID = o.ID });
-                var ord = _context?.Orders?.Where(S => S.Status == (int)Status.Created || S.Status == (int)Status.Seen || S.Status == (int)Status.Waiting).ToList();
-                gridControl1.DataSource = ord;
-                count1 = ord.Count();
-
-            };
-            #endregion
-
-            #region Finish click Event
-            FinishBtn.Click += (sender, e) =>
-            {
-                var row = tileView2.GetFocusedRow() as SendOrder;
-                _context.Dispose();
-                _context = new DataContext();
-                var Ord = _context?.Orders
-                ?.Include("Customer")
-                ?.Include("Employee")
-                ?.Include("Vehicle")
-                ?.Include("SenderUser")
-                ?.Include("SenderUser.Employee")
-                ?.Include("CallUser")
-                ?.Include("CallUser.Employee")
-                ?.SingleOrDefault(s => s.ID == row.ID);
-
-                var finishOrder = new FinishedOrder
-                {
-                    Location = Ord?.Location,
-                    SenderUserID = Ord?.SenderUserID,
-                    StartTime = Ord?.StartTime,
-                    CallUserID = Ord?.CallUserID,
-                    CustomerID = Ord.CustomerID,
-                    Date = Ord.Date,
-                    Details = Ord?.Details,
-                    Earn = Ord?.Earn,
-                    EmployeeID = Ord?.EmployeeID,
-                    EndTime = DateTime.Now,
-                    VehicleID = Ord?.VehicleID,
-                    SenderUserName = Ord?.SenderUser?.Employee?.Name,
-                    CallUserName = Ord?.CallUser?.Employee?.Name,
-                    CustomerName = Ord?.Customer?.Name,
-                    EmployeeNaame = Ord?.Employee?.Name,
                 };
-                _context.FinishedOrders.Add(finishOrder);
-                //     _context.SaveChanges();
-                _context.Orders.Remove(Ord);
-                _context.SaveChanges();
-                MessageBox.Show("تمت العملية بنجاح");
-                LoadSendGrid();
-            };
-            #endregion
+                #endregion
 
-            #region send click Event
-            SendButtonEdit.Click += (Sender, e) => {
+                #region send click Event
+                SendButtonEdit.Click += (Sender, e) => {
 
-                try
-                {
-                    //   var v= VehicleLookUpEdit.value as Vehicle;
-                    //foreach (Form f in Application.OpenForms)
-                    //{
-                    //    if (f.Name == "EditFrm")
-                    //    {
-                    //        f.Dispose();
-                    //        f.Close();
-                    //        break;
-                    //    }
-                    //}
-         
-                    var row = tileView1.GetFocusedRow() as Order;
-                    _context.Dispose();
-                    _context = new DataContext();
-                    EditFrm fofo = new EditFrm(row.ID, SenderUser.ID,_context);
-                    fofo.ShowDialog();
-
-                }
-                catch (Exception ee)
-                {}
-
-
-            };
-            #endregion
-
-            
-
-            
-            #region intilize Wating Timer
-            WaitBike = new Timer();
-            WaitBike.Interval = 5000;
-            WaitBike.Tick += (Sender, e) =>
-            {
-                if (TimerOrder?.Count > 0)
-                {
-                    foreach (var item in TimerOrder)
+                    try
                     {
-                        var total = DateTime.Now.TimeOfDay;
+                        //   var v= VehicleLookUpEdit.value as Vehicle;
+                        //foreach (Form f in Application.OpenForms)
+                        //{
+                        //    if (f.Name == "EditFrm")
+                        //    {
+                        //        f.Dispose();
+                        //        f.Close();
+                        //        break;
+                        //    }
+                        //}
 
-                        if (item.Time <= total  && item.order.Status == (int)Status.InProgress && !(alerted.Contains(item.ID)))
-                        {
-                            FinishSound.Play();
-                            alerted.Add(item.ID);
-                            alertControl1.Show(this, ": تنبيه ", item.order.Details+": إن الطلبية \n"+"\n يجب أن تكون قد وصلت");
-                        }
-                        
-                }
-                }
-               
-            };
-            WaitBike.Start();
-
-
-
-            Wait = new Timer();
-            Wait.Interval = 5000;
-        
-            Wait.Tick += (Sender, E) =>
-            {
-                foreach (var item in TimerWating)
-                {
-                    //var t = new TimeSpan(0, 45,0);
-                    var total = DateTime.Now.TimeOfDay;
-                    if (item.Time <= total && item.WithTimer && item.Status == (int) Status.Waiting && !(alerted.Contains(item.ID)))
-                    {
+                        var row = tileView1.GetFocusedRow() as Order;
                         _context.Dispose();
                         _context = new DataContext();
-                        var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
-                        orderRadey.Status = (int)Status.Seen;
-                        _context.SaveChanges();
-                        alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
-                        alerted.Add(item.ID);
-                        tileView1.RefreshData();
-                        //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(tileView1.));
-                    }
-                }
-            };
-            Wait.Start();
-            #endregion
+                        EditFrm fofo = new EditFrm(row.ID, SenderUser.ID, _context);
+                        fofo.ShowDialog();
 
-            backgroundWorker1.RunWorkerAsync();
+                    }
+                    catch (Exception ee)
+                    {
+
+                    }
+
+
+                };
+                #endregion
+
+
+
+
+                #region intilize Wating Timer
+                WaitBike = new Timer();
+                WaitBike.Interval = 5000;
+                WaitBike.Tick += (Sender, e) =>
+                {
+                    if (TimerOrder?.Count > 0)
+                    {
+                        foreach (var item in TimerOrder)
+                        {
+                            var total = DateTime.Now.TimeOfDay;
+                          //  item.Counter++;
+                         
+                            if (item.Time <= total && item.order.Status == (int)Status.InProgress && !(alerted.Contains(item.ID)))
+                            {
+                                //if (item.Counter % 2 == 0)
+                                //{
+                                    FinishSound.Play();
+                                    alerted.Add(item.ID);
+                                    alertControl1.Show(this, ": تنبيه ", item.order.Details + ": إن الطلبية \n" + "\n يجب أن تكون قد وصلت");
+
+                                //}
+
+                            }
+
+                        }
+                    }
+
+                };
+                WaitBike.Start();
+
+
+
+                Wait = new Timer();
+                Wait.Interval = 5000;
+
+                Wait.Tick += (Sender, E) =>
+                {
+                    foreach (var item in TimerWating)
+                    {
+                        //var t = new TimeSpan(0, 45,0);
+                        var total = DateTime.Now.TimeOfDay;
+                        if (item.Time <= total && item.WithTimer && item.Status == (int)Status.Waiting && !(alerted.Contains(item.ID)))
+                        {
+                            _context.Dispose();
+                            _context = new DataContext();
+                            var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
+                            orderRadey.Status = (int)Status.Seen;
+                            _context.SaveChanges();
+                            alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
+                            alerted.Add(item.ID);
+                            tileView1.RefreshData();
+                            //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(tileView1.));
+                        }
+                    }
+                };
+                Wait.Start();
+                #endregion
+
+                backgroundWorker1.RunWorkerAsync();
+            }
+            catch (Exception ex)
+            {
+                _context = new DataContext();
+
+
+            }
+         
         }
 
 
@@ -458,6 +476,7 @@ namespace TakeAway
         public Order order { get; set; }
         public TimeSpan? Time { get; set; }
         public bool IsNew { get; set; }
+        public int Counter { get; set; } = 0;
     }
     public class SendOrder
     {

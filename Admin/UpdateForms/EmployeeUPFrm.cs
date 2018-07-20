@@ -26,7 +26,14 @@ namespace Admin.InsertForms
             DataContext.ConnectionString = Connection;
             using (DataContext Db = new DataContext())
             {
+                lookUpEdit1.Properties.DataSource = Db.Vehicles.ToList();
+                lookUpEdit1.Properties.ValueMember = "ID";
+                lookUpEdit1.Properties.DisplayMember = "Number";
+                DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number");
+                lookUpEdit1.Properties.Columns.Add(col);
+              
                 var Emp = Db?.Employees?.SingleOrDefault(s => s.ID == ID);
+                lookUpEdit1.EditValue = Emp?.VehicleID;
                 NameTxt.Text = Emp.Name ;
                 LastNameTxt.Text= Emp.LastName ;
                 SalaryTxt.Text = Emp.Salary.ToString();
@@ -53,6 +60,7 @@ namespace Admin.InsertForms
                     Emp.Address = LocationTxt.Text;
                     Emp.Phone = PhoneTxt.Text;
                     Emp.IsBike = IsBikeChx.Checked;
+                    Emp.VehicleID = (Guid)lookUpEdit1?.EditValue;
                     Db.SaveChanges();
                     UpdateGridUP();
                     this.Close();

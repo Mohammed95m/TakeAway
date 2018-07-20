@@ -20,6 +20,14 @@ namespace Admin.InsertForms
         {
             InitializeComponent();
             Connection = con;
+            using (DataContext Db = new DataContext())
+            {
+                lookUpEdit1.Properties.DataSource = Db.Vehicles.ToList();
+                lookUpEdit1.Properties.ValueMember = "ID";
+                lookUpEdit1.Properties.DisplayMember = "Number";
+                DevExpress.XtraEditors.Controls.LookUpColumnInfo col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name");
+                lookUpEdit1.Properties.Columns.Add(col);
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -31,9 +39,12 @@ namespace Admin.InsertForms
                 Address = LocationTxt.Text,
                 Phone = PhoneTxt.Text,
                 Date = DateTime.Now,
-                IsBike=IsBikeChx.Checked
+                IsBike=IsBikeChx.Checked,
+                VehicleID=(Guid)lookUpEdit1?.EditValue
                 
             };
+
+
             DataContext.ConnectionString = Connection;
             try
             {
