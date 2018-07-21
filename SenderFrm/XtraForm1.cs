@@ -24,7 +24,8 @@ namespace TakeAway
     {
       
         List<Order> UpData = new List<Order>();
-        List<Guid> alerted = new List<Guid>();
+        List<Guid> alerted = new List<Guid>(), t1 = new List<Guid>() , t2 = new List<Guid>(), t3 = new List<Guid>();
+        
         public SenderUser SenderUser { get; set; }
         List<TimerOrder> TimerOrder = new List<TimerOrder>();
         List<Order> TimerWating = new List<Order>();
@@ -297,17 +298,37 @@ namespace TakeAway
                     {
                         //var t = new TimeSpan(0, 45,0);
                         var total = DateTime.Now.TimeOfDay;
-                        if (item.Time <= total && item.WithTimer && item.Status == (int)Status.Waiting && !(alerted.Contains(item.ID)))
+                        TimeSpan dev = total - item.Time;
+                        if (item.Time <= total && item.WithTimer && item.Status == (int)Status.Waiting)
                         {
-                            _context.Dispose();
-                            _context = new DataContext();
-                            var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
-                            orderRadey.Status = (int)Status.Seen;
-                            _context.SaveChanges();
-                            alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
-                            alerted.Add(item.ID);
-                            tileView1.RefreshData();
-                            //tileView1_ItemCustomize(tileView1, new TileViewItemCustomizeEventArgs(tileView1.));
+                            bool isAlert = false;
+                            if(dev < new TimeSpan(0, 15, 0) && !(t1.Contains(item.ID)))
+                            {
+                                t1.Add(item.ID);
+                                isAlert = true;
+                            }
+                            else if(dev < new TimeSpan(0, 30, 0) && !(t2.Contains(item.ID)))
+                            {
+                                t2.Add(item.ID);
+                                isAlert = true;
+                            }
+                            else if (dev < new TimeSpan(0, 45, 0) && !(t3.Contains(item.ID)))
+                            {
+                                t3.Add(item.ID);
+                                isAlert = true;
+                            }
+
+                            if (isAlert)
+                            {
+                                _context.Dispose();
+                                _context = new DataContext();
+                                var orderRadey = _context?.Orders?.SingleOrDefault(s => s.ID == item.ID);
+                                orderRadey.Status = (int)Status.Seen;
+                                _context.SaveChanges();
+                                alertControl1.Show(this, "يجب إرسال الطلب ", item.Details);
+                                tileView1.RefreshData();
+                            }
+                            
                         }
                     }
                 };
